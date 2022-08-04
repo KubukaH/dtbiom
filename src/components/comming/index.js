@@ -1,29 +1,31 @@
 const smiley = new URL('../../assets/smiling-face-with-smiling-eyes.png', import.meta.url);
+const im1 = new URL('../../assets/dtbm.jpeg', import.meta.url);
+
 export function CommingSoon() {
   return (
-    <section className="bg-gray-50">
-    <div className="max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
-  <div className="max-w-xl mx-auto text-center">
     <aside
-      class="overflow-hidden bg-[url(assets/dtbm.jpeg)] bg-center bg-no-repeat bg-cover"
+      className="overflow-hidden sm:grid sm:grid-cols-2 sm:items-center bg-gray-50"
     >
-      <div class="p-8 md:p-12 lg:px-16 lg:py-24 bg-green-900/25">
-        <div class="max-w-lg text-center sm:text-left">
-          <h2 className="text-3xl font-extrabold text-white sm:text-5xl">
+      <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div className="max-w-xl mx-auto text-center sm:text-left">
+          <h2 className="text-3xl font-extrabold sm:text-5xl">
             Under Construction. <br />
             <strong className="font-extrabold text-red-700 sm:block">
               Comming Soon...
             </strong>
           </h2>
-
+    
           <p
-            class="hidden max-w-md text-white md:mt-6 md:text-lg md:leading-relaxed md:block"
+            className="hidden max-w-md md:mt-6 md:text-lg md:leading-relaxed md:block"
           >
             This website is still under construction. We are asking for your patience in this matter and we thank you for your continued support! <img src={smiley} alt="Smiley Face" width={32} height={32} />
           </p>
-          <h5 className="text-2xl font-bold text-indigo-700 sm:text-xl">
-            Meanwhile here are our YouTube Videos Links
-          </h5>
+    
+          <div className="mt-4 md:mt-8">
+            <h5 className="text-2xl font-bold text-indigo-700 sm:text-xl">
+              Meanwhile here are our YouTube Videos Links
+            </h5>
+          </div>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <a className="relative inline-flex text-sm font-medium text-white group focus:outline-none focus:ring" href="https://www.youtube.com/watch?v=afg-mg1O6uY" target="__blank">
               <span className="absolute inset-0 border rounded-full border-red-600 group-active:border-red-500"></span>
@@ -55,9 +57,12 @@ export function CommingSoon() {
           </div>
         </div>
       </div>
+    
+      <img
+        alt="Bio Mudimba"
+        src={im1}
+        className="object-cover w-full h-full sm:h-[calc(100%_-_2rem)] md:h-[calc(100%_-_4rem)] sm:rounded-tl-[30px] md:rounded-tl-[60px] sm:self-end"
+      />
     </aside>
-    </div>
-    </div>
-    </section>
   );
 }
