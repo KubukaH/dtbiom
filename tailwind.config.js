@@ -1,6 +1,7 @@
 const plugin = require('tailwindcss/plugin');
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-module.exports = {
+module.exports = withMT({
   mode: 'jit',
   content: [
     './public/**/*.html',
@@ -12,6 +13,9 @@ module.exports = {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
+      },
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
       },
     },
   },
@@ -29,4 +33,5 @@ module.exports = {
       )
     }),
   ],
-};
+});
+
