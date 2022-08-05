@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 
-import biologo from '../../assets/dtbm.svg';
+const biologo = new URL('../../assets/dtbm.svg', import.meta.url);
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -45,7 +45,7 @@ export default function NavigationBar() {
                   <img
                     className="hidden lg:block h-8 w-auto"
                     src={biologo}
-                    alt="D.T Mudimba Logo"
+                    alt="D.T Mudimba"
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">
