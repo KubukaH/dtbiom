@@ -13,6 +13,115 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ];
 
+window.optionChange = function() {
+  return {
+    optionActive: true,
+    optionInactive: true,
+    activeEl: false,
+    previousEl: false,
+    elData: {
+      topPos: 0,
+      leftPos: 0,
+      widthSize: 0,
+      heightSize: 0,
+    },
+    findElData() {
+      if (! this.activeEl) {
+        return
+      }
+  
+      this.elData.widthSize = `${this.activeEl.getBoundingClientRect().width}px` || 0
+      this.elData.heightSize = `${this.activeEl.getBoundingClientRect().height}px` || 0
+      this.elData.topPos = `${this.activeEl.offsetTop}px` || 0
+      this.elData.leftPos = `${this.activeEl.offsetLeft}px` || 0
+    },
+    chn() {
+      this.optionActive = true;
+      this.previousEl = $el;
+      this.activeEl = $el;
+    }
+  };
+};
+
+const navOption = 
+`<div
+    x-data="optionChange()"
+    x-init="
+      previousEl = optionActive ? $refs.optionActive : $refs.optionInacive
+      activeEl = previousEl
+    "
+    x-effect="findElData"
+    class="relative"
+  >
+  <span
+    class="bg-indigo-100 border border-indigo-200 absolute transition-all duration-300 rounded-full"
+    :style="{
+      top: elData.topPos,
+      left: elData.leftPos,
+      width: elData.widthSize,
+      height: elData.heightSize
+    }"
+  ></span>
+
+  <div class="flex items-center gap-2 text-sm font-medium">
+    <button
+      class="rounded-full px-4 py-2 relative transition text-sm font-medium"
+      @click="chn()"
+      :class="{
+        'text-indigo-700': activeEl == $el,
+        'text-gray-500 hover:text-indigo-700': activeEl !== $el
+      }"
+      @mouseover="activeEl = $el"
+      @mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Dashboard
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700': activeEl == $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Team
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700': activeEl == $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Projects
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700':activeEl === $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionB"
+    >
+      Calender
+    </button>
+  </div>
+</div>`
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 };
@@ -29,7 +138,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+    <Disclosure as="nav" className="bg-gradient-to-b from-orange-200 via-lime-500 to-zinc-800">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -60,7 +169,8 @@ export default function NavigationBar() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    <div dangerouslySetInnerHTML={{ __html: navOption }} />
+                    {/*navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -72,7 +182,7 @@ export default function NavigationBar() {
                       >
                         {item.name}
                       </a>
-                    ))}
+                    ))*/}
                   </div>
                 </div>
               </div>
@@ -81,7 +191,7 @@ export default function NavigationBar() {
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button 
-                      className="px-12 py-3 text-sm font-medium border rounded-full border-indigo-300 hover:bg-white hover:text-red-500"
+                      className="px-8 py-2 text-sm font-medium border rounded-full border-indigo-300 hover:bg-white hover:text-red-500"
                       onClick={openModal}
                     >
                       <span className="sr-only">Get Started</span>

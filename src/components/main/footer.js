@@ -1,6 +1,6 @@
 export function FooterSection() {
   return (
-    <footer className="text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+    <footer className="text-white bg-[conic-gradient(at_left_center,_#eab308,_#a855f7,_#3b82f6)]">
       <div className="max-w-screen-xl px-4 pt-32 pb-12 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-4xl font-['Edwardian_Script_ITC'] sm:text-6xl">

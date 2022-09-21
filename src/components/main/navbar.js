@@ -1,3 +1,112 @@
+window.optionChange = function() {
+  return {
+    optionActive: true,
+    optionInactive: true,
+    activeEl: false,
+    previousEl: false,
+    elData: {
+      topPos: 0,
+      leftPos: 0,
+      widthSize: 0,
+      heightSize: 0,
+    },
+    findElData() {
+      if (! this.activeEl) {
+        return
+      }
+  
+      this.elData.widthSize = `${this.activeEl.getBoundingClientRect().width}px` || 0
+      this.elData.heightSize = `${this.activeEl.getBoundingClientRect().height}px` || 0
+      this.elData.topPos = `${this.activeEl.offsetTop}px` || 0
+      this.elData.leftPos = `${this.activeEl.offsetLeft}px` || 0
+    },
+    chn(oa) {
+      this.optionActive = oa;
+      this.previousEl = $el;
+      this.activeEl = $el;
+    }
+  };
+};
+
+const navOption = 
+`<div
+    x-data="optionChange()"
+    x-init="
+      previousEl = optionActive ? $refs.optionActive : $refs.optionInacive
+      activeEl = previousEl
+    "
+    x-effect="findElData"
+    class="relative"
+  >
+  <span
+    class="bg-amber-100 border border-amber-200 absolute transition-all duration-300 rounded-full"
+    :style="{
+      top: elData.topPos,
+      left: elData.leftPos,
+      width: elData.widthSize,
+      height: elData.heightSize
+    }"
+  ></span>
+
+  <div class="flex items-center gap-2 text-sm font-medium">
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = true)"
+      :class="{
+        'text-amber-700': activeEl == $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Dashboard
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700': activeEl == $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Team
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700': activeEl == $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionActive"
+    >
+      Projects
+    </button>
+
+    <button
+      class="rounded-full px-4 py-2 relative transition"
+      x-on:click="chn(oa = false)"
+      :class="{
+        'text-amber-700':activeEl === $el,
+        'text-gray-500 hover:text-amber-700': activeEl !== $el
+      }"
+      x-on:mouseover="activeEl = $el"
+      x-on:mouseleave="activeEl = previousEl"
+      x-ref="optionB"
+    >
+      Calender
+    </button>
+  </div>
+</div>`
+
 export function NavigationBar() {
   return (
     <nav class="flex items-center justify-between max-w-3xl p-4 mx-auto">

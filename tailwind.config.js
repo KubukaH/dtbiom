@@ -3,7 +3,7 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
   mode: 'jit',
-  content: [
+  purge: [
     './public/**/*.html',
     './src/**/*.{html,js,ts,jsx,tsx}',
   ],
@@ -19,7 +19,6 @@ module.exports = withMT({
       },
     },
   },
-  variants: {},
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     plugin(function ({ matchUtilities, theme }) {
