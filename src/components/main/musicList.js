@@ -1,31 +1,31 @@
 export function MusicList() {
   return (
-    <section class="bg-gray-100">
+    <section className="bg-gray-100">
       <div
-        class="px-4 py-16 mx-auto sm:px-6 lg:pl-8 lg:pr-0 lg:mr-0 sm:py-24 max-w-[1340px]"
+        className="px-4 py-16 mx-auto sm:px-6 lg:pl-8 lg:pr-0 lg:mr-0 sm:py-24 max-w-[1340px]"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16 gap-y-8 lg:items-center"
+          className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16 gap-y-8 lg:items-center"
         >
-          <div class="max-w-xl text-center sm:text-left">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          <div className="max-w-xl text-center sm:text-left">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Don't just take our word for it...
-              <br class="hidden sm:block lg:hidden" />
+              <br className="hidden sm:block lg:hidden" />
               Read reviews from our customers
             </h2>
 
-            <p class="mt-4 text-gray-500">
+            <p className="mt-4 text-gray-500">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
               veritatis illo placeat harum porro optio fugit a culpa sunt id!
             </p>
 
-            <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+            <div className="hidden lg:mt-8 lg:flex lg:gap-4">
               <button
                 aria-label="Previous slide"
-                class="p-3 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white prev-button"
+                className="p-3 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white prev-button"
               >
                 <svg
-                  class="w-5 h-5 transform -rotate-180"
+                  className="w-5 h-5 transform -rotate-180"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -33,19 +33,19 @@ export function MusicList() {
                 >
                   <path
                     d="M9 5l7 7-7 7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                   />
                 </svg>
               </button>
 
               <button
                 aria-label="Next slide"
-                class="p-3 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white next-button"
+                className="p-3 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white next-button"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -53,26 +53,26 @@ export function MusicList() {
                 >
                   <path
                     d="M9 5l7 7-7 7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                   />
                 </svg>
               </button>
             </div>
           </div>
 
-          <div class="-mx-6 lg:col-span-2 lg:mx-0">
-            <div class="swiper-container">
-              <ul class="swiper-wrapper">
-                <li class="swiper-slide">
+          <div className="-mx-6 lg:col-span-2 lg:mx-0">
+            <div className="swiper-container">
+              <ul className="swiper-wrapper">
+                <li className="swiper-slide">
                   <blockquote
-                    class="flex flex-col justify-between h-full p-12 bg-white"
+                    className="flex flex-col justify-between h-full p-12 bg-white"
                   >
                     <div>
-                      <div class="flex gap-0.5 text-green-500">
+                      <div className="flex gap-0.5 text-green-500">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -127,12 +127,12 @@ export function MusicList() {
                         </svg>
                       </div>
 
-                      <div class="mt-4">
-                        <p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+                      <div className="mt-4">
+                        <p className="text-2xl font-bold text-pink-600 sm:text-3xl">
                           Stayin' Alive
                         </p>
 
-                        <p class="mt-4 leading-relaxed text-gray-500">
+                        <p className="mt-4 leading-relaxed text-gray-500">
                           No, Rose, they are not breathing. And they have no arms or
                           legs … Where are they? You know what? If we come across
                           somebody with no arms or legs, do we bother resuscitating
@@ -141,20 +141,20 @@ export function MusicList() {
                       </div>
                     </div>
 
-                    <footer class="mt-8 text-sm text-gray-500">
+                    <footer className="mt-8 text-sm text-gray-500">
                       &mdash; Michael Scott
                     </footer>
                   </blockquote>
                 </li>
 
-                <li class="swiper-slide">
+                <li className="swiper-slide">
                   <blockquote
-                    class="flex flex-col justify-between h-full p-12 bg-white"
+                    className="flex flex-col justify-between h-full p-12 bg-white"
                   >
                     <div>
-                      <div class="flex gap-0.5 text-green-500">
+                      <div className="flex gap-0.5 text-green-500">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +165,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +176,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +187,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +198,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -209,12 +209,12 @@ export function MusicList() {
                         </svg>
                       </div>
 
-                      <div class="mt-4">
-                        <p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+                      <div className="mt-4">
+                        <p className="text-2xl font-bold text-pink-600 sm:text-3xl">
                           Stayin' Alive
                         </p>
 
-                        <p class="mt-4 leading-relaxed text-gray-500">
+                        <p className="mt-4 leading-relaxed text-gray-500">
                           No, Rose, they are not breathing. And they have no arms or
                           legs … Where are they? You know what? If we come across
                           somebody with no arms or legs, do we bother resuscitating
@@ -223,20 +223,20 @@ export function MusicList() {
                       </div>
                     </div>
 
-                    <footer class="mt-8 text-sm text-gray-500">
+                    <footer className="mt-8 text-sm text-gray-500">
                       &mdash; Michael Scott
                     </footer>
                   </blockquote>
                 </li>
 
-                <li class="swiper-slide">
+                <li className="swiper-slide">
                   <blockquote
-                    class="flex flex-col justify-between h-full p-12 bg-white"
+                    className="flex flex-col justify-between h-full p-12 bg-white"
                   >
                     <div>
-                      <div class="flex gap-0.5 text-green-500">
+                      <div className="flex gap-0.5 text-green-500">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +247,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +258,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +269,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -280,7 +280,7 @@ export function MusicList() {
                         </svg>
 
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -291,12 +291,12 @@ export function MusicList() {
                         </svg>
                       </div>
 
-                      <div class="mt-4">
-                        <p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+                      <div className="mt-4">
+                        <p className="text-2xl font-bold text-pink-600 sm:text-3xl">
                           Stayin' Alive
                         </p>
 
-                        <p class="mt-4 leading-relaxed text-gray-500">
+                        <p className="mt-4 leading-relaxed text-gray-500">
                           No, Rose, they are not breathing. And they have no arms or
                           legs … Where are they? You know what? If we come across
                           somebody with no arms or legs, do we bother resuscitating
@@ -305,7 +305,7 @@ export function MusicList() {
                       </div>
                     </div>
 
-                    <footer class="mt-8 text-sm text-gray-500">
+                    <footer className="mt-8 text-sm text-gray-500">
                       &mdash; Michael Scott
                     </footer>
                   </blockquote>
@@ -315,13 +315,13 @@ export function MusicList() {
           </div>
         </div>
 
-        <div class="flex justify-center gap-4 mt-8 lg:hidden">
+        <div className="flex justify-center gap-4 mt-8 lg:hidden">
           <button
             aria-label="Previous slide"
-            class="p-4 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white prev-button"
+            className="p-4 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white prev-button"
           >
             <svg
-              class="w-5 h-5 transform -rotate-180"
+              className="w-5 h-5 transform -rotate-180"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -329,19 +329,19 @@ export function MusicList() {
             >
               <path
                 d="M9 5l7 7-7 7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
               />
             </svg>
           </button>
 
           <button
             aria-label="Next slide"
-            class="p-4 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white next-button"
+            className="p-4 text-pink-600 border border-pink-600 rounded-full hover:bg-pink-600 hover:text-white next-button"
           >
             <svg
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -349,9 +349,9 @@ export function MusicList() {
             >
               <path
                 d="M9 5l7 7-7 7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
               />
             </svg>
           </button>

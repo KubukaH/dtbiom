@@ -40,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@parcel/config-default", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:2.7.0"],\
             ["@parcel/core", "npm:2.7.0"],\
             ["@parcel/transformer-raw", "npm:2.7.0"],\
+            ["@parcel/transformer-sass", "npm:2.7.0"],\
             ["@parcel/transformer-svg-react", "npm:2.7.0"],\
             ["@remix-run/router", "npm:1.0.0"],\
             ["@tailwindcss/aspect-ratio", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.4.2"],\
@@ -58,6 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["slate", "npm:0.82.1"],\
             ["slate-history", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.66.0"],\
             ["slate-react", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.82.2"],\
+            ["swiper", "npm:7.2.0"],\
             ["tailwindcss", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:3.1.8"]\
           ],\
           "linkType": "SOFT"\
@@ -1646,6 +1648,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@parcel/transformer-sass", [\
+        ["npm:2.7.0", {\
+          "packageLocation": "./.yarn/cache/@parcel-transformer-sass-npm-2.7.0-69e02a5ece-8d53b8fcdb.zip/node_modules/@parcel/transformer-sass/",\
+          "packageDependencies": [\
+            ["@parcel/transformer-sass", "npm:2.7.0"],\
+            ["@parcel/plugin", "npm:2.7.0"],\
+            ["@parcel/source-map", "npm:2.1.1"],\
+            ["sass", "npm:1.55.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@parcel/transformer-svg", [\
         ["npm:2.7.0", {\
           "packageLocation": "./.yarn/cache/@parcel-transformer-svg-npm-2.7.0-25a0624742-19026a39f9.zip/node_modules/@parcel/transformer-svg/",\
@@ -2995,6 +3009,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["dom7", [\
+        ["npm:4.0.4", {\
+          "packageLocation": "./.yarn/cache/dom7-npm-4.0.4-637bc4420a-b38604f74e.zip/node_modules/dom7/",\
+          "packageDependencies": [\
+            ["dom7", "npm:4.0.4"],\
+            ["ssr-window", "npm:4.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["domelementtype", [\
         ["npm:2.3.0", {\
           "packageLocation": "./.yarn/cache/domelementtype-npm-2.3.0-02de7cbfba-ee837a318f.zip/node_modules/domelementtype/",\
@@ -3083,6 +3107,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@parcel/config-default", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:2.7.0"],\
             ["@parcel/core", "npm:2.7.0"],\
             ["@parcel/transformer-raw", "npm:2.7.0"],\
+            ["@parcel/transformer-sass", "npm:2.7.0"],\
             ["@parcel/transformer-svg-react", "npm:2.7.0"],\
             ["@remix-run/router", "npm:1.0.0"],\
             ["@tailwindcss/aspect-ratio", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.4.2"],\
@@ -3101,6 +3126,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["slate", "npm:0.82.1"],\
             ["slate-history", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.66.0"],\
             ["slate-react", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.82.2"],\
+            ["swiper", "npm:7.2.0"],\
             ["tailwindcss", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:3.1.8"]\
           ],\
           "linkType": "SOFT"\
@@ -3646,6 +3672,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/immer-npm-9.0.15-6c734225db-92e3d63e81.zip/node_modules/immer/",\
           "packageDependencies": [\
             ["immer", "npm:9.0.15"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["immutable", [\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/immutable-npm-4.1.0-f6635927b8-b9bc1f14fb.zip/node_modules/immutable/",\
+          "packageDependencies": [\
+            ["immutable", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5177,6 +5212,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["sass", [\
+        ["npm:1.55.0", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.55.0-594c748a96-7d769ed08e.zip/node_modules/sass/",\
+          "packageDependencies": [\
+            ["sass", "npm:1.55.0"],\
+            ["chokidar", "npm:3.5.3"],\
+            ["immutable", "npm:4.1.0"],\
+            ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["scheduler", [\
         ["npm:0.23.0", {\
           "packageLocation": "./.yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/",\
@@ -5422,6 +5469,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["ssr-window", [\
+        ["npm:4.0.2", {\
+          "packageLocation": "./.yarn/cache/ssr-window-npm-4.0.2-01f9c0151e-df18260092.zip/node_modules/ssr-window/",\
+          "packageDependencies": [\
+            ["ssr-window", "npm:4.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["ssri", [\
         ["npm:9.0.1", {\
           "packageLocation": "./.yarn/cache/ssri-npm-9.0.1-33ce27f4f8-fb58f5e46b.zip/node_modules/ssri/",\
@@ -5541,6 +5597,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csso", "npm:4.2.0"],\
             ["picocolors", "npm:1.0.0"],\
             ["stable", "npm:0.1.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["swiper", [\
+        ["npm:7.2.0", {\
+          "packageLocation": "./.yarn/unplugged/swiper-npm-7.2.0-d5af002add/node_modules/swiper/",\
+          "packageDependencies": [\
+            ["swiper", "npm:7.2.0"],\
+            ["dom7", "npm:4.0.4"],\
+            ["ssr-window", "npm:4.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\

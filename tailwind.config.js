@@ -3,7 +3,7 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
   mode: 'jit',
-  purge: [
+  content: [
     './public/**/*.html',
     './src/**/*.{html,js,ts,jsx,tsx}',
   ],
