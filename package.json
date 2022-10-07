@@ -3,7 +3,9 @@
   "packageManager": "yarn@3.2.4",
   "private": true,
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "scripts": {},
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
   "devDependencies": {
     "tailwindcss": "^3.1.7"
   }
