@@ -249,3 +249,19 @@ p {
 .single-social {
   @apply m-4
 }
+
+.yt-icon{
+  @apply text-red-500
+}
+
+.is-icon{
+  @apply text-orange-700
+}
+
+.tw-icon{
+  @apply text-indigo-400
+}
+
+.fb-icon{
+  @apply text-blue-600
+}
