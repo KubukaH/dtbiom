@@ -5,7 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": "public/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --open",
     "build": "parcel build"
   },
   "dependencies": {
@@ -13,6 +13,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "parcel": "^2.8.3"
+    "@parcel/config-default": "^2.8.3",
+    "@parcel/core": "^2.8.3",
+    "@parcel/transformer-raw": "^2.8.3",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  },
+  "alias": {
+    "process": false,
+    "buffer": false
   }
 }
