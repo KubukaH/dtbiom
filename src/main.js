@@ -7,8 +7,6 @@ export function App() {
   return (
     <AppContext>
       <HeaderSection />
-      <ServicesSection />
-      <FooterSection />
     </AppContext>
   );
 }

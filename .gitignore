@@ -105,5 +105,5 @@ dist
 
 # Parcel Cache
 .parcel-cache
-.yarn/cache
 .yarn/unplugged
+.yarn/cache
