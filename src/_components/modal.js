@@ -20,7 +20,7 @@ export default function MyModal() {
           href="#"
           onClick={openModal}
         >
-          INTRO...
+          You-Tube
         </a>
       </li>
       <Transition appear show={isOpen} as={Fragment}>
@@ -48,25 +48,8 @@ export default function MyModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-[853px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all">
-                  {/*<Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Payment successful
-                  </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>*/}
-                  <iframe width="853" height="480" src="https://www.youtube.com/embed/jSP5J0L3kAw" title="Bro Kachongwe&#39;s Aluse Mushe mushe cover video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                  {/*<img
-                    alt="Trainer"
-                    src="https://images.unsplash.com/photo-1611510338559-2f463335092c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
-                    className="h-full w-full object-cover md:h-full"
-                  />*/}
+                <Dialog.Panel className="w-full max-w-[853px] h-[480px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all">
+                  <iframe className='w-full h-full' src="https://www.youtube.com/embed/jSP5J0L3kAw" title="Bro Kachongwe&#39;s Aluse Mushe mushe cover video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                   <div className="mt-4">
                     <button
