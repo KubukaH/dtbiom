@@ -1,4 +1,7 @@
+import MyModal from "../_components/modal";
 import headershape from "../assets/imgs/header-shape.svg";
+import { PlayIcon } from "@heroicons/react/20/solid";
+
 export function HeadHero() {
   const img2 = new URL(headershape, import.meta.url);
 
@@ -7,12 +10,12 @@ export function HeadHero() {
       <div className="px-5 mx-auto justify-center">
         <div className="row-auto">
           <div className="w-full lg:w-5/6 xl:w-2/3">
-            <div className="pt-48 pb-60 text-left">
+            <div className="pt-60 pb-64 text-left">
               <h3 className="px-5 mb-5 text-3xl font-semibold leading-tight text-white md:text-5xl">D.T. BiO Mudimba Music.</h3>
               <p className="px-5 mb-10 text-xl text-white">Musician, guitarist, music studio producer, vocals coach, sound engineer and leader of the Kaani Stars Band.</p>
               <ul className="flex flex-wrap justify-start px-5">
                 <li><a className="mx-3 main-btn gradient-btn" href="#">GET IN TOUCH</a></li>
-                <li><a className="mx-3 main-btn video-popup" href="#">INTRO... <i className="ml-2 lni-play"> &copy; </i></a></li>
+                <MyModal />
               </ul>
             </div> 
           </div>

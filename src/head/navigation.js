@@ -4,7 +4,7 @@ export function NavigationSection() {
   const logo = new URL(biologo, import.meta.url);
 
   return (
-    <nav aria-label="Page Header" className="bg-purple-400">
+    <nav aria-label="Page Header" className="fixed top-0 left-0 right-0 z-20 bg-purple-400">
       <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-end gap-4">
           <div className="flex items-center gap-4">

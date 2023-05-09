@@ -7,9 +7,38 @@
   <title>D.T Bio Mudimba Music</title>
   <link rel="stylesheet" href="./index.css" />
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
 </head>
 <body>
   <div id="mudimba"></div>
   <script type="module" src="../src/index.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 32,
+        autoplay: {
+          delay: 8000,
+        },
+        navigation: {
+          nextEl: '.next-button',
+          prevEl: '.prev-button',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1.5,
+            centeredSlides: true,
+          },
+          1024: {
+            centeredSlides: false,
+            slidesPerView: 2.25,
+          },
+        },
+      })
+    })
+  </script>
 </body>
 </html>
