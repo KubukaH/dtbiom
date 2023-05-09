@@ -1,10 +1,14 @@
+import mudp from "../assets/imgs/BiO-Mudimba.jpg";
+
 export function ImagedFoot() {
+  const mudimba = new URL(mudp, import.meta.url);
+
   return (
     <footer aria-label="Site Footer" className="bg-white lg:grid lg:grid-cols-5">
   <div className="relative block h-32 lg:col-span-2 lg:h-full">
     <img
-      src="https://images.unsplash.com/photo-1642370324100-324b21fab3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
-      alt=""
+      src={mudimba}
+      alt="BiO Mudimba"
       className="absolute inset-0 object-cover w-full h-full"
     />
   </div>
@@ -21,13 +25,13 @@ export function ImagedFoot() {
             href="#"
             className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
           >
-            0123456789
+            +263 77 548 6117
           </a>
         </p>
 
         <ul className="mt-8 space-y-1 text-sm text-gray-700">
-          <li>Monday to Friday: 10am - 5pm</li>
-          <li>Weekend: 10am - 3pm</li>
+          <li>For business calls only. No personal issues.</li>
+          <li>Available on WhatsApp, SMS and for direct calls.</li>
         </ul>
 
         <ul className="flex gap-6 mt-8">
@@ -243,7 +247,7 @@ export function ImagedFoot() {
         </nav>
 
         <p className="mt-8 text-xs text-gray-500 sm:mt-0">
-          &copy; 2022. Company Name. All rights reserved.
+          &copy; {new Date().getFullYear()}. D.T. BiO Mudimba Music. All rights reserved.
         </p>
       </div>
     </div>
