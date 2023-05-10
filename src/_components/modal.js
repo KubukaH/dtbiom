@@ -16,7 +16,7 @@ export default function MyModal() {
     <>
       <li>
         <a 
-          className="mx-3 main-btn video-popup" 
+          className="mx-3 video-popup" 
           href="#"
           onClick={openModal}
         >

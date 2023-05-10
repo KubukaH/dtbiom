@@ -175,19 +175,13 @@ export function ImagedFoot() {
 
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75">
-                      Accounts Review
+                      Mudic Consulting
                     </a>
                   </li>
 
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75">
-                      HR Consulting
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                      SEO Optimisation
+                      Recording Optimisation
                     </a>
                   </li>
                 </ul>

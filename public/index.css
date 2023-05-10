@@ -31,7 +31,7 @@
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
-  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-blue-400 text-sm font-semibold bg-pink-400 text-white;
+  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-white text-sm font-semibold bg-pink-400 my-10;
 }
 
 .video-popup:hover{
