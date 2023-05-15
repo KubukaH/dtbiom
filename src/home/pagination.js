@@ -1,7 +1,7 @@
 export function PaginationSection() {
   return (
     <div
-    className="inline-flex items-center justify-center rounded bg-blue-600 py-1 text-white"
+    className="inline-flex items-center justify-center rounded bg-blue-600 py-1 text-white mt-8 mx-auto"
     >
     <a
       href="#"

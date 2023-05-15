@@ -16,7 +16,7 @@ export default function MyModal() {
     <>
       <li>
         <a 
-          className="mx-3 video-popup" 
+          className="mx-3 video-popup z-20" 
           href="#"
           onClick={openModal}
         >
@@ -49,7 +49,7 @@ export default function MyModal() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-[853px] h-[480px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all">
-                  <iframe className='w-full h-full' src="https://www.youtube.com/embed/jSP5J0L3kAw" title="Bro Kachongwe&#39;s Aluse Mushe mushe cover video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe className='w-full h-full' src="https://www.youtube.com/embed/jSP5J0L3kAw" title="Bro Kachongwe&#39;s Aluse Mushe mushe cover video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                   <div className="mt-4">
                     <button
@@ -57,7 +57,7 @@ export default function MyModal() {
                       className="absolute end-1 top-1 rounded-full border border-gray-300 bg-gray-100 p-1"
                       onClick={closeModal}
                     >
-                      <span class="sr-only">Close</span>
+                      <span className="sr-only">Close</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-3 w-3"

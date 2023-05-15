@@ -1,7 +1,17 @@
+import { HeartIcon } from "@heroicons/react/20/solid";
+import profile from "../assets/imgs/profile.png";
+import { PaginationSection } from "./pagination";
+
 export function TestimonialsSection() {
+  const prf = new URL(profile, import.meta.url);
+
   return (
     <section>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <h2 className="flex mb-8 text-2xl lg:text-5xl text-purple-500 flex-row" >
+          Our Fan Messages
+          <span><HeartIcon className="h-5 w-5 fill-pink-600" /></span>
+        </h2>
         <div
           className="[column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8"
         >
@@ -20,7 +30,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -43,7 +53,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -67,7 +77,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -89,7 +99,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -112,7 +122,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -134,7 +144,7 @@ export function TestimonialsSection() {
             <div className="mt-4 flex items-center gap-4">
               <img
                 alt="Woman"
-                src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80"
+                src={prf}
                 className="h-12 w-12 rounded-full object-cover"
               />
 
@@ -145,6 +155,8 @@ export function TestimonialsSection() {
             </div>
           </div>
         </div>
+        {/* Pagination Section */}
+        <PaginationSection />
       </div>
     </section>
   );

@@ -1,7 +1,5 @@
 import { AppContext } from "./_components";
-// import { FooterSection } from "./foot";
-import { SponsorFooter } from "./foot/foot";
-import { ImagedFoot } from "./foot/imaged";
+import { FooterSection } from "./foot";
 import { HeaderSection } from "./head";
 import { TestimonialsSection } from "./home/testimonials";
 
@@ -10,8 +8,7 @@ export function App() {
     <AppContext>
       <HeaderSection />
       <TestimonialsSection />
-      <ImagedFoot />
-      <SponsorFooter />
+      <FooterSection />
     </AppContext>
   );
 }
