@@ -44,7 +44,7 @@ export default function MessageModal() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-[853px] h-[480px] lg:h-[532px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all overflow-y-auto scroll-smooth">
-                  <SendUs />
+                  <SendUs closeModal={closeModal} />
 
                   <div>
                   </div>

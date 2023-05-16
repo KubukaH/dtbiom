@@ -31,7 +31,7 @@ export function PaginationSection() {
         type="number"
         className="h-8 w-12 rounded border-none bg-transparent p-0 text-center text-xs font-medium [-moz-appearance:_textfield] focus:outline-none focus:ring-inset focus:ring-white [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
         min="1"
-        value="2"
+        defaultValue={1}
         id="PaginationPage"
       />
     </div>
