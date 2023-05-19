@@ -1,8 +1,11 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
+import { useCTX } from './context';
+import { alertService } from './alert/service';
 
 export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false);
+  const { user } = useCTX();
 
   function closeModal() {
     setIsOpen(false);
@@ -18,7 +21,13 @@ export default function MyModal() {
         <a 
           className="mx-3 video-popup z-20" 
           href="#"
-          onClick={openModal}
+          onClick={user 
+            ? () => openModal 
+            : () => {
+              alertService.clear();
+              alertService.info("Create an account to enjoy these videos freely. to enjoy these videos freely. to enjoy these videos freely. to enjoy these videos freely.");
+            }
+          }
         >
           You-Tube
         </a>

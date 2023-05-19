@@ -5,12 +5,12 @@
 .header-hero::before {
   content: '';
   z-index: -1;
-  opacity: .8;
+  opacity: 0;
   @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-violet-500 to-fuchsia-400;
 }
 
 .navribbon {
-  @apply top-1 lg:top-2 right-0 w-32 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-400 overflow-hidden rounded-tl-3xl rounded-bl-3xl lg:w-44 lg:h-16 shadow-md hover:shadow-amber-100
+  @apply top-1 lg:top-2 right-0 w-48 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-400 overflow-hidden rounded-tl-3xl rounded-bl-3xl lg:w-56 lg:h-12 shadow-md hover:shadow-amber-100
 }
 
 .footer-copyright{
@@ -20,7 +20,7 @@
 .gradient-btn {
   background-image: linear-gradient(to right, #0067f4 0%, #2bdbdc 50%, #0067f4 100%);
   background-size: 200% auto;
-  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-white text-sm font-semibold;
+  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-white text-sm font-semibold duration-500;
 }
 
 .gradient-btn:hover {
@@ -31,20 +31,17 @@
 }
 
 .video-popup{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
-  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-white text-sm font-semibold bg-pink-400 my-10;
+  background-image: linear-gradient(to right, #f7a5b2 0%, #d997d3 25%, #f78699 100%);
+  background-size: 200% auto;
+  @apply overflow-hidden pt-4 pb-4 pl-8 pr-8 rounded-full uppercase text-white text-sm font-semibold my-10 duration-500;
 }
 
 .video-popup:hover{
+  background-position: right center;
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  @apply text-pink-400
 }
 
 code {

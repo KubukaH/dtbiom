@@ -107,3 +107,11 @@ dist
 .parcel-cache
 .yarn/unplugged
 .yarn/cache/*
+
+# Files in the server
+netlify/functions/server/.env
+netlify/functions/server/*.sum
+netlify/functions/server/*.mod
+netlify/functions/server/*.exe
+# Local Netlify folder
+.netlify

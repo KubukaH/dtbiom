@@ -88,7 +88,7 @@ function AlertPopper({ id, fade }) {
         <Transition appear show={isOpen} as={Fragment} key={index}>
         <Dialog 
           as="div" 
-          className={joinClassNames(cssClasses(alert), "relative z-50")} 
+          className={joinClassNames(cssClasses(alert), "fixed top-10 left-52 z-50")} 
           onClose={removeAlert}
           
         >
@@ -115,7 +115,7 @@ function AlertPopper({ id, fade }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-[512px] h-[256px] transform overflow-hidden rounded-2xl bg-white p-2 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className=" w-full max-w-[512px] h-20 transform overflow-hidden rounded-xl bg-white p-2 text-left align-middle shadow-xl transition-all">
                   <span dangerouslySetInnerHTML={{ __html: alert.message }} />
   
                   <div className="mt-4">

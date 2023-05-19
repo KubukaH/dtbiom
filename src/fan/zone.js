@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 
 import profile from "../assets/imgs/profile.png";
-import { MessageCard } from "../fan";
+import { MessageCard } from ".";
+import { FooterSection } from "../foot";
 import client, { allCollections, getSetRef } from "../_db/operations";
 
-export function TestimonialsSection() {
+export function FanZone() {
   const prf = new URL(profile, import.meta.url);
   const [listTransaction, setListTransaction] = useState([]);
 
@@ -61,18 +62,19 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="lg:h-screen h-full">
-      <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-4 sm:px-6 lg:px-8">
+    <>
+    <section>
+      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
         <h2 className="flex mb-8 text-2xl lg:text-5xl text-purple-500 flex-row" >
           The Fan Z
-          <span><HeartIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8 fill-pink-600" /></span>
+          <span><HeartIcon className="inline-flex h-4 w-4 lg:h-8 lg:w-8 fill-pink-600" /></span>
           ne
         </h2>
         <div
           className="[column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8"
         >
           {
-            listTransaction ? listTransaction.slice(0,6).map((msg) => (
+            listTransaction !== 0 ? listTransaction.map((msg) => (
               <MessageCard msgData={msg} profp={prf} key={msg.id} />
             )) : (
               <div className="mb-8 sm:break-inside-avoid">
@@ -87,9 +89,8 @@ export function TestimonialsSection() {
 
         </div>
       </div>
-      <div className="lg:px-64 px-4 mb-16">
-        <Link to="/fanzone" className="gradient-btn">See more messages</Link>
-      </div>
     </section>
+    <FooterSection />
+    </>
   );
 }

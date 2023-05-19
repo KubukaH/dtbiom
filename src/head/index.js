@@ -1,11 +1,15 @@
+import { FooterSection } from "../foot";
+import { TestimonialsSection } from "../home/testimonials";
 import { HeadHero } from "./homeHero";
-import { NavigationSection } from "./navigation";
 
 export function HeaderSection() {
   return (
+    <>
     <header className="header-area">
-      <NavigationSection />
       <HeadHero />
     </header>
+    <TestimonialsSection />
+    <FooterSection />
+    </>
   );
 }

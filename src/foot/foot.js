@@ -2,7 +2,7 @@ export function SponsorFooter() {
   return (
     <div className="footer-copyright">
       <div className="container ml-auto mr-auto pl-5 pr-5">
-        <div className="row">
+        <div className="row-auto">
           <div className="w-full">
             <div className="py-2 text-center">
               <small className="text-white">

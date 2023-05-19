@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
+import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import { SendUs } from '../home/sendus';
 
 export default function MessageModal() {
@@ -15,9 +16,14 @@ export default function MessageModal() {
 
   return (
     <>
-      <li>
-        <a className="mx-3 main-btn gradient-btn" href="#" onClick={openModal}>GET IN TOUCH</a>
-      </li>
+      <button
+        type='button'
+        className="block shrink-0 rounded-full bg-transparent p-1 shadow-sm"
+        onClick={openModal}
+      >
+        <span className="sr-only text-gray-600">Chat</span>
+        <ChatBubbleBottomCenterTextIcon className="h-5 w-5 text-white" />
+      </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-30" onClose={closeModal}>
           <Transition.Child

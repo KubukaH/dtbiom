@@ -3,7 +3,7 @@ import { MainFooter } from "./footer";
 
 export function FooterSection() {
   return (
-    <footer id="footer" className="bg-gray-100 footer-area">
+    <footer id="footer" className="bg-white h-[66vh]">
       <MainFooter />
       <SponsorFooter />
     </footer>

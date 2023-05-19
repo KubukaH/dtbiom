@@ -1,11 +1,12 @@
-import mudp from "../assets/imgs/BiO-Mudimba.jpg";
+import { Link } from "@reach/router";
+import mudp from "../assets/imgs/BiO-Mudimba-footer.jpg";
 
 export function MainFooter() {
   const mudimba = new URL(mudp, import.meta.url);
 
   return (
-    <footer aria-label="Site Footer" className="bg-white border-t border-pink-100 lg:grid lg:grid-cols-5">
-      <div className="relative block h-32 lg:col-span-2 lg:h-full">
+    <div aria-label="Site Footer" className="relative bg-white border-t border-pink-100 lg:grid lg:grid-cols-5">
+      <div className="relative block h-full w-96 lg:col-span-2">
         <img
           src={mudimba}
           alt="BiO Mudimba"
@@ -21,12 +22,12 @@ export function MainFooter() {
                 Call us
               </span>
 
-              <a
-                href="#"
+              <Link
+                to="#call-us-for-more-info-about-our-band"
                 className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
               >
                 +263 77 548 6117
-              </a>
+              </Link>
             </p>
 
             <ul className="mt-8 space-y-1 text-sm text-gray-700">
@@ -36,8 +37,8 @@ export function MainFooter() {
 
             <ul className="flex gap-6 mt-8">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="#social-media-facebook"
                   rel="noreferrer"
                   target="_blank"
                   className="transition hover:opacity-75"
@@ -56,12 +57,12 @@ export function MainFooter() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="#social-media-instagram"
                   rel="noreferrer"
                   target="_blank"
                   className="transition hover:opacity-75"
@@ -80,12 +81,12 @@ export function MainFooter() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="#social-media-twitter"
                   rel="noreferrer"
                   target="_blank"
                   className="transition hover:opacity-75"
@@ -102,12 +103,12 @@ export function MainFooter() {
                       d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="#social-media-github"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
@@ -126,12 +127,12 @@ export function MainFooter() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="#social-media-dribble"
                   rel="noreferrer"
                   target="_blank"
                   className="text-blue-700 transition hover:opacity-75"
@@ -150,7 +151,7 @@ export function MainFooter() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -162,27 +163,27 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Services" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#one-on-one-coaching" className="text-gray-700 transition hover:opacity-75">
                       1on1 Coaching
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#live-band-performance" className="text-gray-700 transition hover:opacity-75">
                       Live Performances
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#music-consultant" className="text-gray-700 transition hover:opacity-75">
                       Music Consulting
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#studio" className="text-gray-700 transition hover:opacity-75">
                       Recording Studio
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -194,21 +195,21 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Company" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#about" className="text-gray-700 transition hover:opacity-75">
                       About
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#meet-the-team" className="text-gray-700 transition hover:opacity-75">
                       Meet the Team
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#merchandise" className="text-gray-700 transition hover:opacity-75">
                       Merchandise
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -221,21 +222,21 @@ export function MainFooter() {
             <nav aria-label="Footer Navigation - Support">
               <ul className="flex flex-wrap gap-4 text-xs">
                 <li>
-                  <a href="#" className="text-gray-500 transition hover:opacity-75">
+                  <Link to="#terms-and-conditions" className="text-gray-500 transition hover:opacity-75">
                     Terms & Conditions
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="#" className="text-gray-500 transition hover:opacity-75">
+                  <Link to="#privacy-policy" className="text-gray-500 transition hover:opacity-75">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="#" className="text-gray-500 transition hover:opacity-75">
+                  <Link to="#cookies" className="text-gray-500 transition hover:opacity-75">
                     Cookies
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -246,7 +247,7 @@ export function MainFooter() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
 
   );
 }

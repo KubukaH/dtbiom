@@ -1,29 +1,97 @@
-import { useState } from "react";
-import { joinClassNames } from "../_components/extras/cn_join";
-import { useInput } from "../_components/extras/inputBind";
-import useLoading from "../_components/extras/loading";
+import { useEffect, useState } from "react";
+
 import { alertService } from "../_components/alert/service";
+import { joinClassNames, useInput } from "../_components";
+import useLoading from "../_components/extras/loading";
+import faunaClient, { getCollectionRef, newCollection } from "../_db/operations";
+import { CompleteIcon, PendingIcon, RejectIcon } from "../_components/Iconc";
 
 export function SendUs({ closeModal }) {
   const [count, setCount] = useState(376);
   const [isLoading, load] = useLoading();
   const [message, setMessage] = useState('');
+  const [refreshData, setRefreshData] = useState(false);
+  const [state, setState] = useState({
+    names: "",
+    email: "",
+    phonenumber: "",
+    private: false,
+    public: true,
+    message: ""
+  });
+  const [subscribedTransaction, setSubscribedTransaction] = useState(null);
+
+  const colName = "Message"
 
   const names = useInput('');
   const email = useInput('');
-  const  phone_number = useInput('');
-  const oth = useInput(false);
-  const pub = useInput(false);
-  const priv = useInput(false);
+  const  phonenumber = useInput('');
+  const oth = useInput('false');
+  const pub = useInput('false');
+  const priv = useInput('true');
 
-  const onSubmit = (e) => {
+  //refreshes the page
+  if(refreshData){
+    setRefreshData(false);
+  }
+
+  useEffect(() => {
+    if(state.result) {
+      const newCollectionRef = getCollectionRef(state.result, colName)
+      faunaClient.stream.document(newCollectionRef)
+      .on('snapshot', snapshot => { 
+        console.log('snapshot', snapshot);
+        setSubscribedTransaction(snapshot.data)
+      })
+      .on('version', version => {
+        console.log('version', version);
+        setSubscribedTransaction(version.document.data);
+      })
+      .start()
+    }
+  }, [state.result])
+
+  const onSubmit = async (e) => {
     alertService.clear();
     e.preventDefault();
-    closeModal();
-    alertService.success(message);
-    /*load(closeModal()).then(() => {
-      alertService.success(message)
-    }).catch((err) => console.error(err))*/
+    const response = await newCollection({
+      ...state,
+      email: email.value,
+      names: names.value,
+      message: message,
+      status: 'Pending'
+    }, colName);
+    setState({
+      ...state,
+      result: response.ref.value.id
+    });
+
+    /*messageService.create({
+      names: names.value,
+      email: email.value,
+      phonenumber: phonenumber.value,
+      private: priv.value,
+      public: pub.value,
+      message: message
+    }).then(() => {
+      closeModal();
+      setRefreshData(true);
+      alertService.success("Messsage sent!");
+    }).catch((err) => alertService.error(err));*/
+  }
+
+  const getStatusIcon = () => {
+    console.log('status',subscribedTransaction.status )
+    switch(subscribedTransaction.status) {
+      case 'Pending':
+        return <PendingIcon />
+      case 'Complete':
+        return <CompleteIcon />
+      case 'Rejected':
+        return <RejectIcon />
+      default:
+        return '';
+    }
   }
 
   return (
@@ -92,7 +160,7 @@ export function SendUs({ closeModal }) {
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
-                  {...phone_number.bind}
+                  {...phonenumber.bind}
                 />
               </div>
             </div>
@@ -100,7 +168,7 @@ export function SendUs({ closeModal }) {
             <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
               <div>
                 <input
-                  className="peer"
+                  className="sr-only peer"
                   id="option1"
                   type="radio"
                   tabIndex="-1"
@@ -110,7 +178,7 @@ export function SendUs({ closeModal }) {
 
                 <label
                   htmlFor="option1"
-                  className="sr-only block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
+                  className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
                   {...pub.bind}
                 >
@@ -120,7 +188,7 @@ export function SendUs({ closeModal }) {
 
               <div>
                 <input
-                  className=""
+                  className="peer sr-only"
                   id="option2"
                   type="radio"
                   tabIndex="-1"
@@ -130,7 +198,7 @@ export function SendUs({ closeModal }) {
 
                 <label
                   htmlFor="option2"
-                  className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer peer sr-only"
+                  className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
                   {...priv.bind}
                 >
@@ -140,7 +208,7 @@ export function SendUs({ closeModal }) {
 
               <div>
                 <input
-                  className="peer"
+                  className="sr-only peer"
                   id="option3"
                   type="radio"
                   tabIndex="-1"
@@ -150,9 +218,9 @@ export function SendUs({ closeModal }) {
 
                 <label
                   htmlFor="option3"
-                  className="sr-only block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
+                  className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
-                  {...oth.bind}
+                  aria-disabled="true"
                 >
                   <span className="text-sm font-medium"> Other </span>
                 </label>
@@ -173,7 +241,7 @@ export function SendUs({ closeModal }) {
                 rows="8"
                 id="message"
                 onChange={(e) => {
-                  setCount(375 - e.target.value.length);
+                  setCount(376 - e.target.value.length);
                   setMessage(e.target.value)
                 }}
                 value={message}
@@ -185,12 +253,24 @@ export function SendUs({ closeModal }) {
             <div className="mt-4">
               <button
                 type="submit"
-                className="inline-block w-full rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-300 px-5 py-3 font-medium text-white sm:w-auto hover:bg-gradient-to-tl hover:from-fuchsia-600 hover:to-fuchsia-400 hover:transition-opacity hover:shadow-md"
+                className="inline-block w-full rounded-lg bg-auto bg-gradient-to-br from-fuchsia-400 to-fuchsia-300 px-5 py-3 font-medium text-white sm:w-auto hover:bg-gradient-to-tl hover:from-fuchsia-600 hover:to-fuchsia-400 hover:shadow-md duration-500 hover:bg-right-top"
                 disabled={isLoading}
               >
                 Send
               </button>
             </div>
+            {
+              subscribedTransaction && (
+                <div className="mt-4">
+                  <h3 className="flex font-medium text-gray-700">
+                    {getStatusIcon()}
+                    <div className="ml-4 mt-1">
+                      Transaction Status: {subscribedTransaction.status}
+                    </div>
+                  </h3>
+                </div>
+              )
+            }
           </form>
         </div>
       </div>

@@ -1,0 +1,14 @@
+[build]
+  command = "yarn run build && yarn run build:function"
+  publish = "dist"
+  functions = "netlify/functions/"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "dist"
+
+[build.environment]
+  GO_IMPORT_PATH="github.com/netlify/next-function"
+  GO_VERSION="1.20"

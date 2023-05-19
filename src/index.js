@@ -3,9 +3,8 @@ import { createRoot } from "react-dom/client";
 import { App } from "./main";
 
 const container = document.getElementById("mudimba");
-const root = createRoot(container)
+const root = createRoot(container);
+
 root.render(
-  <StrictMode>
     <App />
-  </StrictMode>
 );
