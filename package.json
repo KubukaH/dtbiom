@@ -6,9 +6,7 @@
   "source": "public/index.html",
   "scripts": {
     "start": "parcel --open",
-    "start:function": "go run netlify/functions/server/main.go",
-    "build": "parcel build",
-    "build:function": "go build netlify/functions/server/main.go"
+    "build": "parcel build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
