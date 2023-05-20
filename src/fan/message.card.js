@@ -1,11 +1,13 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
-import client, { allCollections, getSetRef } from "../_db/operations";
+import client, { allCollections, getSetRef, newCollection } from "../_db/operations";
 
 export const MessageCard = ({ msgData, profp }) => {
   const [listLikes, setListLikes] = useState([]);
 
-  const likeSetRef = getSetRef("Like");
+  const colName = "Like";
+
+  const likeSetRef = getSetRef(colName);
   const streamOptions = { fields: [ 'action', 'document' ] };
 
   const streamClient = client.stream(likeSetRef, streamOptions)
@@ -41,7 +43,7 @@ export const MessageCard = ({ msgData, profp }) => {
   });
 
   const getAllLikes = async () => { 
-    const transactions = await allCollections("Like");
+    const transactions = await allCollections(colName);
 
     const allTransaction = [];
     transactions.data.forEach(element => {
@@ -53,17 +55,14 @@ export const MessageCard = ({ msgData, profp }) => {
     setListLikes(allTransaction);
   }
 
-  /*const LikeBtn = (e) => {
+  const LikeBtn = async (e) => {
     e.preventDefault();
-    ({
-      likedby: msgData.names,
-      likeid: msgData._id
-    }).then(() => {
-      console.log("Thank you for liking my message.")
-    }).catch((error) => {
-      alertService.error(error);
-    });
-  }*/
+    await newCollection({
+      likeBy: msgData.names,
+      likedMessage: msgData.id,
+      likedOn: new Date.now()
+    },colName);
+  }
 
   return (
     <div className="mb-8 sm:break-inside-avoid">
@@ -92,6 +91,7 @@ export const MessageCard = ({ msgData, profp }) => {
 
         <HeartIcon 
           className="h-4 w-4 text-pink-600 hover:h-10 hover:w-10 duration-300 cursor-pointer"
+          onClick={LikeBtn}
         />
       </div>
     </div>

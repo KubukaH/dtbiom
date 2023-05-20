@@ -1,108 +1,53 @@
-import signinpic from "../assets/imgs/baloon.svg";
+import { Link } from "@reach/router";
 
 export function SignIn() {
-  const sinp = new URL(signinpic, import.meta.url);
 
   return (
-    <section className="relative flex flex-wrap lg:h-screen lg:items-center">
-    <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-lg text-center">
-        <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
+    <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+      <div className="col-span-6 sm:col-span-3">
+        <label
+          htmlFor="FirstName"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Email
+        </label>
 
-        <p className="mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-          eaque error neque ipsa culpa autem, at itaque nostrum!
-        </p>
+        <input
+          type="text"
+          id="FirstName"
+          name="first_name"
+          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+        />
       </div>
 
-      <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
-        <div>
-          <label htmlFor="email" className="sr-only">Email</label>
+      <div className="col-span-6 sm:col-span-3">
+        <label
+          htmlFor="Password"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Password
+        </label>
 
-          <div className="relative">
-            <input
-              type="email"
-              className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Enter email"
-            />
+        <input
+          type="password"
+          id="Password"
+          name="password"
+          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+        />
+      </div>
 
-            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
+      <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
+        <button
+          className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+        >
+          Sign In
+        </button>
 
-        <div>
-          <label htmlFor="password" className="sr-only">Password</label>
-
-          <div className="relative">
-            <input
-              type="password"
-              className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Enter password"
-            />
-
-            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-gray-500">
-            No account?
-            <a className="underline" href="">Sign up</a>
-          </p>
-
-          <button
-            type="submit"
-            className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-          >
-            Sign in
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
-      <img
-        alt="Welcome"
-        src={sinp}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-    </div>
-    </section>
+        <p className="mt-4 text-sm text-gray-500 sm:mt-0">
+          Don't have an account?
+          <Link to="/account/signup" className="text-gray-700 underline ml-1">Sign Up</Link>.
+        </p>
+      </div>
+    </form>
   );
 }

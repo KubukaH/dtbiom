@@ -49,7 +49,7 @@ export function NavigationSection() {
                 />
               </Link>
             ) : (
-              <Link to="/signin" className="block shrink-0 rounded-full p-1 bg-transparent shadow-sm">
+              <Link to="/account/signin" className="block shrink-0 rounded-full p-1 bg-transparent shadow-sm">
                 <span className="sr-only">Login</span>
                 <LockOpenIcon className="h-5 w-5 text-white" />
               </Link>

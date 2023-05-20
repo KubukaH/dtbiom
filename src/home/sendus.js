@@ -1,57 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { alertService } from "../_components/alert/service";
 import { joinClassNames, useInput } from "../_components";
 import useLoading from "../_components/extras/loading";
-import faunaClient, { getCollectionRef, newCollection } from "../_db/operations";
-import { CompleteIcon, PendingIcon, RejectIcon } from "../_components/Iconc";
+import { newCollection } from "../_db/operations";
 
 export function SendUs({ closeModal }) {
   const [count, setCount] = useState(376);
   const [isLoading, load] = useLoading();
   const [message, setMessage] = useState('');
-  const [refreshData, setRefreshData] = useState(false);
   const [state, setState] = useState({
     names: "",
     email: "",
     phonenumber: "",
     private: false,
     public: true,
+    other: false,
     message: ""
   });
-  const [subscribedTransaction, setSubscribedTransaction] = useState(null);
-
-  const colName = "Message"
 
   const names = useInput('');
   const email = useInput('');
-  const  phonenumber = useInput('');
-  const oth = useInput('false');
-  const pub = useInput('false');
-  const priv = useInput('true');
+  const phonenumber = useInput('');
 
-  //refreshes the page
-  if(refreshData){
-    setRefreshData(false);
-  }
+  const colName = "Message";
 
-  useEffect(() => {
-    if(state.result) {
-      const newCollectionRef = getCollectionRef(state.result, colName)
-      faunaClient.stream.document(newCollectionRef)
-      .on('snapshot', snapshot => { 
-        console.log('snapshot', snapshot);
-        setSubscribedTransaction(snapshot.data)
-      })
-      .on('version', version => {
-        console.log('version', version);
-        setSubscribedTransaction(version.document.data);
-      })
-      .start()
-    }
-  }, [state.result])
-
-  const onSubmit = async (e) => {
+  const submit = async (e) => {
     alertService.clear();
     e.preventDefault();
     const response = await newCollection({
@@ -59,40 +33,23 @@ export function SendUs({ closeModal }) {
       email: email.value,
       names: names.value,
       message: message,
+      phonenumber: phonenumber.value,
       status: 'Pending'
     }, colName);
     setState({
       ...state,
       result: response.ref.value.id
     });
+  }
 
-    /*messageService.create({
-      names: names.value,
-      email: email.value,
-      phonenumber: phonenumber.value,
-      private: priv.value,
-      public: pub.value,
-      message: message
-    }).then(() => {
+  const onSubmit = (e) => load(submit(e)).then(
+    () => {
       closeModal();
-      setRefreshData(true);
-      alertService.success("Messsage sent!");
-    }).catch((err) => alertService.error(err));*/
-  }
-
-  const getStatusIcon = () => {
-    console.log('status',subscribedTransaction.status )
-    switch(subscribedTransaction.status) {
-      case 'Pending':
-        return <PendingIcon />
-      case 'Complete':
-        return <CompleteIcon />
-      case 'Rejected':
-        return <RejectIcon />
-      default:
-        return '';
+      alertService.info("Thank you for getting in touch. :)", {keepAfterRouteChange: false});
     }
-  }
+  ).catch(
+    (error) => alertService.error(error, {keepAfterRouteChange: false})
+  );
 
   return (
   <section className="bg-gray-100">
@@ -135,7 +92,7 @@ export function SendUs({ closeModal }) {
                 placeholder="Name"
                 type="text"
                 id="name"
-                {...names.bind}
+                {...state.names.bind}
               />
             </div>
 
@@ -148,7 +105,7 @@ export function SendUs({ closeModal }) {
                   placeholder="Email address"
                   type="email"
                   id="email"
-                  {...email.bind}
+                  {...state.email.bind}
                 />
               </div>
 
@@ -160,7 +117,7 @@ export function SendUs({ closeModal }) {
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
-                  {...phonenumber.bind}
+                  {...state.phonenumber.bind}
                 />
               </div>
             </div>
@@ -173,14 +130,12 @@ export function SendUs({ closeModal }) {
                   type="radio"
                   tabIndex="-1"
                   name="option"
-                  {...pub.bind}
                 />
 
                 <label
                   htmlFor="option1"
                   className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
-                  {...pub.bind}
                 >
                   <span className="text-sm font-medium"> Public </span>
                 </label>
@@ -193,14 +148,12 @@ export function SendUs({ closeModal }) {
                   type="radio"
                   tabIndex="-1"
                   name="option"
-                  {...priv.bind}
                 />
 
                 <label
                   htmlFor="option2"
                   className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
-                  {...priv.bind}
                 >
                   <span className="text-sm font-medium"> Private </span>
                 </label>
@@ -213,7 +166,6 @@ export function SendUs({ closeModal }) {
                   type="radio"
                   tabIndex="-1"
                   name="option"
-                  {...oth.bind}
                 />
 
                 <label
@@ -259,18 +211,6 @@ export function SendUs({ closeModal }) {
                 Send
               </button>
             </div>
-            {
-              subscribedTransaction && (
-                <div className="mt-4">
-                  <h3 className="flex font-medium text-gray-700">
-                    {getStatusIcon()}
-                    <div className="ml-4 mt-1">
-                      Transaction Status: {subscribedTransaction.status}
-                    </div>
-                  </h3>
-                </div>
-              )
-            }
           </form>
         </div>
       </div>

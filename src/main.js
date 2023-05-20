@@ -6,8 +6,10 @@ import { AlertPopper } from "./_components/alert";
 import { HeaderSection } from "./head";
 import { NavigationSection } from "./head/navigation";
 import PageNotFound from "./404";
-import { SignIn } from "./_account/signin";
 import { FanZone } from "./fan/zone";
+import { AccountSection } from "./_account";
+import { SignIn } from "./_account/signin";
+import { SignUp } from "./_account/signup";
 
 // The App Function
 export function App() {
@@ -17,7 +19,10 @@ export function App() {
       <Router>
         <HeaderSection path="/" />
         <FanZone path="/fanzone" />
-        <SignIn path="/signin" />
+        <AccountSection path="/account">
+          <SignIn path="signin" />
+          <SignUp path="signup" />
+        </AccountSection>
         <PageNotFound default />
       </Router>
       <AlertPopper/>
