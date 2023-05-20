@@ -60,7 +60,7 @@ export const MessageCard = ({ msgData, profp }) => {
     await newCollection({
       likeBy: msgData.names,
       likedMessage: msgData.id,
-      likedOn: new Date.now()
+      likedOn: new Date()
     },colName);
   }
 
