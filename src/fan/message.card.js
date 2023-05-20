@@ -52,7 +52,7 @@ export const MessageCard = ({ msgData, profp }) => {
         ...element.data
       });
     });
-    setListLikes(allTransaction);
+    setListLikes(allTransaction.filter(x => x.likedMessage === msgData.id));
   }
 
   const LikeBtn = async (e) => {

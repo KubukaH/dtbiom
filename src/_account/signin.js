@@ -1,9 +1,27 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
+import useLoading from "../_components/extras/loading";
+import { auth_strategy } from "../_db/auth";
+import { useInput } from "../_components";
+import { alertService } from "../_components/alert/service";
 
 export function SignIn() {
+  const [isLoading, load] = useLoading(false);
+
+  const email = useInput("");
+  const password = useInput("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    load(auth_strategy.login(email.value, password.value, true)).then(() => {
+      alertService.success(" Loged In");
+      navigate(-1, { replace: true });
+    }).catch((error) => {
+      alertService.error(error);
+    });
+  }
 
   return (
-    <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+    <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
       <div className="col-span-6 sm:col-span-3">
         <label
           htmlFor="FirstName"
@@ -17,6 +35,7 @@ export function SignIn() {
           id="FirstName"
           name="first_name"
           className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          {...email.bind}
         />
       </div>
 
@@ -33,12 +52,15 @@ export function SignIn() {
           id="Password"
           name="password"
           className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          {...password.bind}
         />
       </div>
 
       <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
         <button
           className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+          type="submit"
+          disabled={isLoading}
         >
           Sign In
         </button>

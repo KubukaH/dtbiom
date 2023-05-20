@@ -1,7 +1,6 @@
 import { Subject } from 'rxjs';
 
-import { wrapperFetch } from "../_components";
-import { auth_strategy, netlifyURL } from '../auth';
+import { auth_strategy } from '../_db/auth';
 
 const userSubject = new Subject(null);
 
