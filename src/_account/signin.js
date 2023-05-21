@@ -31,10 +31,10 @@ export function SignIn() {
         </label>
 
         <input
-          type="text"
-          id="FirstName"
-          name="first_name"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          type="email"
+          id="email"
+          name="email"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...email.bind}
         />
       </div>
@@ -51,7 +51,7 @@ export function SignIn() {
           type="password"
           id="Password"
           name="password"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...password.bind}
         />
       </div>

@@ -3,6 +3,8 @@ import useLoading from "../_components/extras/loading";
 import { useInput } from "../_components";
 import { auth_strategy } from "../_db/auth";
 import { alertService } from "../_components/alert/service";
+import TermsAndConditions from "../policies/termsOfUse";
+import PrivacyPolicy from "../policies/privacyPolicy";
 
 export const SignUp = () => {
   const [isLoading, load] = useLoading(false);
@@ -27,7 +29,10 @@ export const SignUp = () => {
     ) {
       alertService.error("Check blank fields in the Form.")
     } else {
-      load(auth_strategy.signup(first_name.value, last_name.value, email.value, password.value, terms_of_use.value)).then(() => {
+      const user_metadata = {
+        full_name: `${first_name.value} ${last_name.value}`
+      }
+      auth_strategy.signup(email.value, password.value, user_metadata).then(() => {
         alertService.success("Account created!");
         navigate("/account/signin", { replace: true });
       }).catch((err) => alertService.error(err));
@@ -48,7 +53,8 @@ export const SignUp = () => {
           type="text"
           id="FirstName"
           name="first_name"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...first_name.bind}
         />
       </div>
@@ -65,7 +71,8 @@ export const SignUp = () => {
           type="text"
           id="LastName"
           name="last_name"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...last_name.bind}
         />
       </div>
@@ -79,7 +86,8 @@ export const SignUp = () => {
           type="email"
           id="Email"
           name="email"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...email.bind}
         />
       </div>
@@ -96,7 +104,8 @@ export const SignUp = () => {
           type="password"
           id="Password"
           name="password"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...password.bind}
         />
       </div>
@@ -113,7 +122,8 @@ export const SignUp = () => {
           type="password"
           id="PasswordConfirmation"
           name="password_confirmation"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
           {...confirm_password.bind}
         />
       </div>
@@ -124,7 +134,8 @@ export const SignUp = () => {
             type="checkbox"
             id="MarketingAccept"
             name="marketing_accept"
-            className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
+            className="h-5 w-5 rounded-md border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
+            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             {...terms_of_use.bind}
           />
 
@@ -137,12 +148,10 @@ export const SignUp = () => {
 
       <div className="col-span-6">
         <p className="text-sm text-gray-500">
-          By creating an account, you agree to our
-          <Link to="#" className="text-gray-700 underline mx-2">
-            terms and conditions
-          </Link>
-          and
-          <Link to="#" className="text-gray-700 underline ml-2">privacy policy</Link>.
+          By creating an account, you agree to our{" "}
+          <TermsAndConditions />{" "}
+          and{" "}
+          <PrivacyPolicy />.
         </p>
       </div>
 

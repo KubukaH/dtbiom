@@ -1,5 +1,7 @@
 import { Link } from "@reach/router";
 import mudp from "../assets/imgs/BiO-Mudimba-footer.jpg";
+import PrivacyPolicy from "../policies/privacyPolicy";
+import TermsAndConditions from "../policies/termsOfUse";
 
 export function MainFooter() {
   const mudimba = new URL(mudp, import.meta.url);
@@ -222,15 +224,11 @@ export function MainFooter() {
             <nav aria-label="Footer Navigation - Support">
               <ul className="flex flex-wrap gap-4 text-xs">
                 <li>
-                  <Link to="#terms-and-conditions" className="text-gray-500 transition hover:opacity-75">
-                    Terms & Conditions
-                  </Link>
+                  <TermsAndConditions />
                 </li>
 
                 <li>
-                  <Link to="#privacy-policy" className="text-gray-500 transition hover:opacity-75">
-                    Privacy Policy
-                  </Link>
+                  <PrivacyPolicy />
                 </li>
 
                 <li>
