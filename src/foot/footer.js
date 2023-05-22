@@ -209,7 +209,7 @@ export function MainFooter() {
                   </li>
 
                   <li>
-                    <Link to="#merchandise" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="/merchandise-shop" className="text-gray-700 transition hover:opacity-75">
                       Merchandise
                     </Link>
                   </li>

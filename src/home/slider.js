@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,7 +11,7 @@ import 'swiper/modules/navigation/navigation.min.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 
-export function HeadHero() {
+export default function SliderApp() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {

@@ -47,3 +47,76 @@
 code {
   @apply bg-gray-300 border rounded-md overflow-hidden px-2 py-1
 }
+
+.alert-success {
+  @apply bg-lime-300 text-green-600
+}
+
+.alert-info {
+  @apply bg-indigo-200 text-blue-500
+}
+
+.alert-warning {
+  @apply bg-orange-100 text-orange-500
+}
+
+.alert-danger {
+  @apply bg-red-200 text-pink-500
+}
+
+.alert-close {
+  @apply absolute end-1 top-1 ml-3 rounded-full hover:border hover:border-gray-300 hover:bg-gray-100 p-1 bg-transparent text-pink-400
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}

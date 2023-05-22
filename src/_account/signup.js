@@ -18,6 +18,7 @@ export const SignUp = () => {
 
   const onSubmit = e => {
     e.preventDefault();
+    alertService.clear();
 
     if(
       !email.value || 
@@ -27,24 +28,26 @@ export const SignUp = () => {
       !terms_of_use.value ||
       password.value !== confirm_password.value
     ) {
-      alertService.error("Check blank fields in the Form.")
+      alertService.warn("Check blank fields in the Form.");
     } else {
       const user_metadata = {
         full_name: `${first_name.value} ${last_name.value}`
       }
-      auth_strategy.signup(email.value, password.value, user_metadata).then(() => {
+      load(auth_strategy.signup(email.value, password.value, user_metadata)).then(() => {
         alertService.success("Account created!");
         navigate("/account/signin", { replace: true });
       }).catch((err) => alertService.error(err));
     }
   }
 
+  document.title =  `sign up`;
+
   return (
     <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
       <div className="col-span-6 sm:col-span-3">
         <label
           htmlFor="FirstName"
-          className="block text-sm font-medium text-gray-700"
+          className="block after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-gray-700"
         >
           First Name
         </label>
@@ -62,7 +65,7 @@ export const SignUp = () => {
       <div className="col-span-6 sm:col-span-3">
         <label
           htmlFor="LastName"
-          className="block text-sm font-medium text-gray-700"
+          className="block after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-gray-700"
         >
           Last Name
         </label>
@@ -78,7 +81,7 @@ export const SignUp = () => {
       </div>
 
       <div className="col-span-6">
-        <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="Email" className="block after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-gray-700">
           Email
         </label>
 
@@ -95,7 +98,7 @@ export const SignUp = () => {
       <div className="col-span-6 sm:col-span-3">
         <label
           htmlFor="Password"
-          className="block text-sm font-medium text-gray-700"
+          className="block after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-gray-700"
         >
           Password
         </label>
@@ -113,7 +116,7 @@ export const SignUp = () => {
       <div className="col-span-6 sm:col-span-3">
         <label
           htmlFor="PasswordConfirmation"
-          className="block text-sm font-medium text-gray-700"
+          className="block after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-gray-700"
         >
           Password Confirmation
         </label>
@@ -139,7 +142,7 @@ export const SignUp = () => {
             {...terms_of_use.bind}
           />
 
-          <span className="text-sm text-gray-700">
+          <span className="text-sm text-gray-700 before:content-['*'] before:mr-0.5 before:text-red-500">
             I want to receive emails about events, product updates and
             company announcements.
           </span>

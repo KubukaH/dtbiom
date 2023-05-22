@@ -154,6 +154,7 @@ export function SendUs({ closeModal }) {
                   htmlFor="option2"
                   className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-fuchsia-300 peer-checked:bg-fuchsia-500 peer-checked:text-white cursor-pointer"
                   tabIndex="0"
+                  defaultChecked='true'
                 >
                   <span className="text-sm font-medium"> Private </span>
                 </label>
@@ -183,12 +184,9 @@ export function SendUs({ closeModal }) {
               <label className="sr-only" htmlFor="message">Message</label>
 
               <textarea
-                className={joinClassNames(
-                  count > 0
-                  ? "focus:border-fuchsia-300 border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300" 
-                  : "text-pink-600 border-pink-500 focus:border-pink-500 focus:ring-1 ring-pink-500 focus:ring-pink-500",
-                  "focus:outline-none w-full rounded-lg border p-1 text-sm "
-                  )}
+                minLength={3}
+                maxLength={375}
+                className="peer is-dirty in-range:focus:border-fuchsia-300 in-range:border-fuchsia-300 focus:ring-1 in-range:focus:ring-fuchsia-300 out-of-range:text-pink-600 out-of-range:border-pink-500 out-of-range:focus:border-pink-500 out-of-range:focus:ring-1 out-of-range:ring-pink-500 out-of-range:focus:ring-pink-500 focus:outline-none w-full rounded-lg p-1 text-sm"
                 placeholder="Message"
                 rows="8"
                 id="message"
@@ -199,7 +197,7 @@ export function SendUs({ closeModal }) {
                 value={message}
                 required
               ></textarea>
-              <p className="text-end text-[10px] text-gray-600 -mt-1 mr-1">{count - 1} characters left</p>
+              <p className="block text-end text-[10px] text-gray-600 -mt-1 mr-1 after:content-['left'] after:ml-0.5 after:text-gray-500">{count - 1} characters</p>
             </div>
 
             <div className="mt-4">

@@ -53,7 +53,7 @@ export default function TermsAndConditions() {
               </Transition.Child>
               <button
                 type="button"
-                className="absolute top-5 md:end-[350px] md:top-8 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
+                className="absolute top-12 md:end-[350px] lg:top-8 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
                 onClick={closeModal}
               >
                 <span className="sr-only">Close</span>

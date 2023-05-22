@@ -12,6 +12,13 @@ export function SignIn() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    alertService.clear();
+    if (
+      !email.value || 
+      !password.value
+    ) {
+      return alertService.error("Either Email Field/Password Field or both are blank.");
+    }
     load(auth_strategy.login(email.value, password.value, true)).then(() => {
       alertService.success(" Loged In");
       navigate(-1, { replace: true });
@@ -19,6 +26,8 @@ export function SignIn() {
       alertService.error(error);
     });
   }
+
+  document.title =  `sign in`;
 
   return (
     <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">

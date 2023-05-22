@@ -63,12 +63,12 @@ function AlertPopper({ id, fade }) {
   function cssClasses(alert) {
     if (!alert) return;
 
-    const classes = ['alert', 'alert-dismissible'];
+    const classes = ['alert-dismissible'];
     const alertTypeClass = {
-      [AlertType.Success]: 'alert alert-success',
-      [AlertType.Error]: 'alert alert-danger',
-      [AlertType.Info]: 'alert alert-info',
-      [AlertType.Warning]: 'alert alert-warning'
+      [AlertType.Success]: 'alert-success',
+      [AlertType.Error]: 'alert-danger',
+      [AlertType.Info]: 'alert-info',
+      [AlertType.Warning]: 'alert-warning'
     }
 
     classes.push(alertTypeClass[alert.type]);
@@ -87,24 +87,10 @@ function AlertPopper({ id, fade }) {
       {alerts.map((alert, index) => (
         <Transition appear show={isOpen} as={Fragment} key={index}>
         <Dialog 
-          as="div" 
-          className={joinClassNames(cssClasses(alert), "fixed top-10 left-52 z-50")} 
+          as="div"
           onClose={removeAlert}
-          
         >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-  
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed top-12 right-16">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -115,30 +101,32 @@ function AlertPopper({ id, fade }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" w-full max-w-[512px] h-20 transform overflow-hidden rounded-xl bg-white p-2 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel 
+                  className={joinClassNames(cssClasses(alert),
+                    "max-w-[512px] h-full p-5 transform text-justify overflow-hidden rounded-xl shadow-xl transition-all"
+                    )}
+                >
                   <span dangerouslySetInnerHTML={{ __html: alert.message }} />
   
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="absolute end-1 top-1 rounded-full border border-gray-300 bg-gray-100 p-1"
-                      onClick={() => removeAlert(alert)}
-                    >
+                  <button
+                    type="button"
+                    className="alert-close"
+                    onClick={() => removeAlert(alert)}
+                  >
                       <span className="sr-only">Close</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-3 w-3"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

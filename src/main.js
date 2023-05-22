@@ -1,6 +1,6 @@
 import { Router } from "@reach/router";
 
-// COMPONENTS and ROUTES
+// COMPONENTS & ROUTES
 import { AppContext } from "./_components";
 import { AlertPopper } from "./_components/alert";
 import { HeaderSection } from "./head";
@@ -10,6 +10,7 @@ import { FanZone } from "./fan/zone";
 import { AccountSection } from "./_account";
 import { SignIn } from "./_account/signin";
 import { SignUp } from "./_account/signup";
+import { Merchandise } from "./home/merchandise";
 
 // The App Function
 export function App() {
@@ -23,9 +24,10 @@ export function App() {
           <SignIn path="signin" />
           <SignUp path="signup" />
         </AccountSection>
+        <Merchandise path="/merchandise-shop" />
         <PageNotFound default />
       </Router>
-      <AlertPopper/>
+      <AlertPopper />
     </AppContext>
   );
 }
