@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { alertService } from "../_components/alert/service";
-import { joinClassNames, useInput } from "../_components";
+import { useInput } from "../_components";
 import useLoading from "../_components/extras/loading";
 import { newCollection } from "../_db/operations";
 
@@ -10,9 +10,6 @@ export function SendUs({ closeModal }) {
   const [isLoading, load] = useLoading();
   const [message, setMessage] = useState('');
   const [state, setState] = useState({
-    names: "",
-    email: "",
-    phonenumber: "",
     private: false,
     public: true,
     other: false,
@@ -29,12 +26,13 @@ export function SendUs({ closeModal }) {
     alertService.clear();
     e.preventDefault();
     const response = await newCollection({
-      ...state,
       email: email.value,
       names: names.value,
       message: message,
       phonenumber: phonenumber.value,
-      status: 'Pending'
+      ...state,
+      status: 'Pending',
+      last_updated: new Date().now()
     }, colName);
     setState({
       ...state,
@@ -92,7 +90,7 @@ export function SendUs({ closeModal }) {
                 placeholder="Name"
                 type="text"
                 id="name"
-                {...state.names.bind}
+                {...names.bind}
               />
             </div>
 
@@ -105,7 +103,7 @@ export function SendUs({ closeModal }) {
                   placeholder="Email address"
                   type="email"
                   id="email"
-                  {...state.email.bind}
+                  {...email.bind}
                 />
               </div>
 
@@ -117,7 +115,7 @@ export function SendUs({ closeModal }) {
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
-                  {...state.phonenumber.bind}
+                  {...phonenumber.bind}
                 />
               </div>
             </div>

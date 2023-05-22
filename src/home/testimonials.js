@@ -61,7 +61,7 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="lg:h-screen h-full">
+    <section className="h-full">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-4 sm:px-6 lg:px-8">
         <h2 className="flex mb-8 text-2xl lg:text-5xl text-purple-500 flex-row" >
           The Fan Z
@@ -72,7 +72,7 @@ export function TestimonialsSection() {
           className="[column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8"
         >
           {
-            listTransaction ? listTransaction.slice(0,6).map((msg) => (
+            listTransaction ? listTransaction.slice(0,5).map((msg) => (
               <MessageCard msgData={msg} profp={prf} key={msg.id} />
             )) : (
               <div className="mb-8 sm:break-inside-avoid">
@@ -84,11 +84,10 @@ export function TestimonialsSection() {
               </div>
             )
           }
-
+          <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
+            <Link to="/fanzone" className="gradient-btn">See more messages</Link>
+          </div>
         </div>
-      </div>
-      <div className="lg:px-64 px-4 mb-16">
-        <Link to="/fanzone" className="gradient-btn">See more messages</Link>
       </div>
     </section>
   );
