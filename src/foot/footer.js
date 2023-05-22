@@ -26,7 +26,7 @@ export function MainFooter() {
 
               <Link
                 to="#call-us-for-more-info-about-our-band"
-                className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
+                className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl bg-gradient-to-r from-fuchsia-400 via-green-600 to-indigo-700 bg-clip-text text-transparent"
               >
                 +263 77 548 6117
               </Link>

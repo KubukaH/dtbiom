@@ -55,13 +55,13 @@ export default function MessageModal() {
               </Transition.Child>
               <button
                 type="button"
-                className="absolute top-5 md:end-[250px] md:top-8 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
+                className="absolute top-28 md:end-[250px] md:top-8 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
                 onClick={closeModal}
               >
                 <span className="sr-only">Close</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-3 w-3 md:h-6 md:w-6 text-red-300 hover:text-red-400"
+                  className="h-3 w-3 md:h-6 md:w-6 text-pink-700 lg:text-red-300 hover:text-red-400"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

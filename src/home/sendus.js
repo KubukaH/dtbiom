@@ -12,8 +12,7 @@ export function SendUs({ closeModal }) {
   const [state, setState] = useState({
     private: false,
     public: true,
-    other: false,
-    message: ""
+    other: false
   });
 
   const names = useInput('');
@@ -31,8 +30,7 @@ export function SendUs({ closeModal }) {
       message: message,
       phonenumber: phonenumber.value,
       ...state,
-      status: 'Pending',
-      last_updated: new Date().now()
+      status: 'Pending'
     }, colName);
     setState({
       ...state,
