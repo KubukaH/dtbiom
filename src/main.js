@@ -11,6 +11,8 @@ import { AccountSection } from "./_account";
 import { SignIn } from "./_account/signin";
 import { SignUp } from "./_account/signup";
 import { Merchandise } from "./home/merchandise";
+import { ForgotPassword } from "./_account/forgotPassword";
+import { RecoverAccount } from "./_account/recoverAccount";
 
 // The App Function
 export function App() {
@@ -23,6 +25,8 @@ export function App() {
         <AccountSection path="/account">
           <SignIn path="signin" />
           <SignUp path="signup" />
+          <ForgotPassword path="forgot-password" />
+          <RecoverAccount path="recover-account" />
         </AccountSection>
         <Merchandise path="/merchandise-shop" />
         <PageNotFound default />
