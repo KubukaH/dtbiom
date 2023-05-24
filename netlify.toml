@@ -11,5 +11,5 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
-  [plugins.inputs]
-  buildDir = "dist"
+[[plugins]]
+  package = "@netlify/plugin-emails"

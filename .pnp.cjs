@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@parcel/transformer-raw", "npm:2.8.3"],\
             ["@parcel/transformer-svg-react", "npm:2.8.3"],\
             ["@reach/router", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:1.3.4"],\
+            ["@sendgrid/mail", "npm:7.7.0"],\
             ["@tailwindcss/forms", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.5.3"],\
             ["date-fns", "npm:2.30.0"],\
             ["faunadb", "npm:4.8.0"],\
@@ -1655,6 +1656,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@sendgrid/client", [\
+        ["npm:7.7.0", {\
+          "packageLocation": "./.yarn/cache/@sendgrid-client-npm-7.7.0-5f79fe887b-81299ff65b.zip/node_modules/@sendgrid/client/",\
+          "packageDependencies": [\
+            ["@sendgrid/client", "npm:7.7.0"],\
+            ["@sendgrid/helpers", "npm:7.7.0"],\
+            ["axios", "npm:0.26.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sendgrid/helpers", [\
+        ["npm:7.7.0", {\
+          "packageLocation": "./.yarn/cache/@sendgrid-helpers-npm-7.7.0-6af68b3344-20387aae1b.zip/node_modules/@sendgrid/helpers/",\
+          "packageDependencies": [\
+            ["@sendgrid/helpers", "npm:7.7.0"],\
+            ["deepmerge", "npm:4.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sendgrid/mail", [\
+        ["npm:7.7.0", {\
+          "packageLocation": "./.yarn/cache/@sendgrid-mail-npm-7.7.0-347c053cdb-8bd446c367.zip/node_modules/@sendgrid/mail/",\
+          "packageDependencies": [\
+            ["@sendgrid/mail", "npm:7.7.0"],\
+            ["@sendgrid/client", "npm:7.7.0"],\
+            ["@sendgrid/helpers", "npm:7.7.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@svgr/babel-plugin-add-jsx-attribute", [\
         ["npm:6.5.1", {\
           "packageLocation": "./.yarn/cache/@svgr-babel-plugin-add-jsx-attribute-npm-6.5.1-e8ce01471e-cab8383283.zip/node_modules/@svgr/babel-plugin-add-jsx-attribute/",\
@@ -2177,6 +2210,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/argparse-npm-2.0.1-faff7999e6-83644b5649.zip/node_modules/argparse/",\
           "packageDependencies": [\
             ["argparse", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["axios", [\
+        ["npm:0.26.1", {\
+          "packageLocation": "./.yarn/cache/axios-npm-0.26.1-a6641ce4e3-d9eb58ff4b.zip/node_modules/axios/",\
+          "packageDependencies": [\
+            ["axios", "npm:0.26.1"],\
+            ["follow-redirects", "virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.15.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2854,6 +2897,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@parcel/transformer-raw", "npm:2.8.3"],\
             ["@parcel/transformer-svg-react", "npm:2.8.3"],\
             ["@reach/router", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:1.3.4"],\
+            ["@sendgrid/mail", "npm:7.7.0"],\
             ["@tailwindcss/forms", "virtual:d98a6cebd807d80dab631913134dcc6c27cbae28ec60f3f7e812b198786684a7a299dd2a3d43a1fd0e2ac1a50b0bb60566c20e4aafca7220932d60781cbcff4c#npm:0.5.3"],\
             ["date-fns", "npm:2.30.0"],\
             ["faunadb", "npm:4.8.0"],\
@@ -3026,6 +3070,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fn-annotate-npm-1.2.0-c34b62b1bf-9e10d50249.zip/node_modules/fn-annotate/",\
           "packageDependencies": [\
             ["fn-annotate", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["follow-redirects", [\
+        ["npm:1.15.2", {\
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "npm:1.15.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-1a488024d3/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.15.2"],\
+            ["@types/debug", null],\
+            ["debug", null]\
+          ],\
+          "packagePeers": [\
+            "@types/debug",\
+            "debug"\
           ],\
           "linkType": "HARD"\
         }]\
