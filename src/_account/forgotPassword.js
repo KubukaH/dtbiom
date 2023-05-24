@@ -28,7 +28,7 @@ export function ForgotPassword() {
   return (
     <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
       <div className="col-span-6">
-        <h2 className="text-3xl text-center font-semibold mb-8">Login</h2>
+        <h2 className="text-3xl text-center font-semibold mb-8">Forgot password</h2>
       </div>
       <div className="col-span-6">
         <label
