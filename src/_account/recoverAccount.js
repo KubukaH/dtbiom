@@ -17,7 +17,8 @@ export function RecoverAccount() {
   const [tokenStatus, setTokenStatus] = useState(TokenStatus.Validating);
 
   useEffect(() => {
-    const { recovery_token } = new URLSearchParams(document.location);
+    let params = new URL(document.location).searchParams;
+    let recovery_token = params.get('recovery_token');
 
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
