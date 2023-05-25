@@ -20,6 +20,8 @@ export function RecoverAccount() {
     let params = new URL(document.location).searchParams;
     let recovery_token = params.get('recovery_token');
 
+    navigate(location.pathname, { replace: true });
+
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
       setTokenStatus(TokenStatus.Valid);
@@ -40,16 +42,16 @@ export function RecoverAccount() {
         !password.value ||
         !password_confirm
       ) {
-        return alertService.error("Blank fields detected.");
+        return alertService.warn("Blank fields detected.", { keepAfterRouteChange: false });
       }
       if ( password.value !== password_confirm.value ) {
-        return alertService.error("Passwords don't match!");
+        return alertService.error("Passwords don't match!", { keepAfterRouteChange: false });
       }
       load(user.update({password: password.value})).then(() => {
         alertService.success("Successfully changed your password.", { keepAfterRouteChange: true });
         navigate(-1, { replace: true });
       }).catch((error) => {
-        alertService.error(error);
+        alertService.error(error, { keepAfterRouteChange: false });
       });
     }
   

@@ -16,6 +16,7 @@ import { RecoverAccount } from "./_account/recoverAccount";
 
 // The App Function
 export function App() {
+
   return (
     <AppContext>
       <NavigationSection />

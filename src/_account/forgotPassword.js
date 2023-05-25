@@ -15,13 +15,13 @@ export function ForgotPassword() {
     if (
       !email.value
     ) {
-      return alertService.error("Email Field is blank.");
+      return alertService.warn("Email Field is blank.", { keepAfterRouteChange: false });
     }
     load(auth_strategy.requestPasswordRecovery(email.value)).then(() => {
       alertService.success("Check your email for a reset link.", { keepAfterRouteChange: true });
       navigate(-1, { replace: true });
     }).catch((error) => {
-      alertService.error(error);
+      alertService.error(error, { keepAfterRouteChange: false });
     });
   }
 

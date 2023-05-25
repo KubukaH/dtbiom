@@ -40,9 +40,16 @@ function AlertPopper({ id, fade }) {
         }
       }
     );
+
+    function historyUnlisten() {
+      if (document.location.href.endsWith('/')) return;
+      alertService.clear(id);
+    }
+
     //Clean Up function
     return () => {
       subscription.unsubscribe();
+      historyUnlisten();
     };
   },[]);
 

@@ -17,13 +17,17 @@ export function SignIn() {
       !email.value || 
       !password.value
     ) {
-      return alertService.error("Either Email Field/Password Field or both are blank.");
+      return alertService.warn("Either Email Field/Password Field or both are blank.", {
+        keepAfterRouteChange: false
+      });
     }
     load(auth_strategy.login(email.value, password.value, true)).then(() => {
-      alertService.success(" Loged In");
+      alertService.success(" Loged In", {
+        keepAfterRouteChange: true
+      });
       navigate(-1, { replace: true });
     }).catch((error) => {
-      alertService.error(error);
+      alertService.error(error, { keepAfterRouteChange: false });
     });
   }
 

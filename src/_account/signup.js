@@ -28,15 +28,19 @@ export const SignUp = () => {
       !terms_of_use.value ||
       password.value !== confirm_password.value
     ) {
-      alertService.warn("Check blank fields in the Form.");
+      alertService.warn("Check blank fields in the Form.", {
+        keepAfterRouteChange: false
+      });
     } else {
       const user_metadata = {
         full_name: `${first_name.value} ${last_name.value}`
       }
       load(auth_strategy.signup(email.value, password.value, user_metadata)).then(() => {
-        alertService.success("Account created!");
+        alertService.success("Account created!", {
+          keepAfterRouteChange: true
+        });
         navigate("/account/signin", { replace: true });
-      }).catch((err) => alertService.error(err));
+      }).catch((err) => alertService.error(err, { keepAfterRouteChange: false }));
     }
   }
 
