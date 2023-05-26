@@ -35,7 +35,6 @@ export function RecoverAccount() {
   function theForm() {
     const password = useInput("");
     const password_confirm = useInput("");
-    const user = auth_strategy.currentUser();
 
     const onSubmit = (e) => {
       e.preventDefault();
@@ -49,6 +48,7 @@ export function RecoverAccount() {
       if ( password.value !== password_confirm.value ) {
         return alertService.error("Passwords don't match!", { keepAfterRouteChange: false });
       }
+      const user = auth_strategy.currentUser();
       load(user.update({password: password.value})).then(() => {
         alertService.success("Successfully changed your password.", { keepAfterRouteChange: true });
         navigate(-1, { replace: true });
