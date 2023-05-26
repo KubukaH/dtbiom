@@ -1,4 +1,30 @@
+import { useInput } from "../_components";
+import useLoading from "../_components/extras/loading";
+
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
+
 export const SubscribeMe = () => {
+  const [isLoading, load] = useLoading(false);
+  const email = useInput('');
+  
+  const handleSubmit = e => {
+    load(fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "subscribe", email: email.value })
+    }))
+      .then(() => {
+        alert("You have been subscribed.");
+      })
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
   return (
     <section className="bg-gray-50">
       <div className="p-8 md:p-12 lg:px-16 lg:py-24">
@@ -13,7 +39,7 @@ export const SubscribeMe = () => {
         </div>
     
         <div className="mx-auto mt-8 max-w-xl">
-          <form action="#" className="sm:flex sm:gap-4">
+          <form onSubmit={handleSubmit} className="sm:flex sm:gap-4">
             <div className="sm:flex-1">
               <label htmlFor="email" className="sr-only">Email</label>
     
@@ -21,12 +47,14 @@ export const SubscribeMe = () => {
                 type="email"
                 placeholder="Email address"
                 className="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
+                {...email.bind}
               />
             </div>
     
             <button
               type="submit"
               className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
+              disabled={isLoading}
             >
               <span className="text-sm font-medium"> Sign Up </span>
     

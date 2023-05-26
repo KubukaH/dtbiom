@@ -119,6 +119,13 @@ export function SignIn() {
           disabled={isLoading}
         >
           Sign In
+          {isLoading && 
+            <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+              <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+              <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+              <div class="w-3 h-3 bg-pink-400 rounded-full"></div>
+          </div>
+          }
         </button>
 
         <p className="mt-4 text-sm text-gray-500 sm:mt-0">
