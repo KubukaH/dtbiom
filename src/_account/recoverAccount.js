@@ -4,6 +4,7 @@ import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { alertService } from "../_components/alert/service";
 import { SpinnerIcon } from "../_components/spinnerIcon";
+import { useInput } from "../_components";
 
 export function RecoverAccount() {
   const [isLoading, load] = useLoading(false);
