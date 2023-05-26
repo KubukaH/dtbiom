@@ -1,4 +1,5 @@
 import { useInput } from "../_components";
+import { alertService } from "../_components/alert/service";
 import useLoading from "../_components/extras/loading";
 
 const encode = (data) => {
@@ -18,15 +19,15 @@ export const SubscribeMe = () => {
       body: encode({ "form-name": "subscribe", email: email.value })
     }))
       .then(() => {
-        alert("You have been subscribed.");
+        alertService.success("Your email has been captured correctly.");
       })
-      .catch(error => alert(error));
+      .catch(error => alertService.error(error));
 
     e.preventDefault();
   };
 
   return (
-    <section className="bg-gray-50">
+    <section className="bg-gradient-to-r from-fuchsia-300 via-fuchsia-200 to-fuchsia-500">
       <div className="p-8 md:p-12 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -45,6 +46,7 @@ export const SubscribeMe = () => {
     
               <input
                 type="email"
+                required
                 placeholder="Email address"
                 className="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
                 {...email.bind}
@@ -53,10 +55,17 @@ export const SubscribeMe = () => {
     
             <button
               type="submit"
-              className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
+              className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-indigo-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
               disabled={isLoading}
             >
               <span className="text-sm font-medium"> Sign Up </span>
+              {isLoading && 
+                <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+                  <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+                  <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
+              </div>
+              }
     
               <svg
                 className="h-5 w-5 rtl:rotate-180"
