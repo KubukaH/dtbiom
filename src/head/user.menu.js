@@ -8,7 +8,7 @@ export default function UserMenu({logo, user}) {
 
   const handleLogout = () => {
     user.logout().then(() => {
-      redirectTo('/', { replace: true });
+      redirectTo('/account/signin', { replace: true });
     });
   }
 
