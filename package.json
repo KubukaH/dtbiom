@@ -5,7 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": "public/index.html",
   "scripts": {
-    "start": "parcel --open --port 5120",
+    "start": "parcel --https --open --port 5120",
     "build": "parcel build"
   },
   "dependencies": {

@@ -4,6 +4,7 @@ import { HomeIcon, LockOpenIcon } from "@heroicons/react/24/outline";
 import MessageModal from "../fan/modal";
 import biologo from "../assets/imgs/bio-mud-page-logo.jpg";
 import { auth_strategy } from "../_db/auth";
+import UserMenu from "./user.menu";
 
 export function NavigationSection() {
   const logo = new URL(biologo, import.meta.url);
@@ -39,16 +40,7 @@ export function NavigationSection() {
           ></span>
     
           {
-            user ? (
-              <Link to="/profile" className="block shrink-0 bg-transparent">
-                <span className="sr-only">Profile</span>
-                <img
-                  alt="Mudimba"
-                  src={logo}
-                  className="lg:w-8 lg:h-8 h-5 w-5 rounded-full object-cover"
-                />
-              </Link>
-            ) : (
+            user ? ( <UserMenu logo={logo} /> ) : (
               <Link to="/account/signin" className="block shrink-0 rounded-full p-1 bg-transparent shadow-sm">
                 <span className="sr-only">Login</span>
                 <LockOpenIcon className="h-5 w-5 text-white" />
