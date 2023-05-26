@@ -61,7 +61,7 @@ export const SubscribeMe = () => {
               <span className="text-sm font-medium"> Sign Up </span>
               {isLoading 
                 ? 
-                <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+                <div class="inline-flex items-center justify-center ml-2 space-x-1 animate-pulse">
                   <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
                   <div class="w-1 h-1 bg-green-400 rounded-full"></div>
                   <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
