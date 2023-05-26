@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
-import { useInput } from "../_components";
+import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
 import { SpinnerIcon } from "../_components/spinnerIcon";
 
@@ -35,6 +35,7 @@ export function RecoverAccount() {
   function theForm() {
     const password = useInput("");
     const password_confirm = useInput("");
+    const { user } = useCTX();
 
     const onSubmit = (e) => {
       e.preventDefault();
@@ -48,7 +49,6 @@ export function RecoverAccount() {
       if ( password.value !== password_confirm.value ) {
         return alertService.error("Passwords don't match!", { keepAfterRouteChange: false });
       }
-      const user = auth_strategy.currentUser();
       load(user.update({password: password.value})).then(() => {
         alertService.success("Successfully changed your password.", { keepAfterRouteChange: true });
         navigate(-1, { replace: true });
