@@ -13,19 +13,20 @@ export function RecoverAccount() {
     Invalid: 'Invalid'
   }
 
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState({});
   const [tokenStatus, setTokenStatus] = useState(TokenStatus.Validating);
 
   useEffect(() => {
     let params = new URL(document.location).searchParams;
     let recovery_token = params.get('recovery_token');
 
-    // navigate(location.pathname, { replace: true });
+    navigate(location.pathname, { replace: true });
 
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
       setTokenStatus(TokenStatus.Valid);
-    }).catch(() => {
+    }).catch((error) => {
+      alertService.error(error);
       setTokenStatus(TokenStatus.Invalid);
     });
   },[]);
