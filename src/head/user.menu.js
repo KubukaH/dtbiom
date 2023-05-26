@@ -13,7 +13,7 @@ export default function UserMenu({logo, user}) {
   }
 
   return (
-    <div className="">
+    <div className="fixed ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="block shrink-0 bg-transparent rounded-full justify-center">
