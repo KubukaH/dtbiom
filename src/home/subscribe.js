@@ -59,28 +59,30 @@ export const SubscribeMe = () => {
               disabled={isLoading}
             >
               <span className="text-sm font-medium"> Sign Up </span>
-              {isLoading && 
+              {isLoading 
+                ? 
                 <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
                   <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
                   <div class="w-1 h-1 bg-green-400 rounded-full"></div>
                   <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
-              </div>
+                </div>
+                :
+                <svg
+                  className="h-5 w-5 rtl:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+
               }
-    
-              <svg
-                className="h-5 w-5 rtl:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
             </button>
           </form>
         </div>

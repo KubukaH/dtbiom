@@ -95,7 +95,7 @@ function AlertPopper({ id, fade }) {
         <Transition appear show={isOpen} as={Fragment} key={index}>
         <aside
           className={joinClassNames(cssClasses(alert),
-            "fixed bottom-4 end-4 z-50  px-5 py-3 flex items-center justify-center gap-4 rounded-lg"
+            "fixed top-8 end-56 z-50  px-5 py-3 flex items-center justify-center gap-4 rounded-lg"
             )}
         >
           <span dangerouslySetInnerHTML={{ __html: alert.message }} className="text-sm font-medium hover:opacity-75" />
