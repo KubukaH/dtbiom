@@ -13,10 +13,10 @@ export default function UserMenu({logo, user}) {
   }
 
   return (
-    <div className="fixed top-1">
+    <div className="block shrink-0 bg-transparent">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="block shrink-0 bg-transparent rounded-full justify-center">
+          <Menu.Button className="rounded-full justify-center">
             <span className="sr-only">Profile</span>
             <img
               alt="Mudimba"
