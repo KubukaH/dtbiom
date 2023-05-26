@@ -58,35 +58,9 @@ export function SignIn() {
             Email
           </span>
         </label>
-        {/*<label
-          htmlFor="FirstName"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Email
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          name="email"
-          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />*/}
       </div>
 
       <div className="col-span-6 sm:col-span-3">
-        {/*<label
-          htmlFor="Password"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Password
-        </label>
-
-        <input
-          type="password"
-          id="Password"
-          name="password"
-          className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />*/}
         <label
           htmlFor="UserEmail"
           className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -121,9 +95,9 @@ export function SignIn() {
           Sign In
           {isLoading && 
             <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
-              <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
-              <div class="w-3 h-3 bg-green-400 rounded-full"></div>
-              <div class="w-3 h-3 bg-pink-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
           </div>
           }
         </button>

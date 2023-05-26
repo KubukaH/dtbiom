@@ -1,14 +1,14 @@
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link, navigate, redirectTo } from '@reach/router';
 import useLoading from '../_components/extras/loading';
 
 export default function UserMenu({logo, user}) {
   const [isLoading, load] = useLoading(false);
 
   const handleLogout = () => {
-    load(user.logout()).then(() => {
-      navigate('/', { replace: true });
+    user.logout().then(() => {
+      redirectTo('/', { replace: true });
     });
   }
 
