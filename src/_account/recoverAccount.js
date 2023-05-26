@@ -20,7 +20,7 @@ export function RecoverAccount() {
     let params = new URL(document.location).searchParams;
     let recovery_token = params.get('recovery_token');
 
-    navigate(location.pathname, { replace: true });
+    // navigate(location.pathname, { replace: true });
 
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
