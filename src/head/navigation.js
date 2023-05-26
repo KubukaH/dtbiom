@@ -2,12 +2,12 @@ import { Link } from "@reach/router";
 import { HomeIcon, LockOpenIcon } from "@heroicons/react/24/outline";
 
 import MessageModal from "../fan/modal";
-import { useCTX } from "../_components";
 import biologo from "../assets/imgs/bio-mud-page-logo.jpg";
+import { auth_strategy } from "../_db/auth";
 
 export function NavigationSection() {
   const logo = new URL(biologo, import.meta.url);
-  const { user } = useCTX();
+  const user = auth_strategy.currentUser();
 
   return (
     <div aria-label="Page Header" className="fixed z-20 navribbon">

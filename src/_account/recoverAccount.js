@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
-import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
 import { SpinnerIcon } from "../_components/spinnerIcon";
 
@@ -35,7 +34,7 @@ export function RecoverAccount() {
   function theForm() {
     const password = useInput("");
     const password_confirm = useInput("");
-    const { user } = useCTX();
+    const user = auth_strategy.currentUser();
 
     const onSubmit = (e) => {
       e.preventDefault();

@@ -1,11 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { accountService } from "../_account/service";
 import client, { getCollectionRef, getSetRef, allCollections } from "../_db/operations";
 
 const MainContext = createContext(null);
 
 const AppContext = ({ children }) => {
-  const user = accountService.userValue;
   const [listLikes, setListLikes] = useState([]);
 
   const likeSetRef = getSetRef("Like");
@@ -57,7 +55,6 @@ const AppContext = ({ children }) => {
   }
 
   const value = {
-    user,
     listLikes
   };
 
