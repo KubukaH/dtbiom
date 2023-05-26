@@ -110,7 +110,7 @@ export function RecoverAccount() {
       case TokenStatus.Invalid:
         return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="/account/forgot-password" className="text-indigo-400 font-semibold">forgot password</Link> page.</div>;
       case TokenStatus.Validating:
-        return <div>Validating token...</div>;
+        return <div>Validating token for {token}</div>;
     }
   }
 
