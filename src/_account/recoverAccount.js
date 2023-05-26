@@ -13,20 +13,20 @@ export function RecoverAccount() {
     Invalid: 'Invalid'
   }
 
-  const [token, setToken] = useState({});
+  const [token, setToken] = useState(null);
   const [tokenStatus, setTokenStatus] = useState(TokenStatus.Validating);
 
   useEffect(() => {
     let params = new URL(document.location).searchParams;
     let recovery_token = params.get('recovery_token');
 
-    navigate(location.pathname, { replace: true });
+    // navigate(location.pathname, { replace: true });
 
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
       setTokenStatus(TokenStatus.Valid);
     }).catch((error) => {
-      alertService.error(error);
+      alertService(error);
       setTokenStatus(TokenStatus.Invalid);
     });
   },[]);
@@ -111,7 +111,7 @@ export function RecoverAccount() {
       case TokenStatus.Invalid:
         return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="/account/forgot-password" className="text-indigo-400 font-semibold">forgot password</Link> page.</div>;
       case TokenStatus.Validating:
-        return <div>Validating token for {token}</div>;
+        return <div>Validating token...</div>;
     }
   }
 
