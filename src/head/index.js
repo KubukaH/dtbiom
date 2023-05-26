@@ -3,6 +3,7 @@ import { redirectTo } from "@reach/router";
 import { FooterSection } from "../foot";
 import { TestimonialsSection } from "../home/testimonials";
 import { HeadHero } from "./homeHero";
+import { SubscribeMe } from "../home";
 
 export function HeaderSection() {
   const params = new URL(document.location.href);
@@ -22,6 +23,7 @@ export function HeaderSection() {
       <HeadHero />
     </header>
     <TestimonialsSection />
+    <SubscribeMe />
     <FooterSection />
     </>
   );

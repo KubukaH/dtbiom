@@ -93,52 +93,33 @@ function AlertPopper({ id, fade }) {
     <>
       {alerts.map((alert, index) => (
         <Transition appear show={isOpen} as={Fragment} key={index}>
-        <Dialog 
-          as="div"
-          onClose={removeAlert}
+        <aside
+          className={joinClassNames(cssClasses(alert),
+            "fixed bottom-4 end-4 z-50  px-5 py-3 flex items-center justify-center gap-4 rounded-lg"
+            )}
         >
-          <div className="fixed top-12 right-16">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel 
-                  className={joinClassNames(cssClasses(alert),
-                    "max-w-[512px] h-full p-5 transform text-justify overflow-hidden rounded-xl shadow-xl transition-all"
-                    )}
-                >
-                  <span dangerouslySetInnerHTML={{ __html: alert.message }} />
-  
-                  <button
-                    type="button"
-                    className="alert-close"
-                    onClick={() => removeAlert(alert)}
-                  >
-                      <span className="sr-only">Close</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
+          <span dangerouslySetInnerHTML={{ __html: alert.message }} className="text-sm font-medium hover:opacity-75" />
+          <span />
+
+          <button 
+            className="rounded bg-white/20 p-1 hover:bg-white/10"
+            onClick={() => removeAlert(alert)}
+          >
+            <span className="sr-only">Close</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </aside>
         </Transition>
       ))}
       </>

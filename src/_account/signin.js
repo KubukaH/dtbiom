@@ -40,6 +40,25 @@ export function SignIn() {
       </div>
       <div className="col-span-6 sm:col-span-3">
         <label
+          htmlFor="UserEmail"
+          className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        >
+          <input
+            type="email"
+            id="UserEmail"
+            placeholder="Email"
+            name="email"
+            className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            {...email.bind}
+          />
+
+          <span
+            className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
+          >
+            Email
+          </span>
+        </label>
+        {/*<label
           htmlFor="FirstName"
           className="block text-sm font-medium text-gray-700"
         >
@@ -51,12 +70,11 @@ export function SignIn() {
           id="email"
           name="email"
           className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-          {...email.bind}
-        />
+        />*/}
       </div>
 
       <div className="col-span-6 sm:col-span-3">
-        <label
+        {/*<label
           htmlFor="Password"
           className="block text-sm font-medium text-gray-700"
         >
@@ -68,8 +86,26 @@ export function SignIn() {
           id="Password"
           name="password"
           className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-          {...password.bind}
-        />
+        />*/}
+        <label
+          htmlFor="UserEmail"
+          className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        >
+          <input
+            type="password"
+            id="UserPassword"
+            placeholder="Password"
+            name="password"
+            className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            {...password.bind}
+          />
+
+          <span
+            className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
+          >
+            Password
+          </span>
+        </label>
       </div>
 
       <Link to="/account/forgot-password" className="col-span-6 block text-end sm:items-center sm:gap-4 text-indigo-400">
