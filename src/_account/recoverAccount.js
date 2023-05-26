@@ -4,6 +4,7 @@ import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
+import { SpinnerIcon } from "../_components/spinnerIcon";
 
 export function RecoverAccount() {
   const [isLoading, load] = useLoading(false);
@@ -111,7 +112,12 @@ export function RecoverAccount() {
       case TokenStatus.Invalid:
         return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="/account/forgot-password" className="text-indigo-400 font-semibold">forgot password</Link> page.</div>;
       case TokenStatus.Validating:
-        return <div>Validating token...</div>;
+        return (
+          <div className="w-full items-center justify-center">
+            <SpinnerIcon />
+            Validating token...
+          </div>
+        )
     }
   }
 
