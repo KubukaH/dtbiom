@@ -27,7 +27,7 @@ export function RecoverAccount() {
       setToken(response);
       setTokenStatus(TokenStatus.Valid);
     }).catch((error) => {
-      alertService.error(error);
+      alertService.error(error, { keepAfterRouteChange: false });
       setTokenStatus(TokenStatus.Invalid);
     });
   },[]);
