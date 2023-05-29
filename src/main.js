@@ -13,6 +13,11 @@ import { SignUp } from "./_account/signup";
 import { Merchandise } from "./home/merchandise";
 import { ForgotPassword } from "./_account/forgotPassword";
 import { RecoverAccount } from "./_account/recoverAccount";
+import { Dashboard } from "./admin";
+import { SideMenu } from "./admin/sideMenu";
+import { StatisticsSection } from "./admin/stats";
+import { ConfirmUser } from "./admin/confrm";
+import { UserProfile } from "./profile";
 
 // The App Function
 export function App() {
@@ -30,6 +35,11 @@ export function App() {
           <RecoverAccount path="recover-account" />
         </AccountSection>
         <Merchandise path="/merchandise-shop" />
+        <SideMenu path='/admin'>
+          <ConfirmUser path='/' />
+          <StatisticsSection path='users' />
+        </SideMenu>
+        <UserProfile path='profile' />
         <PageNotFound default />
       </Router>
       <AlertPopper />

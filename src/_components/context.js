@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import client, { getCollectionRef, getSetRef, allCollections } from "../_db/operations";
+import { auth_strategy } from "../_db/auth";
 
 const MainContext = createContext(null);
 
 const AppContext = ({ children }) => {
   const [listLikes, setListLikes] = useState([]);
+  const user = auth_strategy.currentUser();
 
   const likeSetRef = getSetRef("Like");
   const streamOptions = { fields: [ 'action', 'document' ] };
@@ -55,10 +57,15 @@ const AppContext = ({ children }) => {
   }
 
   const value = {
+    user,
     listLikes
   };
 
-  return <MainContext.Provider value={value}>{children}</MainContext.Provider>
+  return (
+    <MainContext.Provider value={value}>
+      {children}
+    </MainContext.Provider>
+  );
 }
 
 const useCTX = () => useContext(MainContext);

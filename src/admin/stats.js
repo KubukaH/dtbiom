@@ -1,43 +1,124 @@
+const items = [
+  {
+    percentage: "67.81%",
+    total: "$404.31",
+    cost: "$240.94"
+  },
+  {
+    percentage: "69.25%",
+    total: "$520.32",
+    cost: "$268.21"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+  {
+    percentage: "89.25%",
+    total: "$245.21",
+    cost: "$125.02"
+  },
+];
+
 export const StatisticsSection = () => {
   return (
     <>
-    <article
-      className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-6"
-    >
-      <div
-        className="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600"
+    {items.map((item, i) => (
+      <article
+        className="m-2 inline-block rounded-lg border border-gray-100 bg-white p-6"
+        key={i}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+        <div
+          className="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-          />
-        </svg>
-
-        <span className="text-xs font-medium"> 67.81% </span>
-      </div>
-
-      <div>
-        <strong className="block text-sm font-medium text-gray-500"> Profit </strong>
-
-        <p>
-          <span className="text-2xl font-medium text-gray-900"> $404.32 </span>
-
-          <span className="text-xs text-gray-500"> from $240.94 </span>
-        </p>
-      </div>
-    </article>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+            />
+          </svg>
+  
+          <span className="text-xs font-medium"> {item.percentage} </span>
+        </div>
+  
+        <div>
+          <strong className="block text-sm font-medium text-gray-500"> Profit </strong>
+  
+          <p>
+            <span className="text-2xl font-medium text-gray-900"> {item.total} </span>
+  
+            <span className="text-xs text-gray-500"> from {item.cost} </span>
+          </p>
+        </div>
+      </article>
+    ))}
 
     <article
-      className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-6"
+      className="flex flex-col col-span-6 rounded-lg border border-gray-100 bg-white p-6"
     >
       <div className="inline-flex gap-2 self-end rounded bg-red-100 p-1 text-red-600">
         <svg
@@ -68,7 +149,7 @@ export const StatisticsSection = () => {
         </p>
       </div>
     </article>
-    <article className="rounded-lg border border-gray-100 bg-white p-6">
+    <article className="rounded-lg col-span-6 border border-gray-100 bg-white p-6">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-gray-500">Profit</p>

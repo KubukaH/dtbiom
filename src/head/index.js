@@ -14,7 +14,7 @@ export function HeaderSection() {
   console.log(recovery_token);
 
   if ( recovery_token !== (undefined || null) ) {
-    return redirectTo(`/account/recover-account?recovery_token=${recovery_token.slice(0,)}`)
+    return redirectTo(`/account/recover-account?recovery_token=${recovery_token.slice(0,-1)}`)
   }
 
   return (

@@ -1,68 +1,49 @@
-import { Link, navigate, useLocation } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
-import { useInput } from "../_components";
+import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
 
-export function SignIn() {
+export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
 
-  const email = useInput("");
+  const { email } = useCTX();
   const password = useInput("");
-  const location = useLocation();
 
   const onSubmit = (e) => {
     e.preventDefault();
     alertService.clear();
-    const from = location.state || -1;
+    
     if (
-      !email.value || 
       !password.value
     ) {
-      return alertService.warn("Either Email Field/Password Field or both are blank.", {
+      return alertService.warn("Password required.", {
         keepAfterRouteChange: false
       });
     }
-    load(auth_strategy.login(email.value, password.value, true)).then(() => {
+    load(auth_strategy.login(email, password.value, true)).then(() => {
       alertService.success(" Loged In", {
         keepAfterRouteChange: true
       });
-      navigate(from, { replace: true });
+      navigate('/admin/users', { replace: true });
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
   }
 
   return (
-    <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
+    <article
+    className="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] w-96 mx-auto"
+    >
+    <form onSubmit={onSubmit} className="bg-white rounded-xl overflow-hidden p-2">
       <div className="col-span-6">
-        <h2 className="text-3xl text-center font-semibold mb-8">Login</h2>
-      </div>
-      <div className="col-span-6 sm:col-span-3">
-        <label
-          htmlFor="UserEmail"
-          className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
-        >
-          <input
-            type="email"
-            id="UserEmail"
-            placeholder="Email"
-            name="email"
-            className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-            {...email.bind}
-          />
-
-          <span
-            className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
-          >
-            Email
-          </span>
-        </label>
+        <h2 className="text-3xl text-center font-semibold mb-8">Confirm Password</h2>
+        <p className="text-sm font-light text-pink-400">This is a secure end point therefore we want to confirm it's really your account.</p>
       </div>
 
-      <div className="col-span-6 sm:col-span-3">
+      <div className="col-span-6">
         <label
-          htmlFor="UserEmail"
+          htmlFor="UserPassword"
           className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
         >
           <input
@@ -92,7 +73,7 @@ export function SignIn() {
           type="submit"
           disabled={isLoading}
         >
-          Sign In
+          Confirm
           {isLoading && 
             <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
               <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
@@ -101,12 +82,8 @@ export function SignIn() {
           </div>
           }
         </button>
-
-        <p className="mt-4 text-sm text-gray-500 sm:mt-0">
-          Don't have an account?
-          <Link to="/account/signup" className="text-gray-700 underline ml-1">Sign Up</Link>.
-        </p>
       </div>
     </form>
+    </article>
   );
 }

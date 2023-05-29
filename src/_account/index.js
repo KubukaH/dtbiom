@@ -1,5 +1,4 @@
 export const AccountSection = props => {
-  document.title =  `Account`;
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">

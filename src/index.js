@@ -5,5 +5,5 @@ const container = document.getElementById("mudimba");
 const root = createRoot(container);
 
 root.render(
-    <App />
+  <App />
 );

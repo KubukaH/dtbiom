@@ -3,12 +3,12 @@ import { HomeIcon, LockOpenIcon } from "@heroicons/react/24/outline";
 
 import MessageModal from "../fan/modal";
 import biologo from "../assets/imgs/bio-mud-page-logo.jpg";
-import { auth_strategy } from "../_db/auth";
 import UserMenu from "./user.menu";
+import { useCTX } from "../_components";
 
 export function NavigationSection() {
   const logo = new URL(biologo, import.meta.url);
-  const user = auth_strategy.currentUser();
+  const { user } = useCTX();
 
   return (
     <div aria-label="Page Header" className="fixed z-20 navribbon">

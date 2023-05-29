@@ -1,6 +1,16 @@
-export const SideMenu = () => {
+import { Link, redirectTo } from "@reach/router";
+import { useCTX } from "../_components";
+
+export const SideMenu = ({ children }) => {
+  const handleLogout = () => {
+    useCTX().user.logout().then(() => {
+      redirectTo('/')
+    }).catch((error) => alert(error));
+  }
+  
   return (
-    <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">
+    <div className="relative grid w-full h-full grid-cols-12">
+    <div className="inline-flex h-screen flex-col col-span-1 justify-between border-e bg-white">
       <div>
         <div className="inline-flex h-16 w-16 items-center justify-center">
           <span
@@ -13,8 +23,8 @@ export const SideMenu = () => {
         <div className="border-t border-gray-100">
           <nav aria-label="Main Nav" className="flex flex-col p-2">
             <div className="py-4">
-              <a
-                href=""
+              <Link
+                to=""
                 className="t group relative flex justify-center rounded bg-blue-50 px-2 py-1.5 text-blue-700"
               >
                 <svg
@@ -42,13 +52,13 @@ export const SideMenu = () => {
                 >
                   General
                 </span>
-              </a>
+              </Link>
             </div>
     
             <ul className="space-y-1 border-t border-gray-100 pt-4">
               <li>
-                <a
-                  href=""
+                <Link
+                  to="/admin/users"
                   className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -71,12 +81,12 @@ export const SideMenu = () => {
                   >
                     Teams
                   </span>
-                </a>
+                </Link>
               </li>
     
               <li>
-                <a
-                  href=""
+                <Link
+                  to="/admin/billing"
                   className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -99,12 +109,12 @@ export const SideMenu = () => {
                   >
                     Billing
                   </span>
-                </a>
+                </Link>
               </li>
     
               <li>
-                <a
-                  href=""
+                <Link
+                  to="/admin/invoices"
                   className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -127,12 +137,12 @@ export const SideMenu = () => {
                   >
                     Invoices
                   </span>
-                </a>
+                </Link>
               </li>
     
               <li>
-                <a
-                  href=""
+                <Link
+                  to="/admin/profile"
                   className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -155,7 +165,7 @@ export const SideMenu = () => {
                   >
                     Account
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -163,7 +173,7 @@ export const SideMenu = () => {
       </div>
     
       <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2">
-        <form action="/logout">
+        <form onSubmit={handleLogout}>
           <button
             type="submit"
             className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
@@ -191,6 +201,12 @@ export const SideMenu = () => {
           </button>
         </form>
       </div>
+    </div>
+    <div className="h-screen col-span-11 bg-white px-4 py-16 flex flex-wrap overflow-auto w-full">
+      <div className="w-full">
+        { children }
+      </div>
+    </div>
     </div>
   );
 }
