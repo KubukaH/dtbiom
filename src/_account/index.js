@@ -1,4 +1,11 @@
+import { redirectTo } from "@reach/router";
+import { useCTX } from "../_components/context";
+
 export const AccountSection = props => {
+  const { user } = useCTX();
+
+  if (user !== null) return redirectTo("/");
+
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">

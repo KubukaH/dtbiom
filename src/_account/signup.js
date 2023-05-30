@@ -35,7 +35,10 @@ export const SignUp = () => {
       const user_metadata = {
         full_name: `${first_name.value} ${last_name.value}`
       }
-      load(auth_strategy.signup(email.value, password.value, user_metadata)).then(() => {
+      const app_metadata = {
+        roles: ['User']
+      }
+      load(auth_strategy.signup(email.value, password.value, user_metadata, app_metadata)).then(() => {
         alertService.success("Account created!", {
           keepAfterRouteChange: true
         });
