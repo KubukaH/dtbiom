@@ -1,18 +1,22 @@
 import { Link, redirectTo } from "@reach/router";
 import { useCTX } from "../_components";
+import { ConfirmUser } from "./confrm";
 
 export const SideMenu = ({ children }) => {
   const { user } = useCTX();
 
+  const admin_cookie = localStorage.getItem("admin_cookie");
+
   const handleLogout = () => {
     user.logout().then(() => {
-      redirectTo('/')
+      localStorage.setItem("admin_cookie", false)
+      redirectTo('/');
     }).catch((error) => alert(error));
   }
 
-  if (!user) return redirectTo("/account/signin");
+  // if (!user) return redirectTo("/account/signin");
 
-  if (user.app_metadata.roles !== ("Creator" || "Admin")) return redirectTo("/");
+  // if (user.app_metadata.roles !== ("Creator" || "Admin")) return redirectTo("/");
   
   return (
     <div className="relative grid w-full h-full grid-cols-12">
@@ -210,7 +214,11 @@ export const SideMenu = ({ children }) => {
     </div>
     <div className="h-screen col-span-11 bg-white px-4 py-16 flex flex-wrap overflow-auto w-full">
       <div className="w-full">
-        { children }
+        { 
+          admin_cookie === true 
+          ? children
+          : <ConfirmUser />
+        }
       </div>
     </div>
     </div>

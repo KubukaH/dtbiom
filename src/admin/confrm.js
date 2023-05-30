@@ -22,9 +22,12 @@ export function ConfirmUser() {
       });
     }
     load(auth_strategy.login(email, password.value, true)).then(() => {
+      localStorage.setItem("admin_cookie", true);
+
       alertService.success(" Loged In", {
         keepAfterRouteChange: true
       });
+
       navigate('/admin/users', { replace: true });
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
@@ -63,8 +66,8 @@ export function ConfirmUser() {
         </label>
       </div>
 
-      <Link to="/account/forgot-password" className="col-span-6 block text-end sm:items-center sm:gap-4 text-indigo-400">
-        Forgot Password?
+      <Link to="/" className="col-span-6 block text-end sm:items-center sm:gap-4 text-indigo-400">
+        Back to Home
       </Link>
 
       <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
@@ -73,13 +76,15 @@ export function ConfirmUser() {
           type="submit"
           disabled={isLoading}
         >
-          Confirm
-          {isLoading && 
+          {isLoading 
+            ? 
             <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
               <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
               <div class="w-1 h-1 bg-green-400 rounded-full"></div>
               <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
-          </div>
+            </div>
+            :
+            'Confirm'
           }
         </button>
       </div>

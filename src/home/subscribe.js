@@ -58,7 +58,7 @@ export const SubscribeMe = () => {
               className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-indigo-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
               disabled={isLoading}
             >
-              <span className="text-sm font-medium"> Sign Up </span>
+              <span className="text-sm font-medium"> Subscribe </span>
               {isLoading 
                 ? 
                 <div class="inline-flex items-center justify-center ml-2 space-x-1 animate-pulse">
@@ -81,7 +81,6 @@ export const SubscribeMe = () => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-
               }
             </button>
           </form>

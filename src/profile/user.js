@@ -1,14 +1,20 @@
+import { useCTX } from "../_components";
+
 export const UserProfile = () => {
+  const { user } = useCTX();
+
   return (
     <section className="flex flex-wrap bg-white m-1 h-[96vh] border rounded-md p-4 overflow-auto">
-      <div className="w-full">
+      <div className="container mx-auto my-32">
         <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
           <div class="flex justify-center">
             <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"/>
           </div>
         
           <div class="mt-16">
-            <h1 class="font-bold text-center text-3xl text-gray-900">Bio Mudimba</h1>
+            <h1 class="font-bold text-center text-3xl text-gray-900">
+              {user.user_metadata.fullname}
+            </h1>
             <p class="text-center text-sm text-gray-400 font-medium">Kaani Stars Band</p>
             <p>
                 <span>
