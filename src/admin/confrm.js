@@ -28,7 +28,7 @@ export function ConfirmUser() {
         keepAfterRouteChange: true
       });
 
-      navigate('/admin/users', { replace: true });
+      navigate('/admin', { replace: true });
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
