@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate, redirectTo } from "@reach/router";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { alertService } from "../_components/alert/service";
@@ -108,7 +108,7 @@ export function RecoverAccount() {
   function theBody() {
     switch (tokenStatus) {
       case TokenStatus.Valid:
-        return theForm();
+        return redirectTo("/profile");
       case TokenStatus.Invalid:
         return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="/account/forgot-password" className="text-indigo-400 font-semibold">forgot password</Link> page.</div>;
       case TokenStatus.Validating:

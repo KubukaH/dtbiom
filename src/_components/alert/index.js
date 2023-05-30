@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 
 import { AlertType, alertService } from "./service";
 import { joinClassNames } from "../extras/cn_join";
+import { history } from "../history";
 
 const propTypes = { id: PropTypes.string, fade: PropTypes.bool };
 
@@ -41,10 +42,10 @@ function AlertPopper({ id, fade }) {
       }
     );
 
-    function historyUnlisten() {
+    const historyUnlisten = history.listen(() => {
       if (document.location.href.endsWith('/')) return;
       alertService.clear(id);
-    }
+    });
 
     //Clean Up function
     return () => {

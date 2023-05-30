@@ -1,4 +1,4 @@
-import { Link, navigate, useLocation } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { useInput } from "../_components";
@@ -9,12 +9,10 @@ export function SignIn() {
 
   const email = useInput("");
   const password = useInput("");
-  const location = useLocation();
 
   const onSubmit = (e) => {
     e.preventDefault();
     alertService.clear();
-    const from = location.state || -1;
     if (
       !email.value || 
       !password.value
@@ -27,7 +25,7 @@ export function SignIn() {
       alertService.success(" Loged In", {
         keepAfterRouteChange: true
       });
-      navigate(from, { replace: true });
+      navigate(-1, { replace: true });
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
