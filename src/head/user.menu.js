@@ -42,6 +42,7 @@ export default function UserMenu({logo, user}) {
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-900'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={() => navigate('/profile')}
                   >
                     {active ? (
                       <EditActiveIcon
@@ -54,7 +55,7 @@ export default function UserMenu({logo, user}) {
                         aria-hidden="true"
                       />
                     )}
-                    Edit
+                    Profile
                   </button>
                 )}
               </Menu.Item>

@@ -2,11 +2,15 @@ import { Link, redirectTo } from "@reach/router";
 import { useCTX } from "../_components";
 
 export const SideMenu = ({ children }) => {
+  const { user } = useCTX();
+
   const handleLogout = () => {
-    useCTX().user.logout().then(() => {
+    user.logout().then(() => {
       redirectTo('/')
     }).catch((error) => alert(error));
   }
+
+  if (user.app_metadata.roles !== ("Creator" || "Admin")) return redirectTo("/");
   
   return (
     <div className="relative grid w-full h-full grid-cols-12">
