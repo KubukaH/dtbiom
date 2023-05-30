@@ -7,7 +7,7 @@ import { alertService } from "../_components/alert/service";
 export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
 
-  const { email } = useCTX();
+  const { user } = useCTX();
   const password = useInput("");
 
   const onSubmit = (e) => {
@@ -21,7 +21,7 @@ export function ConfirmUser() {
         keepAfterRouteChange: false
       });
     }
-    load(auth_strategy.login(email, password.value, true)).then(() => {
+    load(auth_strategy.login(user.email, password.value, true)).then(() => {
       localStorage.setItem("admin_cookie", true);
 
       alertService.success(" Loged In", {
