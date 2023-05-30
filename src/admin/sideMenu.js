@@ -10,6 +10,8 @@ export const SideMenu = ({ children }) => {
     }).catch((error) => alert(error));
   }
 
+  if (!user) return redirectTo("/account/signin");
+
   if (user.app_metadata.roles !== ("Creator" || "Admin")) return redirectTo("/");
   
   return (

@@ -1,72 +1,67 @@
-const items = [
-  {
-    title: 'Finding the right guitar for your style - 5 tips',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?'
-  },
-  {
-    title: 'Finding the right guitar for your style - 5 tips',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?'
-  },
-  {
-    title: 'Finding the right guitar for your style - 5 tips',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?'
-  },
-  {
-    title: 'Finding the right guitar for your style - 5 tips',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?'
-  },
-];
-
 export const UserProfile = () => {
   return (
     <section className="flex flex-wrap bg-white m-1 h-[96vh] border rounded-md p-4 overflow-auto">
-    <div className="w-full">
-    {items.map((item, i) => (
-      <article className="flex flex-row w-[576px] bg-white transition hover:shadow-xl m-2" key={i}>
-        <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
-          <time
-            datetime="2022-10-10"
-            className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-          >
-            <span>2022</span>
-            <span className="w-px flex-1 bg-gray-900/10"></span>
-            <span>Oct 10</span>
-          </time>
-        </div>
-  
-        <div className="hidden sm:block sm:basis-56">
-          <img
-            alt="Guitar"
-            src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-            className="aspect-square h-full w-full object-cover"
-          />
-        </div>
-  
-        <div className="flex flex-1 flex-col justify-between">
-          <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-            <a href="#">
-              <h3 className="font-bold uppercase text-gray-900">
-                {item.title}
-              </h3>
-            </a>
-  
-            <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-              {item.content}
+      <div className="w-full">
+        <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
+          <div class="flex justify-center">
+            <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"/>
+          </div>
+        
+          <div class="mt-16">
+            <h1 class="font-bold text-center text-3xl text-gray-900">Bio Mudimba</h1>
+            <p class="text-center text-sm text-gray-400 font-medium">Kaani Stars Band</p>
+            <p>
+                <span>
+                    
+                </span>
             </p>
-          </div>
-  
-          <div className="sm:flex sm:items-end sm:justify-end">
-            <a
-              href="#"
-              className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-            >
-              Read Blog
-            </a>
+            <div class="my-5 px-6">
+              <a href="#" class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Connect with <span class="font-bold">@dtbiomudimba</span></a>
+            </div>
+            <div class="flex justify-between items-center my-5 px-6">
+              <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Facebook</a>
+              <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Twitter</a>
+              <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Instagram</a>
+              <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Email</a>
+            </div>
+
+            <div class="w-full">
+              <h3 class="font-medium text-gray-900 text-left px-6">Recent activites</h3>
+                <div class="mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
+                  <a href="#" class="border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                    <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2"/>
+                    Updated his status
+                    <span class="text-gray-500 text-xs">24 min ago</span>
+                  </a>
+
+                  <a href="#" class="border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                    <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2"/>
+                    Added new profile picture
+                    <span class="text-gray-500 text-xs">42 min ago</span>
+                  </a>
+
+                  <a href="#" class="border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                    <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2"/>
+                    Posted new article in <span class="font-bold">#Web Dev</span>
+                    <span class="text-gray-500 text-xs">49 min ago</span>
+                  </a>
+
+                  <a href="#" class="border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
+                    <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2"/>
+                    Edited website settings
+                    <span class="text-gray-500 text-xs">1 day ago</span>
+                  </a>
+
+                  <a href="#" class="border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150 overflow-hidden">
+                    <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" class="rounded-full h-6 shadow-md inline-block mr-2"/>
+                    Added new rank
+                    <span class="text-gray-500 text-xs">5 days ago</span>
+                  </a>
+                </div>
+            </div>
           </div>
         </div>
-      </article>
-    ))}
-    </div>
+      </div>
     </section>
   );
 }
