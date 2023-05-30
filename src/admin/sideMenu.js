@@ -20,7 +20,7 @@ export const SideMenu = ({ children }) => {
 
   if (!user) return redirectTo("/account/signin");
 
-  if (user.app_metadata.roles !== ("Creator" || "Admin")) return redirectTo("/");
+  if (user.app_metadata.roles !== "Admin") return redirectTo("/");
   
   return (
     <div className="relative grid w-full h-full grid-cols-12">
