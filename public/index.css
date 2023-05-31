@@ -10,11 +10,11 @@
 }
 
 .navribbon {
-  @apply top-1 lg:top-2 right-0 w-48 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-400 overflow-hidden rounded-tl-3xl rounded-bl-3xl lg:w-56 lg:h-12 shadow-md hover:shadow-amber-100
+  @apply fixed z-50 right-0 top-1 rounded-tl-3xl rounded-bl-3xl bg-gradient-to-r from-violet-500 to-fuchsia-400;
 }
 
 .footer-copyright{
-  @apply bg-gradient-to-r from-cyan-500 to-purple-400
+  @apply bg-gradient-to-r from-cyan-500 to-purple-400;
 }
 
 .gradient-btn {

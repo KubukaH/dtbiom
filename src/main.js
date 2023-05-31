@@ -16,7 +16,7 @@ import { RecoverAccount } from "./_account/recoverAccount";
 import { Dashboard } from "./admin";
 import { SideMenu } from "./admin/sideMenu";
 import { StatisticsSection } from "./admin/stats";
-import { UserProfile } from "./profile";
+import { EditProfile, ProfileDetials, UserProfile } from "./profile";
 
 // The App Function
 export function App() {
@@ -37,7 +37,10 @@ export function App() {
         <SideMenu path='/admin'>
           <StatisticsSection path='/' />
         </SideMenu>
-        <UserProfile path='profile' />
+        <UserProfile path='profile'>
+          <ProfileDetials path='/' />
+          <EditProfile path="edit" />
+        </UserProfile>
         <PageNotFound default />
       </Router>
       <AlertPopper />

@@ -2,8 +2,9 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import { SendUs } from '../home/sendus';
+import { alertService } from '../_components/alert/service';
 
-export default function MessageModal() {
+export default function MessageModal({ user }) {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -11,7 +12,7 @@ export default function MessageModal() {
   }
 
   function openModal() {
-    setIsOpen(true);
+    user ? setIsOpen(true) : alertService.info("You must be logged in.")
   }
 
   return (

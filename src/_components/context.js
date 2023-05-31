@@ -6,9 +6,14 @@ const MainContext = createContext(null);
 
 const AppContext = ({ children }) => {
   const [listLikes, setListLikes] = useState([]);
-  const user = auth_strategy.currentUser();
+  const [user, setUser] = useState({});
 
-  console.log(user.app_metadata.roles);
+  useEffect(() => {
+    const usr = auth_strategy.currentUser();
+    setUser(usr);
+  },[]);
+
+  // console.log(user && user.app_metadata.roles);
 
   const likeSetRef = getSetRef("Like");
   const streamOptions = { fields: [ 'action', 'document' ] };
