@@ -94,12 +94,6 @@ export const MessageCard = ({ msgData, profp }) => {
           className="h-4 w-4 text-pink-600 hover:h-10 hover:w-10 duration-300 cursor-pointer"
           onClick={LikeBtn}
         />
-        <button
-          as='a'
-          type="button"
-          href="/admin"
-          className="p3 rounded-xl bg-blue-200"
-        >yes</button>
       </div>
     </div>
   );

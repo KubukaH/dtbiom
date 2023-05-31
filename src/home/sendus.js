@@ -5,7 +5,7 @@ import { useInput } from "../_components";
 import useLoading from "../_components/extras/loading";
 import { newCollection } from "../_db/operations";
 
-export function SendUs({ closeModal }) {
+export function SendUs({ closeModal, user }) {
   const [count, setCount] = useState(376);
   const [isLoading, load] = useLoading();
   const [message, setMessage] = useState('');
@@ -85,9 +85,10 @@ export function SendUs({ closeModal }) {
               <input
                 className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-                placeholder="Name"
+                placeholder={user.user_metadata.fullname}
                 type="text"
                 id="name"
+                readOnly
                 {...names.bind}
               />
             </div>
@@ -98,9 +99,10 @@ export function SendUs({ closeModal }) {
                 <input
                   className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
                   focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-                  placeholder="Email address"
+                  placeholder={user.email}
                   type="email"
                   id="email"
+                  readOnly
                   {...email.bind}
                 />
               </div>
