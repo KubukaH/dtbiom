@@ -8,19 +8,19 @@ export default function UserMenu({ user, logo }) {
 
   const handleLogout = () => {
     load(user.logout()).then(() => {
-      redirectTo('/account/signin', { replace: true });
+      navigate('/account/signin', { replace: true });
     }).catch((error) => alert(error));
   }
 
   return (
     <Menu as="div" className="relative ml-3">
       <div>
-        <Menu.Button className="block shrink-0 bg-transparent rounded-full justify-center">
+        <Menu.Button className="flex bg-transparent rounded-full text-sm">
           <span className="sr-only">Profile</span>
           <img
             alt="Mudimba"
             src={logo}
-            className="lg:w-8 lg:h-8 h-5 w-5 rounded-full object-cover"
+            className="h-5 w-5 rounded-full"
           />
         </Menu.Button>
       </div>

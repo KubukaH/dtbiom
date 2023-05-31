@@ -1,7 +1,10 @@
+import { redirectTo } from "@reach/router";
 import { useCTX } from "../_components";
 
 export const ProfileDetials = () => {
   const { user } = useCTX();
+  if (!user) return redirectTo("/", {replace:true});
+  
   return (
     <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
       <div class="flex justify-center">
