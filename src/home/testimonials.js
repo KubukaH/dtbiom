@@ -73,12 +73,7 @@ export function TestimonialsSection() {
         >
           {
             listTransaction.slice(0,5).map((msg) => (
-              <>
               <MessageCard msgData={msg} profp={prf} key={msg.id} />
-              <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
-                <Link to="/fanzone" className="gradient-btn">See more messages</Link>
-              </div>
-              </>
             ))
           }
           {listTransaction.length < 1 && (
@@ -90,6 +85,12 @@ export function TestimonialsSection() {
               </blockquote>
             </div>
           )}
+          {
+            listTransaction.length > 5 && 
+              <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
+                <Link to="/fanzone" className="gradient-btn">See more messages</Link>
+              </div>
+          }
         </div>
       </div>
     </section>
