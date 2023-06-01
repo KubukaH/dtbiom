@@ -8,8 +8,8 @@ const AppContext = ({ children }) => {
   const [listLikes, setListLikes] = useState([]);
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    const usr = auth_strategy.currentUser();
+  useEffect(async () => {
+    const usr = await auth_strategy.currentUser();
     setUser(usr);
   },[]);
 

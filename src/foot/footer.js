@@ -170,14 +170,14 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Services" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <Link to="/admin" className="text-gray-700 transition hover:opacity-75">
-                      Admin
+                    <Link to="#live-band" className="text-gray-700 transition hover:opacity-75">
+                      Live performances
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="profile" className="text-gray-700 transition hover:opacity-75">
-                      Profile
+                    <Link to="#one-on-one" className="text-gray-700 transition hover:opacity-75">
+                      1on1 coaching
                     </Link>
                   </li>
 

@@ -1,9 +1,8 @@
-import { redirectTo } from "@reach/router";
-
 import { FooterSection } from "../foot";
 import { TestimonialsSection } from "../home/testimonials";
 import { HeadHero } from "./homeHero";
 import { SubscribeMe } from "../home";
+import { history } from "../_components/history";
 
 export function HeaderSection() {
   const params = new URL(document.location.href);
@@ -11,10 +10,8 @@ export function HeaderSection() {
 
   let recovery_token = searchParams.get("#recovery_token");
 
-  console.log(recovery_token);
-
   if ( recovery_token !== (undefined || null) ) {
-    return redirectTo(`/account/recover-account?recovery_token=${recovery_token.slice(0,-1)}`)
+    history.navigate(`/account/recover-account?recovery_token=${recovery_token.slice(0,-1)}`)
   }
 
   return (
