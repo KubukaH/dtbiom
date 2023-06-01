@@ -36,11 +36,6 @@ export function HeadHero() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div id="home1" className="relative z-10 header-hero bg-[url('../src/assets/imgs/bio-mud-bg.jpg')] bg-cover bg-center bg-no-repeat top-0 bottom-0">
-            <div className="w-full h-[100vh]" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
         <div
           className="w-full h-[100vh] bg-slate-600 px-4 py-32 lg:flex lg:items-center"
         >
@@ -48,14 +43,13 @@ export function HeadHero() {
             <h1
               className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
             >
-              Understand User Flow.
+              D.T. BiO Mudimba
       
-              <span className="sm:block"> Increase Conversion. </span>
+              <span className="sm:block"> Kaani Stars Band </span>
             </h1>
       
             <p className="mx-auto mt-4 max-w-xl text-white sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-              tenetur fuga ducimus numquam ea!
+              Bringing you the best music for any event or occasion.
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -77,11 +71,6 @@ export function HeadHero() {
         </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div id="home2" className="relative z-10 header-hero bg-[url('../src/assets/imgs/bio-mud-bg.jpg')] bg-cover bg-center bg-no-repeat top-0 bottom-0">
-            <div className="w-full h-[100vh]" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
         <div
           className="w-full h-[100vh] bg-slate-600 px-4 py-32 lg:flex lg:items-center"
         >
@@ -89,14 +78,13 @@ export function HeadHero() {
             <h1
               className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
             >
-              Understand User Flow.
+              D.T. BiO Mudimba
       
-              <span className="sm:block"> Increase Conversion. </span>
+              <span className="sm:block"> Kaani Stars Band </span>
             </h1>
       
             <p className="mx-auto mt-4 text-white max-w-xl sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-              tenetur fuga ducimus numquam ea!
+              Kujata jata, Baama a Taata, Aluse...  mushe mushe
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
