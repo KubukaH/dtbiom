@@ -1,10 +1,20 @@
-import { redirectTo } from "@reach/router";
+import { useEffect } from "react";
 import { useCTX } from "../_components/context";
+import { history } from "../_components/history";
+import { Router } from "@reach/router";
+import { SignIn } from "./signin";
+import { SignUp } from "./signup";
+import { ForgotPassword } from "./forgotPassword";
+import { RecoverAccount } from "./recoverAccount";
 
-export const AccountSection = props => {
+export const AccountSection = () => {
   const { user } = useCTX();
 
-  if (user !== null) return redirectTo("/");
+  useEffect(() => {
+    if (user !== null) {
+      history.navigate('/', { replace: true });
+    }
+  },[]);
 
   return (
     <section className="bg-white">
@@ -79,7 +89,12 @@ export const AccountSection = props => {
               </p>
             </div>
             {/** FORM Comes after here */}
-            {props.children}
+            <Router>
+              <SignIn path='signin' />
+              <SignUp path='signup' />
+              <ForgotPassword path='forgot-password' />
+              <RecoverAccount path='recover-account' />
+            </Router>
           </div>
         </main>
       </div>

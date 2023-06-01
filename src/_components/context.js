@@ -75,6 +75,8 @@ const AppContext = ({ children }) => {
   );
 }
 
-const useCTX = () => useContext(MainContext);
+const useCTX = () => {
+  return useContext(MainContext);
+}
 
 export { AppContext, useCTX };

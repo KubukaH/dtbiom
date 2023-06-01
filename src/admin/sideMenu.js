@@ -18,9 +18,9 @@ export const SideMenu = ({ children }) => {
     setCookie(localStorage.getItem('admin_cookie'));
   },[]);
 
-  if (!user) return redirectTo("/account/signin");
+  // if (!user) return redirectTo("/account/signin");
 
-  if (user.app_metadata.roles !== "Admin") return redirectTo("/");
+  // if (user.app_metadata.roles !== "Admin") return redirectTo("/");
   
   return (
     <div className="relative grid w-full h-full grid-cols-12">
@@ -218,11 +218,12 @@ export const SideMenu = ({ children }) => {
     </div>
     <div className="h-screen col-span-11 bg-white px-4 py-16 flex flex-wrap overflow-auto w-full">
       <div className="w-full">
-        { 
+        { /*
           cookie.admin_cookie === true 
           ? children
           : <ConfirmUser />
-        }
+        */}
+        {children}
       </div>
     </div>
     </div>

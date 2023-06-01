@@ -1,21 +1,22 @@
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { Link, navigate, redirectTo } from '@reach/router';
+import { Link } from '@reach/router';
 import useLoading from '../_components/extras/loading';
+import { history } from '../_components/history';
 
 export default function UserMenu({ user, logo }) {
   const [isLoading, load] = useLoading(false);
 
   const handleLogout = () => {
     load(user.logout()).then(() => {
-      navigate('/account/signin', { replace: true });
+      history.navigate('/account/signin', { replace: true });
     }).catch((error) => alert(error));
   }
 
   return (
     <Menu as="div" className="relative ml-3">
       <div>
-        <Menu.Button className="flex bg-transparent rounded-full text-sm">
+        <Menu.Button className="flex bg-transparent rounded-full">
           <span className="sr-only">Profile</span>
           <img
             alt="Mudimba"

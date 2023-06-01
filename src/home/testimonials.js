@@ -72,21 +72,24 @@ export function TestimonialsSection() {
           className="[column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8"
         >
           {
-            listTransaction ? listTransaction.slice(0,5).map((msg) => (
+            listTransaction.slice(0,5).map((msg) => (
+              <>
               <MessageCard msgData={msg} profp={prf} key={msg.id} />
-            )) : (
-              <div className="mb-8 sm:break-inside-avoid">
-                <blockquote className="rounded-xl bg-gray-50 p-6 shadow">
-                  <p className="leading-relaxed text-gray-700">
-                    No Data from DB
-                  </p>
-                </blockquote>
+              <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
+                <Link to="/fanzone" className="gradient-btn">See more messages</Link>
               </div>
-            )
+              </>
+            ))
           }
-          <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
-            <Link to="/fanzone" className="gradient-btn">See more messages</Link>
-          </div>
+          {listTransaction.length < 1 && (
+            <div className="mb-8 sm:break-inside-avoid">
+              <blockquote className="rounded-xl bg-gray-50 p-6 shadow">
+                <p className="leading-relaxed text-gray-700">
+                  No Data from DB
+                </p>
+              </blockquote>
+            </div>
+          )}
         </div>
       </div>
     </section>

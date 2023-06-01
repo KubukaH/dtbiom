@@ -1,4 +1,4 @@
-import { navigate } from "@reach/router";
+import { history } from "./_components/history";
 
 const PageNotFound = () => {
   return (
@@ -9,7 +9,7 @@ const PageNotFound = () => {
       </div>
       <button className="mt-5" 
         type="button"
-        onClick={() => navigate(-1, {replace: true})}
+        onClick={() => history.navigate(-1, {replace:false})}
       >
           <a
             className="relative inline-block text-sm font-medium text-[#faf7f6] group active:text-orange-500 focus:outline-none focus:ring"

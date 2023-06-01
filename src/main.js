@@ -8,15 +8,9 @@ import { NavigationSection } from "./head/navigation";
 import PageNotFound from "./404";
 import { FanZone } from "./fan/zone";
 import { AccountSection } from "./_account";
-import { SignIn } from "./_account/signin";
-import { SignUp } from "./_account/signup";
 import { Merchandise } from "./home/merchandise";
-import { ForgotPassword } from "./_account/forgotPassword";
-import { RecoverAccount } from "./_account/recoverAccount";
 import { Dashboard } from "./admin";
-import { SideMenu } from "./admin/sideMenu";
-import { StatisticsSection } from "./admin/stats";
-import { EditProfile, ProfileDetials, UserProfile } from "./profile";
+import { UserProfile } from "./profile";
 
 // The App Function
 export function App() {
@@ -27,20 +21,10 @@ export function App() {
       <Router>
         <HeaderSection path="/" />
         <FanZone path="/fanzone" />
-        <AccountSection path="/account">
-          <SignIn path="signin" />
-          <SignUp path="signup" />
-          <ForgotPassword path="forgot-password" />
-          <RecoverAccount path="recover-account" />
-        </AccountSection>
+        <AccountSection path="/account/*" />
         <Merchandise path="/merchandise-shop" />
-        <SideMenu path='/admin'>
-          <StatisticsSection path='/' />
-        </SideMenu>
-        <UserProfile path='profile'>
-          <ProfileDetials path='/' />
-          <EditProfile path="edit" />
-        </UserProfile>
+        <Dashboard path="/admin/*" />
+        <UserProfile path="/profile/*" />
         <PageNotFound default />
       </Router>
       <AlertPopper />
