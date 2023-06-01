@@ -1,7 +1,6 @@
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { Link } from '@reach/router';
-import { UserIcon } from '@heroicons/react/24/outline';
 
 import useLoading from '../_components/extras/loading';
 import { history } from '../_components/history';
@@ -62,10 +61,11 @@ export default function UserMenu({ user, logo }) {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <button
+                <Link
                   className={`${
                     active ? 'bg-violet-500 text-white' : 'text-gray-900'
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  to='/admin'
                 >
                   {active ? (
                     <DuplicateActiveIcon
@@ -79,7 +79,7 @@ export default function UserMenu({ user, logo }) {
                     />
                   )}
                   Duplicate
-                </button>
+                </Link>
               )}
             </Menu.Item>
           </div>

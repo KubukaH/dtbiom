@@ -45,46 +45,11 @@ export function HeadHero() {
             >
               D.T. BiO Mudimba
       
-              <span className="sm:block"> Kaani Stars Band </span>
+              <span className="sm:block"> Kujata jata </span>
             </h1>
       
             <p className="mx-auto mt-4 max-w-xl text-white sm:text-xl/relaxed">
-              Bringing you the best music for any event or occasion.
-            </p>
-      
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
-              >
-                Get Started
-              </a>
-      
-              <a
-                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="/about"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div
-          className="w-full h-[100vh] bg-slate-600 px-4 py-32 lg:flex lg:items-center"
-        >
-          <div className="mx-auto max-w-3xl text-center">
-            <h1
-              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
-            >
-              D.T. BiO Mudimba
-      
-              <span className="sm:block"> Kaani Stars Band </span>
-            </h1>
-      
-            <p className="mx-auto mt-4 text-white max-w-xl sm:text-xl/relaxed">
-              Kujata jata, Baama a Taata, Aluse...  mushe mushe
+              Bio's first single came out when no one was waiting for it. It went on to top the local music charts and winning the Song of the Year award on various platforms.
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -111,9 +76,79 @@ export function HeadHero() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
+        <div
+          className="w-full h-[100vh] bg-slate-600 px-4 py-32 lg:flex lg:items-center"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <h1
+              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+            >
+              D.T. BiO Mudimba
+      
+              <span className="sm:block"> Baama aTaata </span>
+            </h1>
+      
+            <p className="mx-auto mt-4 text-white max-w-xl sm:text-xl/relaxed">
+              Bio's second single was released soon after the first. It did not enjoy much air play on most radio stations, but most pundits regarded it as one of the best hits to come out.
+            </p>
+      
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                href="/get-started"
+              >
+                Get Started
+              </a>
+      
+              <a
+                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                href="/about"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        </SwiperSlide>
+        <SwiperSlide>
           <div id="home4" className="relative z-10 header-hero bg-[url('../src/assets/imgs/BiO-Mudimba-footer.jpg')] bg-cover bg-center bg-no-repeat top-0 bottom-0">
             <div className="w-full h-[100vh]" />
           </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div
+          className="w-full h-[100vh] bg-slate-600 px-4 py-32 lg:flex lg:items-center"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <h1
+              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+            >
+              D.T. BiO Mudimba
+      
+              <span className="sm:block"> Aluse... mushe mushe </span>
+            </h1>
+      
+            <p className="mx-auto mt-4 text-white max-w-xl sm:text-xl/relaxed">
+              The third single became the favourite among the local fans, earning top spots in most weekend radio programmes. However, it did not win the first gong, though it was poised to.
+            </p>
+      
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                href="/get-started"
+              >
+                Get Started
+              </a>
+      
+              <a
+                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                href="/about"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
         </SwiperSlide>
         <SwiperSlide>
           <div id="home5" className="relative z-10 header-hero bg-[url('../src/assets/imgs/bio-nama-award.jpg')] bg-cover bg-center bg-no-repeat top-0 bottom-0">
@@ -138,14 +173,13 @@ export function HeadHero() {
             <h1
               className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
             >
-              Understand User Flow.
+              D.T Bio Mudimba.
       
-              <span className="sm:block"> Increase Conversion. </span>
+              <span className="sm:block"> Kaani Stars band. </span>
             </h1>
       
             <p className="mx-auto mt-4 text-white max-w-xl sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-              tenetur fuga ducimus numquam ea!
+              This is one of the best music bands in the country in the genre of Sungura this generation has seen.
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
