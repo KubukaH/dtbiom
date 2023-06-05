@@ -73,7 +73,7 @@ export function NavigationSection() {
   
               {/* Profile dropdown */}
               {
-                user ? ( <UserMenu logo={logo} user={user} /> ) : (
+                user ? ( <UserMenu logo={logo} /> ) : (
                   <Link to="/account/signin" className="block group shrink-0 rounded-full p-1 bg-transparent shadow-sm">
                     <span className="sr-only">Login</span>
                     <LockClosedIcon className="h-5 w-5 text-white" aria-hidden="true" />

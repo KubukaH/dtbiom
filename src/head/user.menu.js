@@ -4,12 +4,14 @@ import { Link } from '@reach/router';
 
 import useLoading from '../_components/extras/loading';
 import { history } from '../_components/history';
+import { useCTX } from '../_components';
 
-export default function UserMenu({ user, logo }) {
+export default function UserMenu({ logo }) {
   const [isLoading, load] = useLoading(false);
+  const { user } = useCTX();
 
   const handleLogout = () => {
-    load(user.logout()).then(() => {
+    user.logout().then(() => {
       history.navigate('/account/signin', { replace: true });
     }).catch((error) => alert(error));
   }
