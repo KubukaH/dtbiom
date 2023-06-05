@@ -12,10 +12,12 @@ export default function MessageModal({ user }) {
   }
 
   function openModal() {
-    setIsOpen(true)
+    if (!user) {
+      alertService.info("You must be logged in.");
+    } else {
+      setIsOpen(true);
+    }
   }
-
-  if (!user) return alertService.info("You must be logged in.");
 
   return (
     <>
