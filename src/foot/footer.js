@@ -2,6 +2,7 @@ import { Link } from "@reach/router";
 import mudp from "../assets/imgs/BiO-Mudimba-footer.jpg";
 import PrivacyPolicy from "../policies/privacyPolicy";
 import TermsAndConditions from "../policies/termsOfUse";
+import { CookiesPolicy } from "../policies/cookiePolicy";
 
 export function MainFooter() {
   const mudimba = new URL(mudp, import.meta.url);
@@ -176,19 +177,19 @@ export function MainFooter() {
                   </li>
 
                   <li>
-                    <Link to="#one-on-one" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       1on1 coaching
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="#music-consultant" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       Music Consulting
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="#studio" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       Recording Studio
                     </Link>
                   </li>
@@ -202,13 +203,13 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Company" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <Link to="#about" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="/admin" className="text-gray-700 transition hover:opacity-75">
                       About
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="#meet-the-team" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       Meet the Team
                     </Link>
                   </li>
@@ -237,9 +238,7 @@ export function MainFooter() {
                 </li>
 
                 <li>
-                  <Link to="#cookies" className="text-gray-500 transition hover:opacity-75">
-                    Cookies
-                  </Link>
+                  <CookiesPolicy />
                 </li>
               </ul>
             </nav>

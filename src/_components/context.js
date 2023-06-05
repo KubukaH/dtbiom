@@ -4,16 +4,9 @@ import { auth_strategy } from "../_db/auth";
 
 const MainContext = createContext(null);
 
-const AppContext = ({ children }) => {
+export const AppContext = ({ children }) => {
   const [listLikes, setListLikes] = useState([]);
-  const [user, setUser] = useState({});
-
-  useEffect(async () => {
-    const usr = await auth_strategy.currentUser();
-    setUser(usr);
-  },[]);
-
-  // console.log(user && user.app_metadata.roles);
+  const user = auth_strategy.currentUser();
 
   const likeSetRef = getSetRef("Like");
   const streamOptions = { fields: [ 'action', 'document' ] };
@@ -75,8 +68,6 @@ const AppContext = ({ children }) => {
   );
 }
 
-const useCTX = () => {
+export const useCTX = () => {
   return useContext(MainContext);
 }
-
-export { AppContext, useCTX };

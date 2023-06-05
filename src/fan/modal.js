@@ -1,8 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
-import { SendUs } from '../home/sendus';
-import { alertService } from '../_components/alert/service';
+import { SendUs } from './sendus';
 
 export default function MessageModal({ user }) {
   let [isOpen, setIsOpen] = useState(false);
@@ -12,14 +11,14 @@ export default function MessageModal({ user }) {
   }
 
   function openModal() {
-    user ? setIsOpen(true) : alertService.info("You must be logged in.")
+    setIsOpen(true)
   }
 
   return (
     <>
       <button
         type='button'
-        className="block shrink-0 rounded-full bg-transparent p-1 shadow-sm"
+        className="block group shrink-0 rounded-full bg-transparent p-1 shadow-sm"
         onClick={openModal}
       >
         <span className="sr-only text-gray-600">Chat</span>
@@ -51,12 +50,12 @@ export default function MessageModal({ user }) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-[853px] h-[480px] lg:h-[532px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all overflow-y-auto scroll-smooth">
-                  <SendUs closeModal={closeModal} user={user} />
+                  <SendUs closeModal={closeModal} />
                 </Dialog.Panel>
               </Transition.Child>
               <button
                 type="button"
-                className="absolute top-28 md:end-[250px] md:top-8 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
+                className="absolute top-8 lg:end-60 md:end-1/2 sm:end-1/2 z-50 rounded-full border-[.5px] border-red-300 bg-transparent p-1 md:border-none"
                 onClick={closeModal}
               >
                 <span className="sr-only">Close</span>

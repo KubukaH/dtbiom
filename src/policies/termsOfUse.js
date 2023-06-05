@@ -36,7 +36,7 @@ export default function TermsAndConditions() {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -80,7 +80,7 @@ export default function TermsAndConditions() {
 
 const TermsDetailds = () => {
   return (
-    <section>
+    <section className='policies'>
     <h2 className='text-3xl'>Website Terms of Use</h2>
 
     <p className='text-[10px] '>Version 1.0</p>
@@ -155,7 +155,7 @@ const TermsDetailds = () => {
 
     <p className='text-[12px] font-mono mt-2'>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
 
-    <ol className='text-[12px] font-mono mt-2 marker:text-gray-400 list-disc pl-4 space-y-1'>
+    <ol className='text-[12px] font-mono mt-2 marker:text-indigo-400 list-disc pl-4 space-y-1'>
         <li>your physical or electronic signature;</li>
         <li>identification of the copyrighted work(s) that you claim to have been infringed;</li>
         <li>identification of the material on our services that you claim is infringing and that you request us to remove;</li>

@@ -78,10 +78,15 @@ export function TestimonialsSection() {
           }
           {listTransaction.length < 1 && (
             <div className="mb-8 sm:break-inside-avoid">
-              <blockquote className="rounded-xl bg-gray-50 p-6 shadow">
+              <blockquote className="inline-flex rounded-xl bg-gray-50 p-6 shadow">
                 <p className="leading-relaxed text-gray-700">
                   No Data from DB
                 </p>
+                <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+                  <div className="w-8 h-8 bg-blue-400 rounded-full delay-75"></div>
+                  <div className="w-8 h-8 bg-green-400 rounded-full delay-300"></div>
+                  <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000"></div>
+                </div>
               </blockquote>
             </div>
           )}
@@ -90,6 +95,14 @@ export function TestimonialsSection() {
               <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
                 <Link to="/fanzone" className="gradient-btn">See more messages</Link>
               </div>
+          }
+          {
+            !listTransaction && 
+            <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+              <div className="w-8 h-8 bg-blue-400 rounded-full delay-75"></div>
+              <div className="w-8 h-8 bg-green-400 rounded-full delay-300"></div>
+              <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000"></div>
+            </div>
           }
         </div>
       </div>

@@ -1,11 +1,9 @@
 import biom from "../assets/imgs/bio-starfm-best-sungura-2022.jpg";
-import { FooterSection } from "../foot";
 
 export const Merchandise = () => {
   const biop = new URL(biom, import.meta.url);
 
   return (
-    <>
     <section>
       <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
         <header className="text-center">
@@ -87,7 +85,5 @@ export const Merchandise = () => {
         </ul>
       </div>
     </section>
-    <FooterSection />
-    </>
   );
 }

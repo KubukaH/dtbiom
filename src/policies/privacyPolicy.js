@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
 
 const PolicyDetails = () => {
   return (
-    <section>
+    <section className='policies'>
     <h1 className='text-3xl mb-3'>Privacy Policy for D.T BiO Mudimba Music</h1>
 
     <p className='text-[12px] font-mono mt-2'>At D.T BiO Mudimba Music, accessible from https://www.dtbiom.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by D.T BiO Mudimba Music and how we use it.</p>
