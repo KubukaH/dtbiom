@@ -10,6 +10,7 @@ import 'swiper/modules/navigation/navigation.min.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
+import { Link } from '@reach/router';
 
 export function HeadHero() {
   const progressCircle = useRef(null);
@@ -53,19 +54,19 @@ export function HeadHero() {
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
+                to="/get-started"
               >
                 Get Started
-              </a>
+              </Link>
       
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="/about"
+                to="/about"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -93,19 +94,19 @@ export function HeadHero() {
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
+                to="/get-started"
               >
                 Get Started
-              </a>
+              </Link>
       
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="/about"
+                to="/about"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -133,19 +134,19 @@ export function HeadHero() {
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
+                to="/get-started"
               >
                 Get Started
-              </a>
+              </Link>
       
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="/about"
+                to="/about"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -183,19 +184,19 @@ export function HeadHero() {
             </p>
       
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href="/get-started"
+                to="/get-started"
               >
                 Get Started
-              </a>
+              </Link>
       
-              <a
+              <Link
                 className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="/about"
+                to="/about"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>

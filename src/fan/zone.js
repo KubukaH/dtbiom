@@ -4,7 +4,6 @@ import { Link } from "@reach/router";
 
 import profile from "../assets/imgs/profile.png";
 import { MessageCard } from ".";
-import { FooterSection } from "../foot";
 import client, { allCollections, getSetRef } from "../_db/operations";
 
 export function FanZone() {
@@ -90,7 +89,6 @@ export function FanZone() {
         </div>
       </div>
     </section>
-    <FooterSection />
     </>
   );
 }

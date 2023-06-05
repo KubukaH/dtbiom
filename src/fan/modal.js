@@ -1,7 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
-import { SendUs } from './sendus';
+import { alertService } from '../_components/alert/service';
+import { SendUs } from '../home';
 
 export default function MessageModal({ user }) {
   let [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,8 @@ export default function MessageModal({ user }) {
   function openModal() {
     setIsOpen(true)
   }
+
+  if (!user) return alertService.info("You must be logged in.");
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function MessageModal({ user }) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-[853px] h-[480px] lg:h-[532px] transform overflow-hidden rounded-2xl bg-white p-0 text-left align-middle shadow-xl transition-all overflow-y-auto scroll-smooth">
-                  <SendUs closeModal={closeModal} />
+                  <SendUs user={user} closeModal={closeModal} />
                 </Dialog.Panel>
               </Transition.Child>
               <button
