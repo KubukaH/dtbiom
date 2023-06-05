@@ -65,7 +65,7 @@ export function NavigationSection() {
                 aria-hidden="true"
                 className="block h-6 w-px rounded-full bg-gray-200"
               />
-              <MessageModal />
+              <MessageModal user={user} />
               <span
                 aria-hidden="true"
                 className="block h-6 w-px rounded-full bg-gray-200"
