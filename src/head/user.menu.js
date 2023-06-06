@@ -61,29 +61,33 @@ export default function UserMenu({ logo }) {
                 </Link>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  className={`${
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  to='/admin'
-                >
-                  {active ? (
-                    <DuplicateActiveIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <DuplicateInactiveIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  )}
-                  Duplicate
-                </Link>
-              )}
-            </Menu.Item>
+            {user.app_metadata.roles.indexOf('Admin') === 0 && (
+              <Menu.Item>
+                {({ active }) => (
+                  <a
+                    className={`${
+                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    href='/admin'
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {active ? (
+                      <DuplicateActiveIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <DuplicateInactiveIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Admin
+                  </a>
+                )}
+              </Menu.Item>
+            )}
           </div>
           <div className="px-1 py-1">
             <Menu.Item>

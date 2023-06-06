@@ -6,6 +6,22 @@ import TermsAndConditions from "../policies/termsOfUse";
 import PrivacyPolicy from "../policies/privacyPolicy";
 import { CookiesPolicy } from "../policies/cookiePolicy";
 import useLoading from "../_components/extras/loading";
+import { adminCookieServer } from "./cook";
+
+adminCookieServer();
+
+async function log_out() {
+  const response = await fetch(`${document.location.href}/revoke-token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: {}
+  });
+  response.text().then(text => {
+    const data = text && JSON.parse(text);
+    return data;
+  });
+}
 
 export const SideMenu = () => {
   const [cookie, setCookie] = useState({});
@@ -16,13 +32,19 @@ export const SideMenu = () => {
 
   const handleLogout = () => {
     load(user.logout()).then(() => {
-      localStorage.setItem("admin_cookie", false)
+      log_out();
       navigate('/');
     }).catch((error) => alert(error));
   }
 
   useEffect(() => {
-    setCookie(localStorage.getItem('admin_cookie'));
+    const coki = fetch(`${document.location.href}/users`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: {}
+    });
+    setCookie(coki);
   },[]);
   
   return (
@@ -33,7 +55,7 @@ export const SideMenu = () => {
           <span
             className="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
           >
-            L
+            {user.user_metadata.full_name.slice(0,1).toUpperCase()}
           </span>
         </div>
     
@@ -232,12 +254,11 @@ export const SideMenu = () => {
     </div>
     <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
-        { /*
+        {
           cookie.admin_cookie === true 
-          ? children
+          ? <Outlet />
           : <ConfirmUser />
-        */}
-        <Outlet />
+        }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">
             <nav aria-label="Footer Navigation - Support">

@@ -9,7 +9,7 @@ export const PrivateRoute = (props) => {
   }
 
   // check if route is restricted by role
-  if (props.roles && props.roles.indexOf(user.role) === -1) {
+  if (props.roles && props.roles.indexOf(user.app_metadata.roles) === 0) {
     // role not authorized so redirect to home page
     return <Navigate to='/' />
   }

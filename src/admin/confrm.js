@@ -4,6 +4,21 @@ import { auth_strategy } from "../_db/auth";
 import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
 
+// const locn = `${document.location.href}/confirm-cookie`
+
+async function login(body) {
+  const response = await fetch(`${document.location.href}/confirm-cookie`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(body)
+  });
+  response.text().then(text => {
+    const data = text && JSON.parse(text);
+    return data;
+  });
+}
+
 export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
   const navigate = useNavigate();
@@ -23,7 +38,7 @@ export function ConfirmUser() {
       });
     }
     load(auth_strategy.login(user.email, password.value, true)).then(() => {
-      localStorage.setItem("admin_cookie", true);
+      login({username: user.user_metadata.full_name});
 
       alertService.success(" Loged In", {
         keepAfterRouteChange: true
@@ -35,9 +50,11 @@ export function ConfirmUser() {
     });
   }
 
+  console.log(document.location.href);
+
   return (
     <article
-    className="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] w-96 mx-auto"
+    className="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] w-96 mx-auto my-40"
     >
     <form onSubmit={onSubmit} className="bg-white rounded-xl overflow-hidden p-2">
       <div className="col-span-6">
@@ -79,10 +96,10 @@ export function ConfirmUser() {
         >
           {isLoading 
             ? 
-            <div class="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
-              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-green-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-pink-400 rounded-full"></div>
+            <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+              <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+              <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+              <div className="w-1 h-1 bg-pink-400 rounded-full"></div>
             </div>
             :
             'Confirm'

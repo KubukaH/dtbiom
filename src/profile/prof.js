@@ -1,4 +1,7 @@
+import { useCTX } from "../_components";
+
 export const ProfileDetials = () => {
+  const { user } = useCTX();
   
   return (
     <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto my-40">
@@ -8,9 +11,15 @@ export const ProfileDetials = () => {
     
       <div className="mt-16">
         <h1 className="font-bold text-center text-3xl text-gray-900">
-          Mudimba
+          {user.user_metadata.full_name}
         </h1>
-        <p className="text-center text-sm text-gray-400 font-medium">Kaani Stars Band</p>
+        {
+          user.app_metadata.roles.map((role) => (
+            <p className="inline-block items-center text-center text-sm text-gray-400 font-medium ml-1" key={role}>
+              {role}
+            </p>
+          ))
+        }
         <p>
             <span>
                 

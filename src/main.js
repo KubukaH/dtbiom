@@ -49,7 +49,6 @@ export function App() {
   return (
     <AppContext>
       <ScrollTop>
-        <NavigationSection />
         {element}
       </ScrollTop>
       <AlertPopper />
