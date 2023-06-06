@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export const AccountRedirect = () => {
+
   useEffect(() => {
     const loc = document.location.pathname;
     if (loc === 'account') {

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Redirect, useNavigate, useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 
 import { useCTX } from "../_components/context";
 import { SignIn } from "./signin";
@@ -26,18 +26,12 @@ const routes = [
 
 export const AccountSection = () => {
   const { user } = useCTX();
-  const navigate = useNavigate();
 
   const elements = useRoutes(routes);
 
-  useEffect(() => {
-    if (user !== null) {
-      <Redirect to={{ pathname: '/' }} />;
-    }
-  },[]);
-
   return (
     <section className="bg-white">
+      {user && <Navigate to={{ pathname: '/' }} />}
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section
           className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
