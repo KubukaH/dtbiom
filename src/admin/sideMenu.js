@@ -1,30 +1,33 @@
-import { Link, redirectTo } from "@reach/router";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCTX } from "../_components";
 import { ConfirmUser } from "./confrm";
+import TermsAndConditions from "../policies/termsOfUse";
+import PrivacyPolicy from "../policies/privacyPolicy";
+import { CookiesPolicy } from "../policies/cookiePolicy";
+import useLoading from "../_components/extras/loading";
 
-export const SideMenu = ({ children }) => {
+export const SideMenu = () => {
   const [cookie, setCookie] = useState({});
+  const [isLoading, load] = useLoading();
+
   const { user } = useCTX();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    user.logout().then(() => {
+    load(user.logout()).then(() => {
       localStorage.setItem("admin_cookie", false)
-      redirectTo('/');
+      navigate('/');
     }).catch((error) => alert(error));
   }
 
   useEffect(() => {
     setCookie(localStorage.getItem('admin_cookie'));
   },[]);
-
-  // if (!user) return redirectTo("/account/signin");
-
-  // if (user.app_metadata.roles !== "Admin") return redirectTo("/");
   
   return (
-    <div className="relative grid w-full h-full grid-cols-12">
-    <div className="inline-flex h-screen flex-col col-span-1 justify-between border-e bg-white">
+    <>
+    <div className="inline-flex max-h-screen flex-col col-span-1 justify-between border-e bg-white">
       <div>
         <div className="inline-flex h-16 w-16 items-center justify-center">
           <span
@@ -191,21 +194,32 @@ export const SideMenu = ({ children }) => {
           <button
             type="submit"
             className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            disabled={isLoading}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 opacity-75"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
+            {!isLoading
+              ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 opacity-75"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
+              )
+              : 
+              <div className="inline-flex items-center justify-center space-x-1 animate-pulse">
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                <div className="w-1 h-1 bg-pink-400 rounded-full"></div>
+              </div>
+            }
     
             <span
               className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
@@ -216,16 +230,39 @@ export const SideMenu = ({ children }) => {
         </form>
       </div>
     </div>
-    <div className="h-screen col-span-11 bg-white px-4 py-16 flex flex-wrap overflow-auto w-full">
+    <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         { /*
           cookie.admin_cookie === true 
           ? children
           : <ConfirmUser />
         */}
-        {children}
+        <Outlet />
+        <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <nav aria-label="Footer Navigation - Support">
+              <ul className="flex flex-wrap gap-4 text-xs">
+                <li>
+                  <TermsAndConditions />
+                </li>
+    
+                <li>
+                  <PrivacyPolicy />
+                </li>
+    
+                <li>
+                  <CookiesPolicy />
+                </li>
+              </ul>
+            </nav>
+    
+            <p className="mt-8 text-xs text-gray-500 sm:mt-0">
+              &copy; {new Date().getFullYear()}. D.T. BiO Mudimba Music. All rights reserved.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
+    </>
   );
 }

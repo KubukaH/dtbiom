@@ -1,7 +1,6 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 import client, { allCollections, getSetRef, newCollection } from "../_db/operations";
-import { Link } from "@reach/router";
 
 export const MessageCard = ({ msgData, profp }) => {
   const [listLikes, setListLikes] = useState([]);
@@ -37,7 +36,7 @@ export const MessageCard = ({ msgData, profp }) => {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    streamClient.start();
+    // streamClient.start();
     return function cleanUp() {
       streamClient.close();
     }

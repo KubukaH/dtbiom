@@ -1,4 +1,4 @@
-import { Link, navigate } from "@reach/router";
+import { Link, useNavigate } from "react-router-dom";
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { useCTX, useInput } from "../_components";
@@ -6,6 +6,7 @@ import { alertService } from "../_components/alert/service";
 
 export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
+  const navigate = useNavigate();
 
   const { user } = useCTX();
   const password = useInput("");

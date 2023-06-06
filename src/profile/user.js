@@ -1,24 +1,27 @@
-import { Router } from "@reach/router";
+import { useRoutes } from "react-router-dom";
 import { ProfileDetials } from "./prof";
 import { EditProfile } from "./edit";
-import { useCTX } from "../_components";
-import { history } from "../_components/history";
+import { PrivateRoute } from "../_components/routes/private";
+
+const routes = [
+  {
+    index: true, element: <ProfileDetials />
+  },
+  {
+    path: 'edit', element: <EditProfile />
+  }
+];
 
 export const UserProfile = () => {
-  const { user } = useCTX();
-
-  if (user === null) {
-    history.navigate('/account/signin', {replace:true});
-  }
+  const navigate = useRoutes(routes);
   
   return (
-    <section className="flex flex-wrap bg-white m-1 h-[96vh] border rounded-md p-4 overflow-auto">
-      <div className="container mx-auto">
-        <Router>
-          <ProfileDetials path='/' />
-          <EditProfile path='/edit' />
-        </Router>
-      </div>
-    </section>
+    <PrivateRoute>
+      <section className="flex flex-wrap bg-white">
+        <div className="container mx-auto">
+          {navigate}
+        </div>
+      </section>
+    </PrivateRoute>
   );
 }

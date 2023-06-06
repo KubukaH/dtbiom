@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-import { history } from "../_components/history";
-import { useCTX } from "../_components";
-
 export const ProfileDetials = () => {
   
   return (
-    <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
+    <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto my-40">
       <div className="flex justify-center">
         <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"/>
       </div>

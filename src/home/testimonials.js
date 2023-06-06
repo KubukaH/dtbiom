@@ -1,6 +1,6 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 
 import profile from "../assets/imgs/profile.png";
 import { MessageCard } from "../fan";
@@ -41,7 +41,7 @@ export function TestimonialsSection() {
   
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    streamClient.start();
+    // streamClient.start();
     return function cleanUp() {
       streamClient.close();
     }

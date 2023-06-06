@@ -1,18 +1,38 @@
 import { useEffect } from "react";
+import { Redirect, useNavigate, useRoutes } from "react-router-dom";
+
 import { useCTX } from "../_components/context";
-import { history } from "../_components/history";
-import { Router } from "@reach/router";
 import { SignIn } from "./signin";
 import { SignUp } from "./signup";
 import { ForgotPassword } from "./forgotPassword";
 import { RecoverAccount } from "./recoverAccount";
+import { AccountRedirect } from "./redirect";
+
+const routes = [
+  {
+    index: true, element: <AccountRedirect />
+  },
+  {path: 'signin', element: <SignIn />},
+  {
+    path: 'signup', element: <SignUp />
+  },
+  {
+    path: 'forgot-password', element: <ForgotPassword />
+  },
+  {
+    path: 'recover-account', element: <RecoverAccount />
+  }
+];
 
 export const AccountSection = () => {
   const { user } = useCTX();
+  const navigate = useNavigate();
+
+  const elements = useRoutes(routes);
 
   useEffect(() => {
     if (user !== null) {
-      history.navigate('/', { replace: true });
+      <Redirect to={{ pathname: '/' }} />;
     }
   },[]);
 
@@ -89,12 +109,7 @@ export const AccountSection = () => {
               </p>
             </div>
             {/** FORM Comes after here */}
-            <Router>
-              <SignIn path='signin' />
-              <SignUp path='signup' />
-              <ForgotPassword path='forgot-password' />
-              <RecoverAccount path='recover-account' />
-            </Router>
+            {elements}
           </div>
         </main>
       </div>

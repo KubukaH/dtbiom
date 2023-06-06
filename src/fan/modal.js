@@ -12,6 +12,7 @@ export default function MessageModal({ user }) {
   }
 
   function openModal() {
+    alertService.clear();
     if (!user) {
       alertService.info("You must be logged in.");
     } else {

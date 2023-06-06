@@ -1,4 +1,5 @@
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
+
 import mudp from "../assets/imgs/BiO-Mudimba-footer.jpg";
 import PrivacyPolicy from "../policies/privacyPolicy";
 import TermsAndConditions from "../policies/termsOfUse";
@@ -171,7 +172,7 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Services" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <Link to="#live-band" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       Live performances
                     </Link>
                   </li>
@@ -203,7 +204,7 @@ export function MainFooter() {
               <nav aria-label="Footer Navigation - Company" className="mt-6">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <Link to="/admin" className="text-gray-700 transition hover:opacity-75">
+                    <Link to="#" className="text-gray-700 transition hover:opacity-75">
                       About
                     </Link>
                   </li>

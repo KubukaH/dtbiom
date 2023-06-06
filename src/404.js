@@ -1,6 +1,8 @@
-import { history } from "./_components/history";
+import { useNavigate } from "react-router-dom";
 
 const PageNotFound = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="h-full w-full flex flex-col justify-center items-center py-16 bg-fuchsia-300">
       <h1 className="text-9xl font-extrabold text-white tracking-widest">404</h1>
@@ -9,7 +11,7 @@ const PageNotFound = () => {
       </div>
       <button className="mt-5" 
         type="button"
-        onClick={() => history.navigate(-1, {replace:false})}
+        onClick={() => navigate(-1, {replace:false})}
       >
           <a
             className="relative inline-block text-sm font-medium text-[#faf7f6] group active:text-orange-500 focus:outline-none focus:ring"

@@ -37,7 +37,7 @@ export const AppContext = ({ children }) => {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    streamClient.start();
+    // streamClient.start();
     return function cleanUp() {
       streamClient.close();
     }

@@ -1,7 +1,7 @@
 import { XMarkIcon, BellIcon } from '@heroicons/react/24/outline';
 import { Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 export function CookiesPolicy() {
   const [isOpen, setIsOpen] = useState(false);

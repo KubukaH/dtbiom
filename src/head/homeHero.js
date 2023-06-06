@@ -10,7 +10,7 @@ import 'swiper/modules/navigation/navigation.min.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 export function HeadHero() {
   const progressCircle = useRef(null);

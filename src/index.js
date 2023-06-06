@@ -1,13 +1,16 @@
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
 import { App } from "./main";
-import { LocationProvider } from "@reach/router";
-import { history } from "./_components/history";
 
 const container = document.getElementById("mudimba");
 const root = createRoot(container);
 
 root.render(
-  <LocationProvider history={history}>
-    <App />
-  </LocationProvider>
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
 );

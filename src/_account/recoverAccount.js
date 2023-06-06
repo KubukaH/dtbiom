@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "@reach/router";
+import { Link, useNavigate } from "react-router-dom";
+
 import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { alertService } from "../_components/alert/service";
 import { SpinnerIcon } from "../_components/spinnerIcon";
 import { useInput } from "../_components";
-import { history } from "../_components/history";
 
 export function RecoverAccount() {
   const [isLoading, load] = useLoading(false);
@@ -17,12 +17,13 @@ export function RecoverAccount() {
 
   const [token, setToken] = useState(null);
   const [tokenStatus, setTokenStatus] = useState(TokenStatus.Validating);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let params = new URL(document.location).searchParams;
     let recovery_token = params.get('recovery_token');
 
-    history.location(location.pathname);
+    location(location.pathname);
 
     auth_strategy.recover(recovery_token, true).then((response) => {
       setToken(response);
@@ -52,7 +53,7 @@ export function RecoverAccount() {
       }
       load(user.update({password: password.value})).then(() => {
         alertService.success("Successfully changed your password.", { keepAfterRouteChange: true });
-        history.navigate(-1, { replace: true });
+        navigate(-1, { replace: true });
       }).catch((error) => {
         alertService.error(error, { keepAfterRouteChange: false });
       });
@@ -109,7 +110,7 @@ export function RecoverAccount() {
   function theBody() {
     switch (tokenStatus) {
       case TokenStatus.Valid:
-        history.navigate('/profile', { replace:true });
+        navigate('/profile', { replace:true });
       case TokenStatus.Invalid:
         return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="/account/forgot-password" className="text-indigo-400 font-semibold">forgot password</Link> page.</div>;
       case TokenStatus.Validating:

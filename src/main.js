@@ -1,4 +1,4 @@
-import { Router } from "@reach/router";
+import { useRoutes } from "react-router-dom";
 
 // COMPONENTS & ROUTES
 import { AppContext } from "./_components";
@@ -13,25 +13,44 @@ import { HeaderSection } from "./head";
 import { FanZone } from "./fan";
 import { UserProfile } from "./profile";
 
+const routes = [
+  {
+    path: '',
+    element: <ComponentWrapper />,
+    children: [
+      {
+        index: true, element: <HeaderSection /> 
+      },
+      {
+        path: 'merchandise-shop', element: <Merchandise  />
+      },
+      {
+        path: 'fanzone', element:  <FanZone />
+      },
+      {
+        path: 'profile/*', 
+        element: <UserProfile />
+      },
+      {path: '*', element: <PageNotFound />}
+    ]
+  },
+  {
+    path: "/account/*",
+    element: <AccountSection />
+  },
+  {path: "/admin/*", element: <Dashboard />},
+  {path: '*', element: <PageNotFound />}
+];
+
 // The App Function
 export function App() {
+  const element = useRoutes(routes);
 
   return (
     <AppContext>
       <ScrollTop>
         <NavigationSection />
-        <Router>
-          <ComponentWrapper path='/'>
-            <HeaderSection path='/' />
-            <Merchandise path='merchandise-shop' />
-            <FanZone path='fanzone' />
-            <UserProfile path='profile/*' />
-            <PageNotFound default />
-          </ComponentWrapper>
-          <AccountSection path="/account/*" />
-          <Dashboard path="/admin/*" />
-          <PageNotFound default />
-        </Router>
+        {element}
       </ScrollTop>
       <AlertPopper />
     </AppContext>

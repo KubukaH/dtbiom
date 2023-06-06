@@ -1,6 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import { HomeIcon, LockClosedIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 import UserMenu from './user.menu';
 import MessageModal from '../fan/modal';

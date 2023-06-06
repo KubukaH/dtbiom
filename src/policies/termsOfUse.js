@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react';
 
 export default function TermsAndConditions() {
