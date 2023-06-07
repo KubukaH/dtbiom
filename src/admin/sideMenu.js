@@ -18,6 +18,7 @@ export const SideMenu = () => {
   const handleLogout = () => {
     load(user.logout()).then(() => {
       servicePack.logout();
+      document.cookie = "";
       navigate('/');
     }).catch((error) => alert(error));
   }
