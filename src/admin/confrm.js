@@ -3,21 +3,7 @@ import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
-
-// const locn = `${document.location.href}/confirm-cookie`
-
-async function login(body) {
-  const response = await fetch(`${document.location.href}/confirm-cookie`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-    body: JSON.stringify(body)
-  });
-  response.text().then(text => {
-    const data = text && JSON.parse(text);
-    return data;
-  });
-}
+import { servicePack } from "./cookie";
 
 export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
@@ -37,20 +23,23 @@ export function ConfirmUser() {
         keepAfterRouteChange: false
       });
     }
-    load(auth_strategy.login(user.email, password.value, true)).then(() => {
-      login({username: user.user_metadata.full_name});
-
-      alertService.success(" Loged In", {
-        keepAfterRouteChange: true
+    load(auth_strategy.login(user.email, password.value, true)).then((response) => {
+      const myAuthHeader = "Bearer " + response.token.access_token;
+      fetch("/.netlify/functions/identity-login", {
+        headers: { Authorization: myAuthHeader },
+        credentials: "include"
+      }).then(() => {
+        alertService.info("Logged In.");
+        document.cookie = `username=${response.user_meatadata.full_name}; confirmed=true; SameSite=None; Secure`;
+        navigate('/admin', { replace: true });
+        console.log(document.cookie)
+      }).catch((error) => {
+        alertService.error(error);
       });
-
-      navigate('/admin', { replace: true });
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
   }
-
-  console.log(document.location.href);
 
   return (
     <article

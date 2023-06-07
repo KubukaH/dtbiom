@@ -4,12 +4,6 @@ export { adminCookieServer };
 const db_Key = 'biomudimba-admin-cookie-server';
 const admins = JSON.parse(localStorage.getItem(db_Key)) || [];
 
-// add test user and save if admins array is empty
-if (!admins.length) {
-  admins.push({ id: 1,  username: 'test', confirmed: false, refreshTokens: [] });
-  localStorage.setItem(db_Key, JSON.stringify(admins));
-}
-
 function adminCookieServer() {
   let realFetch = window.fetch;
   window.fetch = function (url, opts) {
@@ -22,11 +16,11 @@ function adminCookieServer() {
         switch (true) {
           case url.endsWith('/admin/confirm-cookie') && method === 'POST':
             return authenticate();
-          case url.endsWith('/admin/refresh-token') && method === 'POST':
+          case url.endsWith('/admin/re-token') && method === 'POST':
             return refreshToken();
-          case url.endsWith('/admin/revoke-token') && method === 'POST':
+          case url.endsWith('/admin/un-token') && method === 'POST':
             return revokeToken();
-          case url.endsWith('/admin/users') && method === 'GET':
+          case url.endsWith('/admin/cks') && method === 'GET':
             return getUsers();
           default:
             // pass through any requests not handled above

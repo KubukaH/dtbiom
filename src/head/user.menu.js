@@ -61,7 +61,7 @@ export default function UserMenu({ logo }) {
                 </Link>
               )}
             </Menu.Item>
-            {user.app_metadata.roles.indexOf('Admin') === 0 && (
+            {user.app_metadata.roles !== undefined && user.app_metadata.roles.indexOf('Admin') === 0 && (
               <Menu.Item>
                 {({ active }) => (
                   <a

@@ -6,47 +6,31 @@ import TermsAndConditions from "../policies/termsOfUse";
 import PrivacyPolicy from "../policies/privacyPolicy";
 import { CookiesPolicy } from "../policies/cookiePolicy";
 import useLoading from "../_components/extras/loading";
-import { adminCookieServer } from "./cook";
-
-adminCookieServer();
-
-async function log_out() {
-  const response = await fetch(`${document.location.href}/revoke-token`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-    body: {}
-  });
-  response.text().then(text => {
-    const data = text && JSON.parse(text);
-    return data;
-  });
-}
+import { servicePack } from "./cookie";
 
 export const SideMenu = () => {
-  const [cookie, setCookie] = useState({});
   const [isLoading, load] = useLoading();
+  const [cookie, setCookie] = useState({});
 
   const { user } = useCTX();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     load(user.logout()).then(() => {
-      log_out();
+      servicePack.logout();
       navigate('/');
     }).catch((error) => alert(error));
   }
 
   useEffect(() => {
-    const coki = fetch(`${document.location.href}/users`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: {}
-    });
-    setCookie(coki);
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("username="))
+      ?.split("=")[1];
+
+    setCookie(cookieValue);
   },[]);
-  
+
   return (
     <>
     <div className="inline-flex max-h-screen flex-col col-span-1 justify-between border-e bg-white">
@@ -255,9 +239,7 @@ export const SideMenu = () => {
     <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         {
-          cookie.admin_cookie === true 
-          ? <Outlet />
-          : <ConfirmUser />
+          cookie ? <Outlet /> : <ConfirmUser />
         }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">

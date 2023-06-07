@@ -14,11 +14,11 @@ export const ProfileDetials = () => {
           {user.user_metadata.full_name}
         </h1>
         {
-          user.app_metadata.roles.map((role) => (
+          user.app_metadata.roles ? user.app_metadata.roles.map((role) => (
             <p className="inline-block items-center text-center text-sm text-gray-400 font-medium ml-1" key={role}>
               {role}
             </p>
-          ))
+          )) : <p className="inline-block items-center text-center text-sm text-gray-400 font-medium ml-1">User</p>
         }
         <p>
             <span>
