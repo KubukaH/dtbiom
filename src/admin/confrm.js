@@ -26,6 +26,7 @@ export function ConfirmUser() {
     load(auth_strategy.login(user.email, password.value, true)).then((response) => {
       const myAuthHeader = "Bearer " + response.token.access_token;
       fetch("/.netlify/functions/identity-login", {
+        method: "POST",
         headers: { Authorization: myAuthHeader },
         credentials: "include"
       }).then(() => {
