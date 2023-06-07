@@ -24,19 +24,21 @@ export function ConfirmUser() {
       });
     }
     load(auth_strategy.login(user.email, password.value, true)).then((response) => {
-      const myAuthHeader = "Bearer " + response.token.access_token;
+      alertService.info("Logged In.");
+      document.cookie = `username=${response.user_meatadata.full_name}; confirmed=true; SameSite=None; Secure`;
+      navigate('/admin', { replace: true });
+
+      /*const myAuthHeader = "Bearer " + response.token.access_token;
       fetch("/.netlify/functions/identity-login", {
         method: "POST",
         headers: { Authorization: myAuthHeader },
         credentials: "include"
       }).then(() => {
-        alertService.info("Logged In.");
-        document.cookie = `username=${response.user_meatadata.full_name}; confirmed=true; SameSite=None; Secure`;
-        navigate('/admin', { replace: true });
         console.log(document.cookie)
       }).catch((error) => {
         alertService.error(error);
-      });
+      });*/
+      
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
