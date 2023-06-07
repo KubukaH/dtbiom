@@ -12,7 +12,7 @@ export function SignIn() {
   const email = useInput("");
   const password = useInput("");
 
-  const onSubmit = (e) => {
+  const handleSignin = (e) => {
     e.preventDefault();
     alertService.clear();
     if (
@@ -34,7 +34,7 @@ export function SignIn() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
+    <form onSubmit={handleSignin} className="mt-8 grid grid-cols-6 gap-6">
       <div className="col-span-6">
         <h2 className="text-3xl text-center font-semibold mb-8">Login</h2>
       </div>
