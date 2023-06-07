@@ -36,10 +36,7 @@ export const SignUp = () => {
       const user_metadata = {
         full_name: `${first_name.value} ${last_name.value}`
       }
-      const app_metadata = {
-        roles: ['User']
-      }
-      load(auth_strategy.signup(email.value, password.value, user_metadata, app_metadata)).then(() => {
+      load(auth_strategy.signup(email.value, password.value, user_metadata)).then(() => {
         alertService.success("Account created!", {
           keepAfterRouteChange: true
         });
@@ -47,8 +44,6 @@ export const SignUp = () => {
       }).catch((err) => alertService.error(err, { keepAfterRouteChange: false }));
     }
   }
-
-  document.title =  `sign up`;
 
   return (
     <form onSubmit={onSubmit} className="mt-8 grid grid-cols-6 gap-6">
