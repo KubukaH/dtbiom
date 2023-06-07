@@ -18,7 +18,7 @@ export const SideMenu = () => {
   const handleLogout = () => {
     load(user.logout()).then(() => {
       servicePack.logout();
-      document.cookie = "";
+      document.cookie = `confirmed=false; SameSite=None; Secure`;
       navigate('/');
     }).catch((error) => alert(error));
   }
@@ -31,6 +31,8 @@ export const SideMenu = () => {
 
     setCookie(cookieValue);
   },[]);
+
+  console.log(document.cookie.split(";").some((item) => item.includes("confirmed=true")))
 
   return (
     <>
@@ -240,7 +242,7 @@ export const SideMenu = () => {
     <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         {
-          cookie ? <Outlet /> : <ConfirmUser />
+          document.cookie.split(";").some((item) => item.includes("confirmed=true")) ? <Outlet /> : <ConfirmUser />
         }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">

@@ -3,7 +3,6 @@ import useLoading from "../_components/extras/loading";
 import { auth_strategy } from "../_db/auth";
 import { useCTX, useInput } from "../_components";
 import { alertService } from "../_components/alert/service";
-import { servicePack } from "./cookie";
 
 export function ConfirmUser() {
   const [isLoading, load] = useLoading(false);
@@ -25,20 +24,9 @@ export function ConfirmUser() {
     }
     load(auth_strategy.login(user.email, password.value, true)).then((response) => {
       alertService.info("Logged In.");
-      document.cookie = `username=${response.user_metadata.full_name}; confirmed=true; SameSite=None; Secure`;
+      document.cookie = "confirmed=true; SameSite=None; Secure";
       navigate('/admin', { replace: true });
-      console.log(document.cookie)
-
-      /*const myAuthHeader = "Bearer " + response.token.access_token;
-      fetch("/.netlify/functions/identity-login", {
-        method: "POST",
-        headers: { Authorization: myAuthHeader },
-        credentials: "include"
-      }).then(() => {
-      }).catch((error) => {
-        alertService.error(error);
-      });*/
-
+      console.log(document.cookie);
     }).catch((error) => {
       alertService.error(error, { keepAfterRouteChange: false });
     });
