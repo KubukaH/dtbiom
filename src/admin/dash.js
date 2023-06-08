@@ -4,6 +4,9 @@ import { SideMenu } from "./sideMenu";
 import { StatisticsSection } from "./stats";
 import PageNotFound from '../404';
 import { PrivateRoute } from '../_components/routes/private';
+import { cookieStore } from './cookie';
+
+cookieStore.renewToken();
 
 function Dashboard() {
   const element = useRoutes([

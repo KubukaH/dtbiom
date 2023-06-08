@@ -6,7 +6,7 @@ import TermsAndConditions from "../policies/termsOfUse";
 import PrivacyPolicy from "../policies/privacyPolicy";
 import { CookiesPolicy } from "../policies/cookiePolicy";
 import useLoading from "../_components/extras/loading";
-import { servicePack } from "./cookie";
+import { cookieStore } from "./cookie";
 
 export const SideMenu = () => {
   const [isLoading, load] = useLoading();
@@ -17,8 +17,7 @@ export const SideMenu = () => {
 
   const handleLogout = () => {
     load(user.logout()).then(() => {
-      servicePack.logout();
-      document.cookie = `confirmed=false; SameSite=None; Secure`;
+      cookieStore.tokenRevoke();
       navigate('/');
     }).catch((error) => alert(error));
   }
@@ -26,13 +25,10 @@ export const SideMenu = () => {
   useEffect(() => {
     const cookieValue = document.cookie
       .split("; ")
-      .find((row) => row.startsWith("username="))
-      ?.split("=")[1];
+      .find((row) => row.startsWith("adminRefreshToken="));
 
     setCookie(cookieValue);
   },[]);
-
-  console.log(document.cookie.split(";").some((item) => item.includes("confirmed=true")))
 
   return (
     <>
@@ -242,7 +238,7 @@ export const SideMenu = () => {
     <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         {
-          document.cookie.split(";").some((item) => item.includes("confirmed=true")) ? <Outlet /> : <ConfirmUser />
+          document.cookie.split(";").some((item) => item.trim().startsWith("adminRefreshToken=")) ? <Outlet /> : <ConfirmUser />
         }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">
