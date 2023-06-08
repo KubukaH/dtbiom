@@ -24,7 +24,7 @@ export function ConfirmUser() {
       });
     }
     load(auth_strategy.login(user.email, password.value, true)).then((response) => {
-      cookieStore.store(response.user_metadata.full_name);
+      cookieStore.store({username:response.user_metadata.full_name, email: user.email});
       navigate('/admin', { replace: true });
       alertService.info("Confirmed admin user.");
     }).catch((error) => {

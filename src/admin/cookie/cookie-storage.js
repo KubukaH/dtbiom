@@ -1,4 +1,4 @@
-const adminKey = 'biomudimba-webapi-cookie';
+const adminKey = 'biom-webapi-cookie';
 let admins = JSON.parse(localStorage.getItem(adminKey)) || [];
 
 export const cookieStore = {
@@ -7,14 +7,13 @@ export const cookieStore = {
   tokenRevoke
 };
 
-function store( username ) {
+function store( username, email ) {
 
   if (admins.find(x => x.username === username) === (null || undefined)) {
-    createAdminCookie(username);
+    createAdminCookie(username, email);
   }
 
   const admin = admins.find(x => x.username === username);
-  console.log(document.cookie);
 
   admin.adminCookieTokens.push(generateRefreshToken());
   
@@ -23,6 +22,7 @@ function store( username ) {
   return ok({
     id: admin.id,
     username: admin.username,
+    email: admin.email,
     confirmed: admin.confirmed,
     tempJwt: generateJwtToken(admin)
   });
@@ -47,6 +47,7 @@ function renewToken() {
   return ok({
       id: admin.id,
       username: admin.username,
+      email: admin.email,
       confirmed: admin.confirmed,
       tempJwt: generateJwtToken(admin)
   })
@@ -66,18 +67,18 @@ function tokenRevoke() {
 }
 
 // Helper Create Admin Cookie
-function createAdminCookie( username ) {
+function createAdminCookie( username, email ) {
   // assign admin id and a few other properties then save
   const admin = {
     id: newUserId(),
     username: username,
+    email: email,
     confirmed: false,
     dateCreated: new Date().toISOString(),
     adminCookieTokens: []
   };
 
   admins.push(admin);
-  console.log(JSON.stringify(admin));
 
   localStorage.setItem(adminKey, JSON.stringify(admins));
 

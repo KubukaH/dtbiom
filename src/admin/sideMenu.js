@@ -10,7 +10,8 @@ import { cookieStore } from "./cookie";
 
 export const SideMenu = () => {
   const [isLoading, load] = useLoading();
-  const [cookie, setCookie] = useState({});
+  const [cookie, setCookie] = useState(null);
+  const cookies = JSON.parse(localStorage.getItem('biom-webapi-cookie'));
 
   const { user } = useCTX();
   const navigate = useNavigate();
@@ -26,9 +27,14 @@ export const SideMenu = () => {
     const cookieValue = document.cookie
       .split("; ")
       .find((row) => row.startsWith("adminRefreshToken="));
+    
+    // const usr = cookies.find(x => x.username === user.user_metadata.full_name);
+    // const usc = usr.adminCookieTokens.filter(x => x === cookieValue.split('=')[1])
 
-    setCookie(cookieValue);
+    setCookie(cookieValue );
   },[]);
+
+  console.log(cookie);
 
   return (
     <>
@@ -238,7 +244,7 @@ export const SideMenu = () => {
     <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         {
-          document.cookie.split(";").some((item) => item.trim().startsWith("adminRefreshToken=")) ? <Outlet /> : <ConfirmUser />
+          !cookie ? <ConfirmUser /> : <Outlet />
         }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">
