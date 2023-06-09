@@ -1,4 +1,7 @@
+import { useCTX } from "../_components";
+
 export const EditProfile = () => {
+  const { user } = useCTX();
   
   return (
     <div className="py-2 bg-white my-14">
@@ -29,7 +32,7 @@ export const EditProfile = () => {
                           type="text"
                           name="company-website"
                           id="company-website"
-                          className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                          className="focus:ring-fuchsia-500 focus:border-fuchsia-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 p-1"
                           placeholder="www.example.com"
                         />
                       </div>
@@ -145,31 +148,34 @@ export const EditProfile = () => {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
+                        defaultValue={user.user_metadata.full_name.split(' ')[0]}
                       />
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 after:content-['no'] after:ml-1">
                         Last name
                       </label>
                       <input
                         type="text"
                         name="last-name"
                         id="last-name"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
+                        defaultValue={user.user_metadata.full_name.split(' ')[1]}
                       />
                     </div>
 
                     <div className="col-span-6 sm:col-span-4">
-                      <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 after:content-['(None-editable)'] after:ml-1 after:text-fuchsia-500">
                         Email address
                       </label>
                       <input
-                        type="text"
+                        type="email"
                         name="email-address"
                         id="email-address"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-200 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
+                        defaultValue={user.email}
                         disabled
                       />
                     </div>
@@ -197,7 +203,7 @@ export const EditProfile = () => {
                         type="text"
                         name="street-address"
                         id="street-address"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
                       />
                     </div>
 
@@ -209,7 +215,7 @@ export const EditProfile = () => {
                         type="text"
                         name="city"
                         id="city"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
                       />
                     </div>
 
@@ -222,7 +228,7 @@ export const EditProfile = () => {
                         name="region"
                         id="region"
                         autoComplete="address-level1"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
                       />
                     </div>
 
@@ -235,7 +241,7 @@ export const EditProfile = () => {
                         name="postal-code"
                         id="postal-code"
                         autoComplete="postal-code"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full shadow-sm sm:text-sm rounded-md border border-fuchsia-100 p-3 text-sm focus:outline-none focus:border-fuchsia-200 focus:ring-1 focus:ring-fuchsia-200"
                       />
                     </div>
                   </div>
@@ -284,7 +290,7 @@ export const EditProfile = () => {
                             id="comments"
                             name="comments"
                             type="checkbox"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                            className="h-4 w-4 rounded border border-gray-300 focus:ring-1 focus:ring-indigo-400 text-indigo-500 p-3 focus:outline-none focus:border-indigo-400"
                           />
                         </div>
                         <div className="ml-3 text-sm">

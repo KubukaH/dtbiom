@@ -1,25 +1,29 @@
 import { useCTX } from "../_components";
+import blank_avatar from "../assets/imgs/blank-avatar.jpg";
 
 export const ProfileDetials = () => {
   const { user } = useCTX();
+  const avatar = new URL(blank_avatar, import.meta.url);
   
   return (
     <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto my-40">
       <div className="flex justify-center">
-        <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"/>
+        <img src={avatar} alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"/>
       </div>
     
       <div className="mt-16">
         <h1 className="font-bold text-center text-3xl text-gray-900">
           {user.user_metadata.full_name}
         </h1>
+        <div className="gap-2 space-x-2">
         {
           user.app_metadata.roles ? user.app_metadata.roles.map((role) => (
-            <p className="inline-block items-center text-center text-sm text-gray-400 font-medium ml-1" key={role}>
+            <p className="inline-flex start-1/2 flex-row first:ml-24 lg:first:ml-60 text-sm text-gray-400 font-medium" key={role}>
               {role}
             </p>
           )) : <p className="inline-block items-center text-center text-sm text-gray-400 font-medium ml-1">User</p>
         }
+        </div>
         <p>
             <span>
                 

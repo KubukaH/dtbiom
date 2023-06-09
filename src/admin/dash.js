@@ -5,6 +5,11 @@ import { StatisticsSection } from "./stats";
 import PageNotFound from '../404';
 import { PrivateRoute } from '../_components/routes/private';
 import { cookieStore } from './cookie';
+import { SalesPage } from './sales';
+import { UsersPage } from './users/userspage';
+import { NewUser, UsersList } from './users';
+import { AdminProfileDetails } from './profile/details';
+import { EditProfile } from './profile/edit';
 
 cookieStore.renewToken();
 
@@ -14,7 +19,18 @@ function Dashboard() {
       path: '', 
       element: <SideMenu />,
       children: [
-        { index: true, element: <StatisticsSection /> },
+        { index: true, element: <SalesPage /> },
+        { path: 'invoices', element: <StatisticsSection /> },
+        { 
+          path: 'users/*', 
+          element: <UsersPage />,
+          children: [
+            { index: true, element: <UsersList /> },
+            { path: 'new-user', element: <NewUser /> }
+          ]
+        },
+        { path: 'profile', element: <AdminProfileDetails /> },
+        { path: 'profile/edit', element: <EditProfile /> },
         { path: '*', element: <PageNotFound /> }
       ]
     }

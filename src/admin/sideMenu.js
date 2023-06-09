@@ -241,10 +241,10 @@ export const SideMenu = () => {
         </form>
       </div>
     </div>
-    <div className="h-full col-span-11 bg-white flex flex-wrap overflow-y-auto w-full">
+    <div className="h-full col-span-11 bg-gray-100 flex flex-wrap overflow-y-auto w-full">
       <div className="w-full">
         {
-          !cookie ? <ConfirmUser /> : <Outlet />
+          cookie ? <ConfirmUser /> : <Outlet />
         }
         <div className="my-4 w-2/3 mx-auto border-t border-gray-300">
           <div className="sm:flex sm:items-center sm:justify-between">

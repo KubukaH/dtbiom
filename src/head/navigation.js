@@ -36,14 +36,14 @@ export function NavigationSection() {
                   alt="Bio Mudimba"
                 />
               </div>
-              <div className="lg:hidden sm:ml-6 sm:block">
+              <div className="sm:hidden sm:ml-6 lg:block">
                 <div className="flex space-x-4">
                   <a
                     href='#'
                     className='text-white hover:bg-gray-700 hover:text-white rounded-md px-1.5 py-0.5 text-sm font-medium'
                     aria-current='page'
                   >
-                    DTBioMudimbaMusic
+                    DT Bio Mudimba Music
                   </a>
                 </div>
               </div>
