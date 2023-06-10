@@ -15,8 +15,6 @@ export function SendUs({ closeModal, user }) {
     other: false
   });
 
-  const names = useInput('');
-  const email = useInput('');
   const phonenumber = useInput('');
 
   const colName = "Message";
@@ -25,8 +23,8 @@ export function SendUs({ closeModal, user }) {
     alertService.clear();
     e.preventDefault();
     const response = await newCollection({
-      email: email.value,
-      names: names.value,
+      email: user.email,
+      names: user.user_metadata.full_name,
       message: message,
       phonenumber: phonenumber.value,
       ...state,
@@ -85,11 +83,11 @@ export function SendUs({ closeModal, user }) {
               <input
                 className="w-full rounded-lg border border-fuchsia-300 p-3 text-sm focus:outline-none focus:border-fuchsia-300 focus:ring-1 focus:ring-fuchsia-300 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-                placeholder={user.user_metadata.fullname}
+                placeholder={user.user_metadata.full_name}
                 type="text"
                 id="name"
+                name="names"
                 readOnly
-                {...names.bind}
               />
             </div>
 
@@ -103,7 +101,6 @@ export function SendUs({ closeModal, user }) {
                   type="email"
                   id="email"
                   readOnly
-                  {...email.bind}
                 />
               </div>
 
@@ -184,10 +181,11 @@ export function SendUs({ closeModal, user }) {
               <textarea
                 minLength={3}
                 maxLength={375}
-                className="peer is-dirty in-range:focus:border-fuchsia-300 in-range:border-fuchsia-300 focus:ring-1 in-range:focus:ring-fuchsia-300 out-of-range:text-pink-600 out-of-range:border-pink-500 out-of-range:focus:border-pink-500 out-of-range:focus:ring-1 out-of-range:ring-pink-500 out-of-range:focus:ring-pink-500 focus:outline-none w-full rounded-lg p-1 text-sm"
+                className="peer is-dirty resize-none in-range:focus:border-fuchsia-300 in-range:border-fuchsia-300 focus:ring-1 in-range:focus:ring-fuchsia-300 out-of-range:text-pink-600 out-of-range:border-pink-500 out-of-range:focus:border-pink-500 out-of-range:focus:ring-1 out-of-range:ring-pink-500 out-of-range:focus:ring-pink-500 focus:outline-none w-full rounded-lg p-1 text-sm"
                 placeholder="Message"
                 rows="8"
                 id="message"
+                name="message"
                 onChange={(e) => {
                   setCount(376 - e.target.value.length);
                   setMessage(e.target.value)
@@ -204,7 +202,13 @@ export function SendUs({ closeModal, user }) {
                 className="inline-block w-full rounded-lg bg-auto bg-gradient-to-br from-fuchsia-400 to-fuchsia-300 px-5 py-3 font-medium text-white sm:w-auto hover:bg-gradient-to-tl hover:from-fuchsia-600 hover:to-fuchsia-400 hover:shadow-md duration-500 hover:bg-right-top"
                 disabled={isLoading}
               >
-                Send
+                {!isLoading ? 'Send'
+                  : <div className="flex flex-row justify-between items-center w-full animate-pulse">
+                    <div className="w-3 h-3 bg-blue-400 rounded-full delay-75 duration-700"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full delay-150 duration-300"></div>
+                    <div className="w-3 h-3 bg-pink-400 rounded-full delay-700 duration-75"></div>
+                  </div>
+                }
               </button>
             </div>
           </form>

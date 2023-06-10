@@ -60,6 +60,14 @@ export function TestimonialsSection() {
     setListTransaction(allTransaction);
   }
 
+  if (!listTransaction) return (
+    <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+      <div className="w-8 h-8 bg-blue-400 rounded-full delay-75 duration-500"></div>
+      <div className="w-8 h-8 bg-green-400 rounded-full delay-300 duration-200"></div>
+      <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000 duration-75"></div>
+    </div>
+  );
+
   return (
     <section className="h-full">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-4 sm:px-6 lg:px-8">
@@ -80,13 +88,8 @@ export function TestimonialsSection() {
             <div className="mb-8 sm:break-inside-avoid">
               <blockquote className="inline-flex rounded-xl bg-gray-50 p-6 shadow">
                 <p className="leading-relaxed text-gray-700">
-                  No Data from DB
+                  No data from DB
                 </p>
-                <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
-                  <div className="w-8 h-8 bg-blue-400 rounded-full delay-75"></div>
-                  <div className="w-8 h-8 bg-green-400 rounded-full delay-300"></div>
-                  <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000"></div>
-                </div>
               </blockquote>
             </div>
           )}
@@ -95,14 +98,6 @@ export function TestimonialsSection() {
               <div className="ml-8 mt-16 mb-8 lg:mt-32 lg:mb-20">
                 <Link to="/fanzone" className="gradient-btn">See more messages</Link>
               </div>
-          }
-          {
-            !listTransaction && 
-            <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
-              <div className="w-8 h-8 bg-blue-400 rounded-full delay-75"></div>
-              <div className="w-8 h-8 bg-green-400 rounded-full delay-300"></div>
-              <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000"></div>
-            </div>
           }
         </div>
       </div>

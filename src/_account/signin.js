@@ -92,7 +92,6 @@ export function SignIn() {
           type="submit"
           disabled={isLoading}
         >
-          
           {!isLoading ? 'Sign In'
             : <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
               <div className="w-1 h-1 bg-blue-400 rounded-full"></div>

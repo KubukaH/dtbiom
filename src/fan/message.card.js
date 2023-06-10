@@ -65,14 +65,14 @@ export const MessageCard = ({ msgData, profp }) => {
   }
 
   return (
-    <div className="mb-8 sm:break-inside-avoid">
-      <blockquote className="rounded-xl bg-gray-50 p-6 shadow">
-        <p className="leading-relaxed text-gray-700">
+    <div className="prose prose-zinc prose-sm mb-8 sm:break-inside-avoid select-none">
+      <blockquote className="rounded-xl font-['Cormorant_Garamond'] bg-gray-50 p-6 shadow">
+        <p className="leading-relaxed text-gray-700 text-base whitespace-pre-line text-justify hyphens-auto">
           {msgData.message}
         </p>
       </blockquote>
 
-      <div className="mt-4 flex items-center gap-4">
+      <div className="not-prose mt-1 flex items-center gap-4">
         <img
           alt="Woman"
           src={profp}
@@ -90,7 +90,7 @@ export const MessageCard = ({ msgData, profp }) => {
         </div>
 
         <HeartIcon 
-          className="h-4 w-4 text-pink-600 hover:h-10 hover:w-10 duration-300 cursor-pointer"
+          className="transition ease-in-out delay-100 duration-300 h-4 w-4 text-pink-600 hover:translate-x-0 hover:scale-[1.9] cursor-pointer"
           onClick={LikeBtn}
         />
       </div>

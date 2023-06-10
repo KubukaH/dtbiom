@@ -10,6 +10,7 @@ import { UsersPage } from './users/userspage';
 import { NewUser, UsersList } from './users';
 import { AdminProfileDetails } from './profile/details';
 import { EditProfile } from './profile/edit';
+import { FanMessages } from './fans';
 
 cookieStore.renewToken();
 
@@ -31,6 +32,7 @@ function Dashboard() {
         },
         { path: 'profile', element: <AdminProfileDetails /> },
         { path: 'profile/edit', element: <EditProfile /> },
+        { path: 'fan-messages', element: <FanMessages /> },
         { path: '*', element: <PageNotFound /> }
       ]
     }

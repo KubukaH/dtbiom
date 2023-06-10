@@ -8,7 +8,7 @@ const UsersPage = () => {
         <input
           type="search"
           placeholder="Search user"
-          className="w-1/4 rounded-md border-gray-200 bg-fuchsia-700 p-2 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
+          className="w-1/4 rounded-md border-none bg-fuchsia-700 p-2 text-white shadow-sm transition focus:outline-none focus:ring focus:ring-yellow-400"
         />
         <Link className="bg-transparent border rounded-lg border-gray-200 text-gray-300 p-1" to='new-user' >
           New user

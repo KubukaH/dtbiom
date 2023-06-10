@@ -155,7 +155,7 @@ const TermsDetailds = () => {
 
     <p className='text-[12px] font-mono mt-2'>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
 
-    <ol className='text-[12px] font-mono mt-2 marker:text-indigo-400 list-disc pl-4 space-y-1'>
+    <ol className='text-[12px] font-mono mt-2 marker:text-indigo-400 list-[lower-roman] pl-4 space-y-1'>
         <li>your physical or electronic signature;</li>
         <li>identification of the copyrighted work(s) that you claim to have been infringed;</li>
         <li>identification of the material on our services that you claim is infringing and that you request us to remove;</li>

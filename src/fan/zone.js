@@ -60,6 +60,14 @@ export function FanZone() {
     setListTransaction(allTransaction);
   }
 
+  if (!listTransaction) return (
+    <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+      <div className="w-8 h-8 bg-blue-400 rounded-full delay-75 duration-500"></div>
+      <div className="w-8 h-8 bg-green-400 rounded-full delay-300 duration-200"></div>
+      <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000 duration-75"></div>
+    </div>
+  );
+
   return (
     <>
     <section>
@@ -73,19 +81,22 @@ export function FanZone() {
           className="[column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8"
         >
           {
-            listTransaction !== 0 ? listTransaction.map((msg) => (
+            listTransaction.map((msg) => (
               <MessageCard msgData={msg} profp={prf} key={msg.id} />
-            )) : (
+            ))
+          }
+          {
+            !listTransaction && 
               <div className="mb-8 sm:break-inside-avoid">
                 <blockquote className="rounded-xl bg-gray-50 p-6 shadow">
-                  <p className="leading-relaxed text-gray-700">
-                    No Data from DB
-                  </p>
+                  <div className="inline-flex items-center justify-center ml-2 space-x-2 animate-pulse">
+                    <div className="w-8 h-8 bg-blue-400 rounded-full delay-75 duration-500"></div>
+                    <div className="w-8 h-8 bg-green-400 rounded-full delay-300 duration-200"></div>
+                    <div className="w-8 h-8 bg-pink-400 rounded-full delay-1000 duration-75"></div>
+                  </div>
                 </blockquote>
               </div>
-            )
           }
-
         </div>
       </div>
     </section>

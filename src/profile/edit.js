@@ -29,10 +29,10 @@ export const EditProfile = () => {
                           http://
                         </span>
                         <input
-                          type="text"
+                          type="url"
                           name="company-website"
                           id="company-website"
-                          className="focus:ring-fuchsia-500 focus:border-fuchsia-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 p-1"
+                          className="form-input focus:ring-fuchsia-500 focus:border-fuchsia-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 p-1"
                           placeholder="www.example.com"
                         />
                       </div>
@@ -154,7 +154,7 @@ export const EditProfile = () => {
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 after:content-['no'] after:ml-1">
+                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
                         Last name
                       </label>
                       <input
@@ -167,7 +167,7 @@ export const EditProfile = () => {
                     </div>
 
                     <div className="col-span-6 sm:col-span-4">
-                      <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 after:content-['(None-editable)'] after:ml-1 after:text-fuchsia-500">
+                      <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 after:content-['(None_editable)'] after:ml-1 after:text-fuchsia-500">
                         Email address
                       </label>
                       <input
@@ -290,7 +290,7 @@ export const EditProfile = () => {
                             id="comments"
                             name="comments"
                             type="checkbox"
-                            className="h-4 w-4 rounded border border-gray-300 focus:ring-1 focus:ring-indigo-400 text-indigo-500 p-3 focus:outline-none focus:border-indigo-400"
+                            className="form-checkbox h-4 w-4 rounded border border-gray-300 focus:ring-1 focus:ring-indigo-400 text-indigo-500 p-3 focus:outline-none focus:border-indigo-400"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -306,7 +306,7 @@ export const EditProfile = () => {
                             id="candidates"
                             name="candidates"
                             type="checkbox"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                            className="form-checkbox focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -322,7 +322,7 @@ export const EditProfile = () => {
                             id="offers"
                             name="offers"
                             type="checkbox"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                            className="form-checkbox focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -354,7 +354,7 @@ export const EditProfile = () => {
                           id="push-email"
                           name="push-notifications"
                           type="radio"
-                          className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                          className="form-radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                         />
                         <label htmlFor="push-email" className="ml-3 block text-sm font-medium text-gray-700">
                           Same as email
@@ -365,7 +365,7 @@ export const EditProfile = () => {
                           id="push-nothing"
                           name="push-notifications"
                           type="radio"
-                          className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                          className="form-radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                         />
                         <label htmlFor="push-nothing" className="ml-3 block text-sm font-medium text-gray-700">
                           No push notifications

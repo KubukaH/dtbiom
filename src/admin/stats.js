@@ -81,7 +81,7 @@ export const StatisticsSection = () => {
     <>
     {items.map((item, i) => (
       <article
-        className="m-2 inline-block rounded-lg border border-gray-100 bg-white p-6"
+        className="m-2 inline-block font-['Cormorant_Garamond'] rounded-lg border border-gray-100 bg-white p-6"
         key={i}
       >
         <div
@@ -102,7 +102,7 @@ export const StatisticsSection = () => {
             />
           </svg>
   
-          <span className="text-xs font-medium"> {item.percentage} </span>
+          <span className="text-[14px] font-medium"> {item.percentage} </span>
         </div>
   
         <div>
@@ -111,7 +111,7 @@ export const StatisticsSection = () => {
           <p>
             <span className="text-2xl font-medium text-gray-900"> {item.total} </span>
   
-            <span className="text-xs text-gray-500"> from {item.cost} </span>
+            <span className="text-xl text-gray-500"> from {item.cost} </span>
           </p>
         </div>
       </article>

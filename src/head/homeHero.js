@@ -42,14 +42,13 @@ export function HeadHero() {
         >
           <div className="mx-auto max-w-3xl text-center">
             <h1
-              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+              className="font-['Cormorant_Garamond'] bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent sm:text-5xl"
             >
               D.T. BiO Mudimba
-      
               <span className="sm:block"> Kujata jata </span>
             </h1>
       
-            <p className="mx-auto mt-4 max-w-xl text-white sm:text-xl/relaxed">
+            <p className="mx-auto font-['Cormorant_Garamond'] mt-4 max-w-xl text-white sm:text-xl/relaxed">
               Bio's first single came out when no one was waiting for it. It went on to top the local music charts and winning the Song of the Year award on various platforms.
             </p>
       

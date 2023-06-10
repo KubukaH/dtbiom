@@ -34,7 +34,7 @@ export const SubscribeMe = () => {
             Get our news directly to your inbox
           </h2>
     
-          <p className="hidden text-gray-500 sm:mt-4 sm:block">
+          <p className="hidden text-[21px]/6 font-['Cormorant_Garamond'] text-gray-500 sm:mt-4 sm:block">
             Don't miss a show by D.T Bio Mudimba. Leave your email below and we will inbox you directly about our upcoming events, performances and appearances. We will also send you information about our merchandise. 
           </p>
         </div>

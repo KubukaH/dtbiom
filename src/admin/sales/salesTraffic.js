@@ -3,11 +3,13 @@ export const SalesTraffic = () => {
     <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-5">
       <article className="inline-block rounded-lg border border-gray-100 bg-white p-6 m-3">
         <div className="card-body">
-          <div className="flex flex-row justify-between items-center">
-            <h1 className="font-extrabold text-lg">best sellers</h1>
-            <a href="#" className="btn-gray text-sm">view all</a>
-          </div>
           <table className="table-auto w-full mt-5 text-right">
+            <caption className="caption-top">
+              <div className="flex flex-row justify-between items-center">
+                <h1 className="font-extrabold text-lg">best sellers</h1>
+                <a href="#" className="btn-gray text-sm">view all</a>
+              </div>
+            </caption>
             <thead>
               <tr>
                 <td className="py-4 font-extrabold text-sm text-left">product</td>
@@ -68,7 +70,7 @@ export const SalesTraffic = () => {
       <article className="inline-block rounded-lg border border-gray-100 bg-white p-6 m-3">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead className="ltr:text-left">
+            <thead className="">
               <tr>
                 <th className="sticky inset-y-0 start-0 bg-white px-4 py-2">
                   <label htmlFor="SelectAll" className="sr-only">Select All</label>
