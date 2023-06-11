@@ -1,82 +1,9 @@
 import { useState } from 'react';
 import { useEffect, useState } from "react";
 
-import client, { allCollections, deleteCollection, getSetRef, updateCollection } from "../../_db/operations";
 import { Template } from './template';
 
 export const FanMessages = () => {
-  const [listTransaction, setListTransaction] = useState([]);
-  const [state, setState] = useState({
-    name: '',
-    plan: 'individual',
-    card: '',
-    result: ''
-  });
-  const colName = "Message";
-
-  const transactionSetRef = getSetRef(colName);
-  const streamOptions = { fields: [ 'action', 'document' ] };
-  
-  const streamClient = client.stream(transactionSetRef, streamOptions)
-    .on('start', start => { 
-      console.log('start', start);
-    })
-    .on('set', set => {
-      if(set.action === 'remove') {
-        console.log('remove', set.document.ref.value.id);
-        setListTransaction(
-          listTransaction.filter(item => item.id !== set.document.ref.value.id)
-        );
-      }
-      if(set.action === 'add') { 
-        console.log('add', set.document);
-        setListTransaction([...listTransaction, {
-          id: set.document.ref.value.id,
-          status: 'Pending',
-        }]);
-      }
-    });
-  
-  useEffect(() => {
-    getAllTransaction();
-  }, []);
-  
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // streamClient.start();
-    return function cleanUp() {
-      streamClient.close();
-    }
-  });
-
-  const getAllTransaction = async () => { 
-    const transactions = await allCollections(colName);
-
-    const allTransaction = [];
-    transactions.data.forEach(element => {
-      allTransaction.push({
-        id: element.ref.id,
-        ...element.data
-      });
-    });
-    setListTransaction(allTransaction);
-  }
-
-  const modifyTransaction = async (id, status) => {
-    const returnVal = await updateCollection(id, {
-      status,
-    }, colName);
-    console.log('modifyTransaction', returnVal.data);
-    setState({
-      ...state,
-      ...returnVal.data
-    });
-  }
-
-  const transactionRemove = async (id) => { 
-    console.log('deleteTransaction', id);
-    await deleteCollection(id, colName);
-  }
 
   const renderIcon = (status) => {
     switch(status) { 
@@ -114,14 +41,5 @@ export const FanMessages = () => {
         return '';
     }
   }
-
-  return <Template 
-      Complete={listTransaction.filter(x => x.status === "Complete")} 
-      Rejected={listTransaction.filter(x => x.status === "Rejected")} 
-      Pending={listTransaction.filter(x => x.status === "Pending")} 
-      transactionRemove={transactionRemove}
-      modifyTransaction={modifyTransaction}
-      renderIcon={renderIcon}
-    />;
 
 }
