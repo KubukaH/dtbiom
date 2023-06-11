@@ -3,40 +3,37 @@ import { useState } from "react";
 import { alertService } from "../_components/alert/service";
 import { useInput } from "../_components";
 import useLoading from "../_components/extras/loading";
-import { newCollection } from "../_db/operations";
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export function SendUs({ closeModal, user }) {
   const [count, setCount] = useState(376);
   const [isLoading, load] = useLoading();
   const [message, setMessage] = useState('');
-  const [state, setState] = useState({
-    private: false,
-    public: true,
-    other: false
-  });
 
   const phonenumber = useInput('');
+  const privy = useInput(false);
+  const pub_lic = useInput(true);
 
-  const colName = "Message";
-
-  const submit = async (e) => {
-    alertService.clear();
-    e.preventDefault();
-    const response = await newCollection({
-      email: user.email,
-      names: user.user_metadata.full_name,
-      message: message,
-      phonenumber: phonenumber.value,
-      ...state,
-      status: 'Pending'
-    }, colName);
-    setState({
-      ...state,
-      result: response.ref.value.id
-    });
-  }
-
-  const onSubmit = (e) => load(submit(e)).then(
+  const onSubmit = (e) => load(
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "Message",
+        email: user.email,
+        names: user.user_metadata.full_name,
+        phonenumber: phonenumber.value,
+        privy: privy.value,
+        pub_lic: pub_lic.value,
+        message: message,
+      })
+    })
+  ).then(
     () => {
       closeModal();
       alertService.info("Thank you for getting in touch. :)", {keepAfterRouteChange: false});

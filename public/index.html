@@ -18,6 +18,16 @@
     <input type="email" name="email" />
   </form>
 
+  <!-- A little help for the Netlify post-processing bots -->
+  <form name="Message" netlify netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email" />
+    <input type="text" name="names" />
+    <input type="tel" name="phonenumber" />
+    <input type="radio" name="privy">
+    <input type="radio" name="pub_lic">
+    <textarea name="message" ></textarea>
+  </form>
+
   <script type="module" src="../src/index.js"></script>
 </body>
 </html>
