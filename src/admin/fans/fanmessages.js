@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useEffect, useState } from "react";
 
-import { Template } from './template';
-
 export const FanMessages = () => {
 
   const renderIcon = (status) => {

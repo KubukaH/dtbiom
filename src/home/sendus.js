@@ -19,28 +19,33 @@ export function SendUs({ closeModal, user }) {
   const privy = useInput(false);
   const pub_lic = useInput(true);
 
-  const onSubmit = (e) => load(
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ 
-        "form-name": "Message",
-        email: user.email,
-        names: user.user_metadata.full_name,
-        phonenumber: phonenumber.value,
-        privy: privy.value,
-        pub_lic: pub_lic.value,
-        message: message,
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alertService.clear();
+    
+    load(
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ 
+          "form-name": "Message",
+          email: user.email,
+          names: user.user_metadata.full_name,
+          phonenumber: phonenumber.value,
+          privy: privy.value,
+          pub_lic: pub_lic.value,
+          message: message,
+        })
       })
-    })
-  ).then(
-    () => {
-      closeModal();
-      alertService.info("Thank you for getting in touch. :)", {keepAfterRouteChange: false});
-    }
-  ).catch(
-    (error) => alertService.error(error, {keepAfterRouteChange: false})
-  );
+    ).then(
+      () => {
+        closeModal();
+        alertService.info("Thank you for getting in touch. :)", {keepAfterRouteChange: false});
+      }
+    ).catch(
+      (error) => alertService.error(error, {keepAfterRouteChange: false})
+    );
+  }
 
   return (
   <section className="bg-gray-100">
